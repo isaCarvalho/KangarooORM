@@ -1,3 +1,5 @@
+package database
+
 import kotlin.properties.Delegates
 import java.sql.Connection
 import java.sql.DriverManager
@@ -54,12 +56,12 @@ object DatabaseConfig {
     }
 
     fun setConfiguration(host : String, port : Int, user : String, password : String, databaseName : String, useSSL : Boolean) {
-        this.host = host
-        this.port = port
-        this.user = user
-        this.password = password
-        this.databaseName = databaseName
-        this.useSSL = useSSL
+        DatabaseConfig.host = host
+        DatabaseConfig.port = port
+        DatabaseConfig.user = user
+        DatabaseConfig.password = password
+        DatabaseConfig.databaseName = databaseName
+        DatabaseConfig.useSSL = useSSL
     }
 
     fun close() {

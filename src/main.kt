@@ -1,4 +1,10 @@
+import database.DatabaseConfig
+import database.DatabaseManager
+
 fun main() {
+
+
+    val user = User(1, "User 1")
 
     DatabaseConfig.setConfiguration(
         "127.0.0.1",
@@ -9,17 +15,9 @@ fun main() {
         false
     )
 
-    val user = User(1, "User 1")
-    user.insert(mapOf(
-        "id" to "1",
-        "name" to "'User 1'"
-    ))
+    val userManager = DatabaseManager()
 
-    val query = user.select("id", "name") +
-            user.where("id", "=", "1") +
-            user.and("name", "=", "'User 1'") +
-            user.or("name", "=", "'User 2'") +
-            user.orderBy("name", true)
-
-    println(user.execute(query))
+    userManager.setEntity(User::class)
+    userManager.select()
+    userManager.insert(user)
 }

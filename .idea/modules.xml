@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ORM.iml" filepath="$PROJECT_DIR$/ORM.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KangarooORM.iml" filepath="$PROJECT_DIR$/KangarooORM.iml" />
     </modules>
   </component>
 </project>

@@ -3,7 +3,6 @@ import database.DatabaseManager
 
 fun main() {
 
-
     val user = User(1, "User 1")
 
     DatabaseConfig.setConfiguration(

@@ -1,7 +1,7 @@
 package database
 
-import kotlin.reflect.KClass
-import kotlin.reflect.full.memberProperties
+import kotlin.reflect.*
+import kotlin.reflect.full.*
 
 /**
  * This class is the one how is going to create and manipulate the database
@@ -47,8 +47,46 @@ class DatabaseManager {
         println(sqlQuery)
     }
 
-    fun <T: Any> insert(entity : T) {
-        println(entity.javaClass.declaredFields.distinct())
+    fun <T : Any> insert(entity : T) {
+        val members = entity::class.declaredMemberProperties
+
+        var sqlQuery = "INSERT INTO $tableName ("
+        var index = 0
+
+        /** properties names **/
+        members.forEach {
+            if (it.name == propertiesList[index].name) {
+                sqlQuery += it.name
+
+                sqlQuery += if (members.indexOf(it) == members.size - 1)
+                    ") VALUES \n("
+                else
+                    ", "
+
+            }
+            index++
+        }
+
+        /** properties values **/
+        index = 0
+        members.forEach {
+            if (it.name == propertiesList[index].name) {
+                val prop = it as KMutableProperty1<T, *>
+
+                sqlQuery += if (propertiesList[index].type in numericTypes)
+                    prop.get(entity)
+                else
+                    "'${prop.get(entity)}'"
+
+                sqlQuery += if (members.indexOf(it) == members.size - 1)
+                    ");\n"
+                else
+                    ", "
+            }
+            index++
+        }
+
+        println(sqlQuery)
     }
 
     private fun createTable() {

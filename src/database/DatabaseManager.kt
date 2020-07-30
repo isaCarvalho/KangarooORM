@@ -80,51 +80,62 @@ class DatabaseManager {
 
         // initiates the query with the insert statement
         var sqlQuery = "INSERT INTO $tableName ("
-        var index = 0
 
-        /** properties names **/
+        // puts the properties' names in the insert's fields
         members.forEach {
-            if (it.name == propertiesList[index].name) {
+            // checks if the member is a mapped property
+            val property = getMappedPropertyOrNull(it.name)
+
+            if (property != null) {
                 sqlQuery += it.name
 
                 sqlQuery += if (members.indexOf(it) == members.size - 1)
                     ") VALUES \n("
                 else
                     ", "
-
             }
-            index++
         }
 
-        /** properties values **/
-        index = 0
+        // puts the entity's declaredMember values in the insert's values
         members.forEach {
-            if (it.name == propertiesList[index].name) {
+            val property = getMappedPropertyOrNull(it.name)
+
+            // checks if the member is a mapped property
+            if (property != null) {
+                // converts the entity's declaredMember to a mutable property, so we can retrieve the values.
                 val prop = it as KMutableProperty1<T, *>
+                // gets the value
                 val value = prop.get(entity)
 
-                sqlQuery += checkNumericTypes(propertiesList[index].type, value.toString())
+                // checks if we have to wrap the value in ''
+                sqlQuery += checkNumericTypes(property.type, value.toString())
 
                 sqlQuery += if (members.indexOf(it) == members.size - 1)
                     ");\n"
                 else
                     ", "
             }
-            index++
         }
 
         println(sqlQuery)
     }
 
+    /**
+     * Method that deletes an entity from the database
+     * @param entity
+     */
     fun <T : Any> delete(entity : T) {
+        // initiates the query with the delete statements
         var sqlQuery = "DELETE FROM $tableName WHERE "
 
+        // gets the entity's declaredMember
         val members = entity::class.declaredMemberProperties
-        var index = 0
-        members.forEach {
-            val property = propertiesList[index]
 
-            if (it.name == property.name) {
+        members.forEach {
+            val property = getMappedPropertyOrNull(it.name)
+
+            // checks if the member is a mapped property
+            if (property != null) {
                 val prop = it as KMutableProperty1<T, *>
                 val value = prop.get(entity)
 
@@ -135,7 +146,6 @@ class DatabaseManager {
                     sqlQuery+= " AND "
                 }
             }
-            index++
         }
         sqlQuery += ";"
 
@@ -146,12 +156,11 @@ class DatabaseManager {
         var sqlQuery = "UPDATE $tableName SET "
 
         val members = entity::class.declaredMemberProperties
-        var index = 0
 
         members.forEach {
-            val property = propertiesList[index]
+            val property = getMappedPropertyOrNull(it.name)
 
-            if (it.name == property.name) {
+            if (property != null) {
                 val prop = it as KMutableProperty1<T, *>
                 val value = prop.get(entity)
 
@@ -162,21 +171,28 @@ class DatabaseManager {
                     sqlQuery+= ", "
                 }
             }
-            index++
         }
 
-        index = 0
         members.forEach {
             val prop = it as KMutableProperty1<T, *>
             val value = prop.get(entity)
 
-            val property = propertiesList[index]
-            if (containsPrimaryKey() != null && it.name == property.name && property.primaryKey)
+            val property = getMappedPropertyOrNull(it.name)
+            if (getPrimaryKeyOrNull() != null && property != null && property.primaryKey)
                 sqlQuery += " WHERE ${it.name} = $value"
         }
         sqlQuery += ";"
 
         println(sqlQuery)
+    }
+
+    private fun getMappedPropertyOrNull(name : String) : Property? {
+        propertiesList.forEach {
+            if (it.name == name)
+                return it
+        }
+
+        return null
     }
 
     private fun checkNumericTypes(type : String, value : String) : String {
@@ -186,7 +202,7 @@ class DatabaseManager {
             "'$value'"
     }
 
-    private fun containsPrimaryKey() : Property? {
+    private fun getPrimaryKeyOrNull() : Property? {
         propertiesList.forEach {
             if (it.primaryKey)
                 return it

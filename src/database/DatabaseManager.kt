@@ -18,6 +18,9 @@ class DatabaseManager {
     /** Postgres' numeric types */
     private val numericTypes = arrayListOf("int", "float", "double", "long", "short")
 
+    /** instance of DatabaseExecutor */
+    private val databaseExecutor = DatabaseExecutor
+
     /**
      * Method that sets the entity class and create its table according to the properties
      * @param c
@@ -117,7 +120,7 @@ class DatabaseManager {
             }
         }
 
-        println(sqlQuery)
+        databaseExecutor.executeOperation(sqlQuery)
     }
 
     /**
@@ -149,7 +152,7 @@ class DatabaseManager {
         }
         sqlQuery += ";"
 
-        println(sqlQuery)
+        databaseExecutor.executeOperation(sqlQuery)
     }
 
     fun <T : Any> update(entity : T) {
@@ -183,31 +186,7 @@ class DatabaseManager {
         }
         sqlQuery += ";"
 
-        println(sqlQuery)
-    }
-
-    private fun getMappedPropertyOrNull(name : String) : Property? {
-        propertiesList.forEach {
-            if (it.name == name)
-                return it
-        }
-
-        return null
-    }
-
-    private fun checkNumericTypes(type : String, value : String) : String {
-        return if (type in numericTypes)
-            value
-        else
-            "'$value'"
-    }
-
-    private fun getPrimaryKeyOrNull() : Property? {
-        propertiesList.forEach {
-            if (it.primaryKey)
-                return it
-        }
-        return null
+        databaseExecutor.executeOperation(sqlQuery)
     }
 
     private fun createTable() {
@@ -242,12 +221,36 @@ class DatabaseManager {
             if (it.autoIncrement) {
                 val sequenceName = tableName + "_seq"
 
-                sequenceQuery += "CREATE SEQUENCE $sequenceName INCREMENT 1 MINVALUE 1 START 1;\n"
+                sequenceQuery += "CREATE SEQUENCE IF NOT EXISTS $sequenceName INCREMENT 1 MINVALUE 1 START 1;\n"
                 sequenceQuery += "ALTER TABLE $tableName ALTER COLUMN ${it.name} SET DEFAULT nextval('$sequenceName');\n"
             }
         }
 
-        println(sqlQuery)
-        println(sequenceQuery)
+        databaseExecutor.executeOperation(sqlQuery)
+        databaseExecutor.executeOperation(sequenceQuery)
+    }
+
+    private fun checkNumericTypes(type : String, value : String) : String {
+        return if (type in numericTypes)
+            value
+        else
+            "'$value'"
+    }
+
+    private fun getMappedPropertyOrNull(name : String) : Property? {
+        propertiesList.forEach {
+            if (it.name == name)
+                return it
+        }
+
+        return null
+    }
+
+    private fun getPrimaryKeyOrNull() : Property? {
+        propertiesList.forEach {
+            if (it.primaryKey)
+                return it
+        }
+        return null
     }
 }

@@ -20,6 +20,6 @@ fun main() {
     userManager.select("WHERE id = 1")
     userManager.select()
     userManager.insert(user)
-    userManager.delete(user)
     userManager.update(user)
+    userManager.delete(user)
 }

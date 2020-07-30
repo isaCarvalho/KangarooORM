@@ -4,7 +4,7 @@ import java.lang.NullPointerException
 import java.sql.ResultSet
 import java.sql.SQLException
 
-open class DatabaseExecutor
+object DatabaseExecutor
 {
     fun execute(query : String) : ResultSet? {
         val sqlQuery = query.trim() + ";"
@@ -28,9 +28,9 @@ open class DatabaseExecutor
         }
     }
 
-    private fun executeOperation(query : String) {
+    fun executeOperation(query : String) {
         val conn = DatabaseConfig.connect()
-        val sqlQuery = query.trim() + ";"
+        val sqlQuery = query.trim()
 
         println(sqlQuery)
 

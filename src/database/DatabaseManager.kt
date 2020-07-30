@@ -155,11 +155,19 @@ class DatabaseManager {
         databaseExecutor.executeOperation(sqlQuery)
     }
 
+    /**
+     * Method that update a entity in the database
+     * @param entity
+     * @return unit
+     */
     fun <T : Any> update(entity : T) {
+        // initiates the query with the update statement
         var sqlQuery = "UPDATE $tableName SET "
 
+        // gets the entity's declaredMembers
         val members = entity::class.declaredMemberProperties
 
+        // for each member, sets the new value
         members.forEach {
             val property = getMappedPropertyOrNull(it.name)
 
@@ -176,6 +184,7 @@ class DatabaseManager {
             }
         }
 
+        // searches for the primary key for the where statement
         members.forEach {
             val prop = it as KMutableProperty1<T, *>
             val value = prop.get(entity)
@@ -189,6 +198,9 @@ class DatabaseManager {
         databaseExecutor.executeOperation(sqlQuery)
     }
 
+    /**
+     * Method that creates the table
+     */
     private fun createTable() {
         var sqlQuery = "DROP TABLE IF EXISTS $tableName;\n"
         var sequenceQuery = ""
@@ -218,6 +230,7 @@ class DatabaseManager {
             else
                 ",\n"
 
+            // creates a sequence in case of an auto increment attribute
             if (it.autoIncrement) {
                 val sequenceName = tableName + "_seq"
 
@@ -230,6 +243,13 @@ class DatabaseManager {
         databaseExecutor.executeOperation(sequenceQuery)
     }
 
+    /**
+     * Checks if the type of the value is numeric. If it is not,
+     * returns the value embraced with ''
+     * @param type
+     * @param value
+     * @return String
+     */
     private fun checkNumericTypes(type : String, value : String) : String {
         return if (type in numericTypes)
             value
@@ -237,6 +257,12 @@ class DatabaseManager {
             "'$value'"
     }
 
+    /**
+     * Method that gets a mapped property by its name.
+     * Returns null if the property does not exits
+     * @param name
+     * @return String ?: null
+     */
     private fun getMappedPropertyOrNull(name : String) : Property? {
         propertiesList.forEach {
             if (it.name == name)
@@ -246,6 +272,10 @@ class DatabaseManager {
         return null
     }
 
+    /**
+     * Method that gets the primary key from the propertiesList.
+     * If it does not exists, returns null.
+     */
     private fun getPrimaryKeyOrNull() : Property? {
         propertiesList.forEach {
             if (it.primaryKey)

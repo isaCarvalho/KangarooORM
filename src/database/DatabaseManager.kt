@@ -72,11 +72,9 @@ class DatabaseManager {
         members.forEach {
             if (it.name == propertiesList[index].name) {
                 val prop = it as KMutableProperty1<T, *>
+                val value = prop.get(entity)
 
-                sqlQuery += if (propertiesList[index].type in numericTypes)
-                    prop.get(entity)
-                else
-                    "'${prop.get(entity)}'"
+                sqlQuery += checkNumericTypes(propertiesList[index].type, value.toString())
 
                 sqlQuery += if (members.indexOf(it) == members.size - 1)
                     ");\n"
@@ -87,6 +85,67 @@ class DatabaseManager {
         }
 
         println(sqlQuery)
+    }
+
+    fun <T : Any> delete(entity : T) {
+        var sqlQuery = "DELETE FROM $tableName WHERE "
+
+        val members = entity::class.declaredMemberProperties
+        var index = 0
+        members.forEach {
+            val property = propertiesList[index]
+
+            if (it.name == property.name) {
+                val prop = it as KMutableProperty1<T, *>
+                val value = prop.get(entity)
+
+                sqlQuery += "${it.name} = "
+                sqlQuery += checkNumericTypes(property.type, value.toString())
+
+                if (members.indexOf(it) != members.size -1) {
+                    sqlQuery+= " AND "
+                }
+            }
+            index++
+        }
+        sqlQuery += ";"
+
+        println(sqlQuery)
+    }
+
+    fun where(field : String, operator : String, value : String) : String =
+            " WHERE $field $operator $value "
+
+    fun and(field : String, operator : String, value : String) : String =
+            " AND $field $operator $value "
+
+    fun or(field : String, operator : String, value : String) : String =
+            " OR $field $operator $value "
+
+    fun orderBy(field : String, asc : Boolean) : String {
+        var orderByClause = " ORDER BY $field"
+
+        orderByClause += if (asc)
+            " ASC "
+        else
+            " DESC "
+
+        return orderByClause
+    }
+
+    private fun checkNumericTypes(type : String, value : String) : String {
+        return if (type in numericTypes)
+            value
+        else
+            "'$value'"
+    }
+
+    private fun containsPrimaryKey() : Property? {
+        propertiesList.forEach {
+            if (it.primaryKey)
+                return it
+        }
+        return null
     }
 
     private fun createTable() {
@@ -114,7 +173,7 @@ class DatabaseManager {
             }
 
             sqlQuery += if (propertiesList.indexOf(it) == propertiesList.size - 1)
-                "\n)"
+                "\n);"
             else
                 ",\n"
 
@@ -128,27 +187,5 @@ class DatabaseManager {
 
         println(sqlQuery)
         println(sequenceQuery)
-    }
-
-    fun delete() : String = " DELETE FROM $tableName "
-
-    fun where(field : String, operator : String, value : String) : String =
-        " WHERE $field $operator $value "
-
-    fun and(field : String, operator : String, value : String) : String =
-        " AND $field $operator $value "
-
-    fun or(field : String, operator : String, value : String) : String =
-        " OR $field $operator $value "
-
-    fun orderBy(field : String, asc : Boolean) : String {
-        var orderByClause = " ORDER BY $field"
-
-        orderByClause += if (asc)
-            " ASC "
-        else
-            " DESC "
-
-        return orderByClause
     }
 }

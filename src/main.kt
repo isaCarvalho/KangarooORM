@@ -19,4 +19,5 @@ fun main() {
     userManager.setEntity(User::class)
     userManager.select()
     userManager.insert(user)
+    userManager.delete(user)
 }

@@ -8,18 +8,28 @@ import kotlin.reflect.full.*
  */
 class DatabaseManager {
 
+    /** List with the properties annotations declared in the entity class */
     private val propertiesList = ArrayList<Property>()
+    /** Table name declared in the entity class */
     private lateinit var tableName : String
+    /** Entity class */
     private lateinit var cls : KClass<*>
 
+    /** Postgres' numeric types */
     private val numericTypes = arrayListOf("int", "float", "double", "long", "short")
 
+    /**
+     * Method that sets the entity class and create its table according to the properties
+     * @param c
+     */
     fun <T : Any> setEntity(c : KClass<T>) {
+        // setting the entity class and table name
         this.cls = c::class
 
         val tableName = c.annotations.find { it is Table } as Table
         this.tableName = tableName.tableName
 
+        // setting the properties
         c.memberProperties.forEach {
 
             val property = it.annotations.find { annotation -> annotation is Property }
@@ -27,29 +37,48 @@ class DatabaseManager {
                 propertiesList.add(property as Property)
         }
 
+        // creating the table
         createTable()
     }
 
-    fun select () {
+    /**
+     * Method that selects the values from the database.
+     * @param where
+     * @return unit
+     */
+    fun select(where : String? = null) {
+        // initiates the query with the select statement
         var sqlQuery = "SELECT "
 
+        // for each property, puts its name in the select's fields.
         propertiesList.forEach {
             sqlQuery += it.name
-
             sqlQuery += if (propertiesList.indexOf(it) == propertiesList.size - 1)
                 " "
             else
                 ", "
         }
 
+        // appends the from statement
         sqlQuery += "FROM $tableName"
+
+        // appends the where statement
+        if (where != null) {
+            sqlQuery += " $where"
+        }
 
         println(sqlQuery)
     }
 
+    /**
+     * Method that inserts an entity in the database
+     * @param entity
+     */
     fun <T : Any> insert(entity : T) {
+        // gets the entity's declared properties
         val members = entity::class.declaredMemberProperties
 
+        // initiates the query with the insert statement
         var sqlQuery = "INSERT INTO $tableName ("
         var index = 0
 
@@ -113,24 +142,41 @@ class DatabaseManager {
         println(sqlQuery)
     }
 
-    fun where(field : String, operator : String, value : String) : String =
-            " WHERE $field $operator $value "
+    fun <T : Any> update(entity : T) {
+        var sqlQuery = "UPDATE $tableName SET "
 
-    fun and(field : String, operator : String, value : String) : String =
-            " AND $field $operator $value "
+        val members = entity::class.declaredMemberProperties
+        var index = 0
 
-    fun or(field : String, operator : String, value : String) : String =
-            " OR $field $operator $value "
+        members.forEach {
+            val property = propertiesList[index]
 
-    fun orderBy(field : String, asc : Boolean) : String {
-        var orderByClause = " ORDER BY $field"
+            if (it.name == property.name) {
+                val prop = it as KMutableProperty1<T, *>
+                val value = prop.get(entity)
 
-        orderByClause += if (asc)
-            " ASC "
-        else
-            " DESC "
+                sqlQuery += "${it.name} = "
+                sqlQuery += checkNumericTypes(property.type, value.toString())
 
-        return orderByClause
+                if (members.indexOf(it) != members.size -1) {
+                    sqlQuery+= ", "
+                }
+            }
+            index++
+        }
+
+        index = 0
+        members.forEach {
+            val prop = it as KMutableProperty1<T, *>
+            val value = prop.get(entity)
+
+            val property = propertiesList[index]
+            if (containsPrimaryKey() != null && it.name == property.name && property.primaryKey)
+                sqlQuery += " WHERE ${it.name} = $value"
+        }
+        sqlQuery += ";"
+
+        println(sqlQuery)
     }
 
     private fun checkNumericTypes(type : String, value : String) : String {

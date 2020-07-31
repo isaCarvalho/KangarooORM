@@ -3,6 +3,23 @@
 Kangaroo is a Koltin-Postgres ORM built for those who search for a reliable and easy way to implement 
 data storage with Kotlin and Postgres in your applications.
 
+## Database Configurations
+
+To use this package you'll need to set your database configurations
+before using it. If you try to use any functionality before setting the configurations,
+Kangaroo will throw SQL Exception. To avoid this, do as follows:
+
+```kotlin
+DatabaseConfig.setConfiguration(
+        host,
+        port,
+        user,
+        password,
+        schema,
+        useSSL
+)
+```
+
 ## Model
 
 To define your model class, you should use the annotations as follows:

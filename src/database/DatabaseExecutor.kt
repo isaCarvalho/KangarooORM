@@ -6,18 +6,27 @@ import java.sql.SQLException
 
 object DatabaseExecutor
 {
+    /**
+     * Method that executes a query and returns an instance of
+     * ResultSet or null, if there's no register returned by the
+     * query
+     * @param query
+     */
     fun execute(query : String) : ResultSet? {
-        val sqlQuery = query.trim() + ";"
+        // removes extra spaces in the query
+        val sqlQuery = query.trim()
+        // instantiates the resultSet with null value
         var resultSet : ResultSet? = null
 
-        println(sqlQuery)
-
         try {
+            // connects the database
             val conn = DatabaseConfig.connect()
 
+            // executes the query
             val stmt = conn!!.createStatement()
             resultSet = stmt.executeQuery(sqlQuery)
 
+            // closes the connection
             DatabaseConfig.close()
         } catch (ex : SQLException) {
             ex.printStackTrace()
@@ -28,15 +37,28 @@ object DatabaseExecutor
         }
     }
 
-    fun executeOperation(query : String) {
+    /**
+     * Method that executes an operation that does not returns anything,
+     * like insert, update and delete.
+     * @param query
+     */
+    fun executeOperation(query : String, insert : Boolean = false) {
         val conn = DatabaseConfig.connect()
         val sqlQuery = query.trim()
 
-        println(sqlQuery)
+        try {
+            val stmt = conn!!.createStatement()
 
-        val stmt = conn!!.createStatement()
-        stmt.executeUpdate(sqlQuery)
+            if (insert)
+                stmt.execute(query)
+            else
+                stmt.executeUpdate(sqlQuery)
 
-        DatabaseConfig.close()
+            DatabaseConfig.close()
+        } catch (ex : SQLException) {
+            ex.printStackTrace()
+        } catch (ex : NullPointerException) {
+            ex.printStackTrace()
+        }
     }
 }

@@ -49,7 +49,7 @@ class DatabaseManager {
      * @param where
      * @return unit
      */
-    fun select(where : String? = null) {
+    fun select(where : String? = null) : MutableMap<Int, MutableMap<String, String>> {
         // initiates the query with the select statement
         var sqlQuery = "SELECT "
 
@@ -70,7 +70,24 @@ class DatabaseManager {
             sqlQuery += " $where"
         }
 
-        println(sqlQuery)
+        // executes the query and puts the result inside of a mutable map
+        val result = DatabaseExecutor.execute(sqlQuery)
+        val resultMap = mutableMapOf<Int, MutableMap<String, String>>()
+
+        var index = 0
+        while (result!!.next()) {
+            val map = mutableMapOf<String, String>()
+            propertiesList.forEach {
+                val value = result.getString(it.name)
+                map[it.name] = value
+            }
+
+            resultMap[index] = map
+            index++
+        }
+
+        // returns the result converted to a mutable map
+        return resultMap
     }
 
     /**
@@ -120,7 +137,7 @@ class DatabaseManager {
             }
         }
 
-        databaseExecutor.executeOperation(sqlQuery)
+        databaseExecutor.executeOperation(sqlQuery, true)
     }
 
     /**
@@ -199,10 +216,22 @@ class DatabaseManager {
     }
 
     /**
+     * Method that drops a table and a sequence
+     */
+    fun dropTableAndSequence() {
+        val sequenceName = tableName + "_seq"
+
+        val sqlQuery = "DROP TABLE IF EXISTS $tableName;\n" +
+                "DROP SEQUENCE IF EXISTS $sequenceName;"
+
+        databaseExecutor.executeOperation(sqlQuery)
+    }
+
+    /**
      * Method that creates the table
      */
     private fun createTable() {
-        var sqlQuery = "DROP TABLE IF EXISTS $tableName;\n"
+        var sqlQuery = ""
         var sequenceQuery = ""
 
         sqlQuery += "CREATE TABLE IF NOT EXISTS $tableName (\n"

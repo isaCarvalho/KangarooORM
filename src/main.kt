@@ -27,12 +27,16 @@ fun main() {
     val userManager = DatabaseManager()
 
     userManager.setEntity(User::class)
+
     userManager.insert(user)
     userManager.insert(user2)
+
     var map = userManager.select("WHERE id = 1")
     println(map)
+
     map = userManager.select()
     println(map)
+
     userManager.update(user)
     userManager.delete(user)
 

@@ -278,36 +278,46 @@ class DatabaseManager {
 
         databaseExecutor.executeOperation(sqlQuery)
         databaseExecutor.executeOperation(sequenceQuery)
-        databaseExecutor.executeOperation(createForeignKeyConstraints())
+        createForeignKeyConstraints()
     }
 
     /**
      * Method that creates all of the table's foreign key constraints
      */
-    private fun createForeignKeyConstraints() : String {
+    private fun createForeignKeyConstraints() {
         var sqlQuery = ""
 
         foreignKeyList.forEach {
             val propertyName = it.key
             val foreignKey = it.value
 
-            sqlQuery += "ALTER TABLE $tableName ADD CONSTRAINT ${foreignKey.constraintName}\n" +
-            "FOREIGN KEY ($propertyName)\n" +
-            "REFERENCES ${foreignKey.referencedTable}(${foreignKey.referencedProperty})"
+            // verifies if the constraint already exists using pg_catalog
+            val constraintQuery = "SELECT con.* FROM pg_catalog.pg_constraint con " +
+                    "WHERE conname = '${foreignKey.constraintName}';"
 
-            if (foreignKey.deleteCascade) {
-                sqlQuery += "ON DELETE CASCADE\n"
+            val result = databaseExecutor.execute(constraintQuery)
+            // if it does not exists, it will creates the constraint
+            if (result == null) {
+
+                sqlQuery += "ALTER TABLE $tableName ADD CONSTRAINT ${foreignKey.constraintName}\n" +
+                        "FOREIGN KEY ($propertyName)\n" +
+                        "REFERENCES ${foreignKey.referencedTable}(${foreignKey.referencedProperty})"
+
+                if (foreignKey.deleteCascade) {
+                    sqlQuery += "ON DELETE CASCADE\n"
+                }
+
+                if (foreignKey.updateCascade) {
+                    sqlQuery += "ON UPDATE CASCADE\n"
+                }
+
+                sqlQuery += ";"
             }
-
-            if (foreignKey.updateCascade) {
-                sqlQuery += "ON UPDATE CASCADE\n"
-            }
-
-            sqlQuery += ";"
         }
 
-        println(sqlQuery)
-        return sqlQuery
+        // executes the constraint creation
+        if (sqlQuery.isNotEmpty())
+            databaseExecutor.executeOperation(sqlQuery)
     }
 
     private fun createSequence(sequenceName : String, propertyName : String) : String {

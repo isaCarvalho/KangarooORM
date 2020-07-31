@@ -10,10 +10,13 @@ class DatabaseManager {
 
     /** List with the properties annotations declared in the entity class */
     private val propertiesList = ArrayList<Property>()
+
     /** List with the foreign keys annotations declared in the entity class */
     private val foreignKeyList = mutableMapOf<String, ForeignKey>()
+
     /** Table name declared in the entity class */
     private lateinit var tableName : String
+
     /** Entity class */
     private lateinit var cls : KClass<*>
 
@@ -278,6 +281,9 @@ class DatabaseManager {
         databaseExecutor.executeOperation(createForeignKeyConstraints())
     }
 
+    /**
+     * Method that creates all of the table's foreign key constraints
+     */
     private fun createForeignKeyConstraints() : String {
         var sqlQuery = ""
 
@@ -333,6 +339,21 @@ class DatabaseManager {
         propertiesList.forEach {
             if (it.name == name)
                 return it
+        }
+
+        return null
+    }
+
+    /**
+     * Method that gets a mapped foreign key by its name.
+     * Returns null if the foreign key does not exits
+     * @param name
+     * @return String ?: null
+     */
+    private fun getMappedForeignKeyOrNull(name : String) : ForeignKey? {
+        foreignKeyList.forEach {
+            if (it.key == name)
+                return it.value
         }
 
         return null

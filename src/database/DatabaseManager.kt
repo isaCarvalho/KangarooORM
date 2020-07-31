@@ -10,6 +10,8 @@ class DatabaseManager {
 
     /** List with the properties annotations declared in the entity class */
     private val propertiesList = ArrayList<Property>()
+    /** List with the foreign keys annotations declared in the entity class */
+    private val foreignKeyList = mutableMapOf<String, ForeignKey>()
     /** Table name declared in the entity class */
     private lateinit var tableName : String
     /** Entity class */
@@ -38,6 +40,12 @@ class DatabaseManager {
             val property = it.annotations.find { annotation -> annotation is Property }
             if (property != null)
                 propertiesList.add(property as Property)
+        }
+
+        c.memberProperties.forEach {
+            val foreignKey = it.annotations.find { annotation -> annotation is ForeignKey }
+            if (foreignKey != null)
+                foreignKeyList[it.name] = foreignKey as ForeignKey
         }
 
         // creating the table
@@ -261,15 +269,44 @@ class DatabaseManager {
 
             // creates a sequence in case of an auto increment attribute
             if (it.autoIncrement) {
-                val sequenceName = tableName + "_seq"
-
-                sequenceQuery += "CREATE SEQUENCE IF NOT EXISTS $sequenceName INCREMENT 1 MINVALUE 1 START 1;\n"
-                sequenceQuery += "ALTER TABLE $tableName ALTER COLUMN ${it.name} SET DEFAULT nextval('$sequenceName');\n"
+                sequenceQuery = createSequence(tableName + "_seq", it.name)
             }
         }
 
         databaseExecutor.executeOperation(sqlQuery)
         databaseExecutor.executeOperation(sequenceQuery)
+        databaseExecutor.executeOperation(createForeignKeyConstraints())
+    }
+
+    private fun createForeignKeyConstraints() : String {
+        var sqlQuery = ""
+
+        foreignKeyList.forEach {
+            val propertyName = it.key
+            val foreignKey = it.value
+
+            sqlQuery += "ALTER TABLE $tableName ADD CONSTRAINT ${foreignKey.constraintName}\n" +
+            "FOREIGN KEY ($propertyName)\n" +
+            "REFERENCES ${foreignKey.referencedTable}(${foreignKey.referencedProperty})"
+
+            if (foreignKey.deleteCascade) {
+                sqlQuery += "ON DELETE CASCADE\n"
+            }
+
+            if (foreignKey.updateCascade) {
+                sqlQuery += "ON UPDATE CASCADE\n"
+            }
+
+            sqlQuery += ";"
+        }
+
+        println(sqlQuery)
+        return sqlQuery
+    }
+
+    private fun createSequence(sequenceName : String, propertyName : String) : String {
+        return "CREATE SEQUENCE IF NOT EXISTS $sequenceName INCREMENT 1 MINVALUE 1 START 1;\n" +
+            "ALTER TABLE $tableName ALTER COLUMN $propertyName SET DEFAULT nextval('$sequenceName');\n"
     }
 
     /**

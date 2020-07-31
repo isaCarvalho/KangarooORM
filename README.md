@@ -1,13 +1,14 @@
 # Kangaroo ORM
 
-Kangaroo is a Koltin-Postgres ORM built for those who search for a reliable and easy way to implement data storage with.
+Kangaroo is a Koltin-Postgres ORM built for those who search for a reliable and easy way to implement 
+data storage with Kotlin and Postgres in your applications.
 
 ## Model
 
 To define your model class, you should use the annotations as follows:
 
 ```kotlin
-@Table("tableName")
+@Table("modelTable")
 class ModelExample(
     @Property("property1", "type") var property1 : T,
     @Property("property2", "type") var property2 : T,
@@ -43,4 +44,16 @@ Sets if the column's value will be unique. It's default value is false.
 
 - size : Int
 
-Sets the column's size. Numeric types should not have sizes. It's default value is -1
+Sets the column's size. Numeric types should not have sizes. It's default value is -1.
+
+## Relations
+
+To implement a foreign key constraint do as follows:
+
+```kotlin
+@Table("relationTable")
+class RelationExample(
+    @Property("property1", "type") var property1 : T,
+    @Property("property2", "type") @ForeingKey("constraintName", "referencedTable", "referencedProperty") var property2 : T,
+)
+```

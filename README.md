@@ -103,3 +103,11 @@ fun main() {
     modelQuery.dropTable() // returns unit
 }
 ```
+
+## Supported Types
+
+- Varchar, Char
+- Short, Int, Long
+- Float, Double
+- Boolean
+- Date

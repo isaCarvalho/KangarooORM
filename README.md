@@ -83,6 +83,9 @@ to map. Do as follows:
 
 ```kotlin
 fun main() {
+
+    DatabaseConfig.setConfiguration("host", 1234, "user", "password", "example", false)
+
     val model = ModelExample(exampleProp1, exampleProp2, exampleProp3)
 
     val modelQuery = QueryManager(ModelExample::class) // creates the table

@@ -14,8 +14,12 @@ class QueryManager(cls : KClass<*>)
                 .execute()
     }
 
-    fun select(where : String? = null) : MutableMap<Int, MutableMap<String, String>> {
-        return Select().select(databaseManager, where)
+    fun selectAll(where : String? = null) : MutableMap<Int, MutableMap<String, String>> {
+        return Select().selectAll(databaseManager, where)
+    }
+
+    fun <T : Any> select(entity: T) : T? {
+        return Select().select(entity, databaseManager)
     }
 
     fun <T : Any> insert(entity : T) : QueryManager {

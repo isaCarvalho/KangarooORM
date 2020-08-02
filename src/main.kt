@@ -26,14 +26,17 @@ fun main() {
             .insert(user)
             .insert(user2)
 
-    var map = userQuery.select("WHERE id = 1")
+    var map = userQuery.selectAll("WHERE id = 1")
     println(map)
 
-    map = userQuery.select()
+    map = userQuery.selectAll()
     println(map)
 
     userQuery.update(user).delete(user)
 
+
+    println(userQuery.select(User(3, "user 2", 1)))
+    println(userQuery.select(user2))
 
     // dropping the tables
     userQuery.dropTable()

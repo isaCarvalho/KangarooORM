@@ -43,8 +43,6 @@ object DatabaseExecutor
      * @param query
      */
     fun executeOperation(query : String, insert : Boolean = false) {
-        println(query)
-
         val conn = DatabaseConfig.connect()
         val sqlQuery = query.trim()
 

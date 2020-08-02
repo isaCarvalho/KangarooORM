@@ -21,7 +21,7 @@ class DatabaseManager {
     lateinit var tableName : String
 
     /** Entity class */
-    private lateinit var cls : KClass<*>
+    lateinit var cls : KClass<*>
 
     /**
      * Method that sets the entity class and create its table according to the properties

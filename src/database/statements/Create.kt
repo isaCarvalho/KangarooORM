@@ -4,13 +4,18 @@ import database.DatabaseExecutor
 import database.DatabaseHelper
 import database.DatabaseManager
 
-class Create(private val databaseManager: DatabaseManager) {
+class Create : IQuery {
+
+    private lateinit var databaseManager : DatabaseManager
+    override var sqlQuery: String = ""
 
     /**
      * Method that creates the table
      */
-    fun createTable() {
-        var sqlQuery = ""
+    fun createTable(databaseManager: DatabaseManager) : Create {
+        this.databaseManager = databaseManager
+
+        sqlQuery = ""
         var sequenceQuery = ""
 
         sqlQuery += "CREATE TABLE IF NOT EXISTS ${databaseManager.tableName} (\n"
@@ -44,16 +49,15 @@ class Create(private val databaseManager: DatabaseManager) {
             }
         }
 
-        DatabaseExecutor.executeOperation(sqlQuery)
-        DatabaseExecutor.executeOperation(sequenceQuery)
-        createForeignKeyConstraints()
+        sqlQuery += "\n" + sequenceQuery + "\n"
+
+        return this
     }
 
     /**
      * Method that creates all of the table's foreign key constraints
      */
-    private fun createForeignKeyConstraints() {
-        var sqlQuery = ""
+    fun createForeignKeyConstraints() : Create {
 
         databaseManager.foreignKeyList.forEach {
             val propertyName = it.key
@@ -83,13 +87,15 @@ class Create(private val databaseManager: DatabaseManager) {
             }
         }
 
-        // executes the constraint creation
-        if (sqlQuery.isNotEmpty())
-            DatabaseExecutor.executeOperation(sqlQuery)
+        return this
     }
 
     private fun createSequence(sequenceName : String, propertyName : String) : String {
         return "CREATE SEQUENCE IF NOT EXISTS $sequenceName INCREMENT 1 MINVALUE 1 START 1;\n" +
                 "ALTER TABLE ${databaseManager.tableName} ALTER COLUMN $propertyName SET DEFAULT nextval('$sequenceName');\n"
+    }
+
+    override fun execute() {
+        DatabaseExecutor.executeOperation(sqlQuery)
     }
 }

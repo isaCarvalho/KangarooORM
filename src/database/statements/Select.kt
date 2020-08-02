@@ -3,14 +3,14 @@ package database.statements
 import database.DatabaseExecutor
 import database.DatabaseManager
 
-class Select(private val databaseManager: DatabaseManager)
+class Select
 {
     /**
      * Method that selects the values from the database.
      * @param where
      * @return unit
      */
-    fun selectWhere(where : String? = null) : MutableMap<Int, MutableMap<String, String>> {
+    fun select(databaseManager: DatabaseManager, where : String? = null) : MutableMap<Int, MutableMap<String, String>> {
         // initiates the query with the select statement
         var sqlQuery = "SELECT "
 

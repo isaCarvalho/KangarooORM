@@ -8,16 +8,18 @@ import database.DatabaseManager
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.full.declaredMemberProperties
 
-class Update(private val databaseManager: DatabaseManager) {
+class Update : IQuery {
+
+    override var sqlQuery: String = ""
 
     /**
      * Method that update a entity in the database
      * @param entity
      * @return unit
      */
-    fun <T : Any> updateEntity(entity : T) {
+    fun <T : Any> update(entity : T, databaseManager: DatabaseManager) : Update {
         // initiates the query with the update statement
-        var sqlQuery = "UPDATE ${databaseManager.tableName} SET "
+        sqlQuery = "UPDATE ${databaseManager.tableName} SET "
 
         // gets the entity's declaredMembers
         val members = entity::class.declaredMemberProperties
@@ -50,6 +52,10 @@ class Update(private val databaseManager: DatabaseManager) {
         }
         sqlQuery += ";"
 
+        return this
+    }
+
+    override fun execute() {
         DatabaseExecutor.executeOperation(sqlQuery)
     }
 }

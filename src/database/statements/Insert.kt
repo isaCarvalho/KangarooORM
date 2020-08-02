@@ -7,18 +7,20 @@ import database.DatabaseManager
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.full.declaredMemberProperties
 
-class Insert(private val databaseManager: DatabaseManager)
+class Insert : IQuery
 {
+    override var sqlQuery: String = ""
+
     /**
      * Method that inserts an entity in the database
      * @param entity
      */
-    fun <T : Any> insertEntity(entity : T) {
+    fun <T : Any> insert(entity : T, databaseManager: DatabaseManager) : Insert {
         // gets the entity's declared properties
         val members = entity::class.declaredMemberProperties
 
         // initiates the query with the insert statement
-        var sqlQuery = "INSERT INTO ${databaseManager.tableName} ("
+        sqlQuery = "INSERT INTO ${databaseManager.tableName} ("
 
         // puts the properties' names in the insert's fields
         members.forEach {
@@ -56,7 +58,10 @@ class Insert(private val databaseManager: DatabaseManager)
             }
         }
 
-        DatabaseExecutor.executeOperation(sqlQuery, true)
+        return this
     }
 
+    override fun execute() {
+        DatabaseExecutor.executeOperation(sqlQuery, true)
+    }
 }

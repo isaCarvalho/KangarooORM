@@ -7,15 +7,17 @@ import database.DatabaseManager
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.full.declaredMemberProperties
 
-class Delete(private val databaseManager: DatabaseManager) {
+class Delete : IQuery {
+
+    override var sqlQuery: String = ""
 
     /**
      * Method that deletes an entity from the database
      * @param entity
      */
-    fun <T : Any> deleteEntity(entity : T) {
+    fun <T : Any> delete(entity : T, databaseManager: DatabaseManager) : Delete {
         // initiates the query with the delete statements
-        var sqlQuery = "DELETE FROM ${databaseManager.tableName} WHERE "
+        sqlQuery = "DELETE FROM ${databaseManager.tableName} WHERE "
 
         // gets the entity's declaredMember
         val members = entity::class.declaredMemberProperties
@@ -38,6 +40,10 @@ class Delete(private val databaseManager: DatabaseManager) {
         }
         sqlQuery += ";"
 
+        return this
+    }
+
+    override fun execute() {
         DatabaseExecutor.executeOperation(sqlQuery)
     }
 }

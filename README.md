@@ -20,7 +20,7 @@ DatabaseConfig.setConfiguration(
 )
 ```
 
-## Model
+## Defining the Model
 
 To define your model class, you should use the annotations as follows:
 
@@ -33,7 +33,7 @@ class ModelExample(
 )
 ```
 
-## Property Values
+### Property Values
 
 - name : String
 
@@ -63,7 +63,7 @@ Sets if the column's value will be unique. It's default value is false.
 
 Sets the column's size. Numeric types should not have sizes. It's default value is -1.
 
-## Relations
+### Relations
 
 To implement a foreign key constraint do as follows:
 
@@ -73,4 +73,33 @@ class RelationExample(
     @Property("property1", "type") var property1 : T,
     @Property("property2", "type") @ForeingKey("constraintName", "referencedTable", "referencedProperty") var property2 : T,
 )
+```
+
+## Executing Queries
+
+After you defined your model and the database's configurations, you should
+create an instance of the class `QueryManager` passing the model class you want
+to map. Do as follows:
+
+```kotlin
+fun main() {
+    val model = ModelExample(exampleProp1, exampleProp2, exampleProp3)
+
+    val modelQuery = QueryManager(ModelExample::class) // creates the table
+        .insert(model) // returns the queryManager's instance
+        .update(model) // returns the queryManager's instance
+        .delete(model) // returns the queryManager's instance
+        .select(model) // returns the model object if exists and null if it does not.
+    
+    // returns a mutable map when each index is a map with the model's properties
+    val map = modelQuery.selectAll()
+    map.forEach {
+        println(it)
+    }
+
+    // returns an int value with how many model registers there is in the database
+    val countModel = modelQuery.count()
+
+    modelQuery.dropTable() // returns unit
+}
 ```

@@ -18,6 +18,8 @@ class QueryManager(cls : KClass<*>)
         return Select().selectAll(databaseManager, where)
     }
 
+    fun count() : Int = Select().count(databaseManager)
+
     fun <T : Any> select(entity: T) : T? {
         return Select().select(entity, databaseManager)
     }

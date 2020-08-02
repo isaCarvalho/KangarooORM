@@ -148,4 +148,6 @@ class Select
         else
             null
     }
+
+    fun count(databaseManager: DatabaseManager) : Int =selectAll(databaseManager).size
 }

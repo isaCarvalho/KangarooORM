@@ -37,6 +37,7 @@ fun main() {
 
     println(userQuery.select(User(3, "user 2", 1)))
     println(userQuery.select(user2))
+    println(userQuery.count())
 
     // dropping the tables
     userQuery.dropTable()

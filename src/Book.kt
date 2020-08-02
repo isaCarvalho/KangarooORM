@@ -1,5 +1,5 @@
-import database.Property
-import database.Table
+import database.annotations.Property
+import database.annotations.Table
 
 @Table("books")
 class Book (

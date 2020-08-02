@@ -1,6 +1,6 @@
-import database.ForeignKey
-import database.Property
-import database.Table
+import database.annotations.ForeignKey
+import database.annotations.Property
+import database.annotations.Table
 
 @Table("users")
 class User(

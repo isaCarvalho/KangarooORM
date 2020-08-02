@@ -44,6 +44,12 @@ class Select
         return resultMap
     }
 
+    /**
+     * Method that selects a entity
+     * @param entity
+     * @param databaseManager
+     * @return Entity?
+     */
     fun <T : Any> select(entity: T, databaseManager: DatabaseManager) : T? {
         // gets the entity's declared properties
         val members = entity::class.declaredMemberProperties
@@ -149,5 +155,9 @@ class Select
             null
     }
 
-    fun count(databaseManager: DatabaseManager) : Int =selectAll(databaseManager).size
+    /**
+     * SQL Count
+     * @param databaseManager
+     */
+    fun count(databaseManager: DatabaseManager) : Int = selectAll(databaseManager).size
 }

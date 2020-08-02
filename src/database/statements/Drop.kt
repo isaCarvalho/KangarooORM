@@ -9,6 +9,7 @@ class Drop : IQuery {
 
     /**
      * Method that drops a table and a sequence
+     * @param databaseManager
      */
     fun dropTableAndSequence(databaseManager: DatabaseManager) : Drop {
         val sequenceName = databaseManager.tableName + "_seq"

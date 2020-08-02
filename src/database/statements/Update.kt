@@ -15,7 +15,7 @@ class Update : IQuery {
     /**
      * Method that update a entity in the database
      * @param entity
-     * @return unit
+     * @param databaseManager
      */
     fun <T : Any> update(entity : T, databaseManager: DatabaseManager) : Update {
         // initiates the query with the update statement

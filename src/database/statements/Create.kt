@@ -11,6 +11,7 @@ class Create : IQuery {
 
     /**
      * Method that creates the table
+     * @param databaseManager
      */
     fun createTable(databaseManager: DatabaseManager) : Create {
         this.databaseManager = databaseManager
@@ -90,6 +91,12 @@ class Create : IQuery {
         return this
     }
 
+    /**
+     * Method that creates a sequence.
+     * @param sequenceName
+     * @param propertyName
+     * @return String
+     */
     private fun createSequence(sequenceName : String, propertyName : String) : String {
         return "CREATE SEQUENCE IF NOT EXISTS $sequenceName INCREMENT 1 MINVALUE 1 START 1;\n" +
                 "ALTER TABLE ${databaseManager.tableName} ALTER COLUMN $propertyName SET DEFAULT nextval('$sequenceName');\n"

@@ -14,6 +14,7 @@ class Insert : IQuery
     /**
      * Method that inserts an entity in the database
      * @param entity
+     * @param databaseManager
      */
     fun <T : Any> insert(entity : T, databaseManager: DatabaseManager) : Insert {
         // gets the entity's declared properties

@@ -14,6 +14,7 @@ class Delete : IQuery {
     /**
      * Method that deletes an entity from the database
      * @param entity
+     * @param databaseManager
      */
     fun <T : Any> delete(entity : T, databaseManager: DatabaseManager) : Delete {
         // initiates the query with the delete statements

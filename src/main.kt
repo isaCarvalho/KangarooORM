@@ -9,7 +9,8 @@ fun main() {
         "postgres",
         "123456",
         "test",
-        false
+        false,
+        showQuery = true
     )
 
     // Creating the book

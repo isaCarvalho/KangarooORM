@@ -16,7 +16,8 @@ DatabaseConfig.setConfiguration(
         user,
         password,
         schema,
-        useSSL
+        useSSL,
+        showQuery // set to true if you want to see your queries in the console. Default value false.
 )
 ```
 

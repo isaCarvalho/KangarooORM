@@ -6,6 +6,8 @@ import java.sql.SQLException
 
 object DatabaseExecutor
 {
+    var showQuery = false
+
     /**
      * Method that executes a query and returns an instance of
      * ResultSet or null, if there's no register returned by the
@@ -15,6 +17,9 @@ object DatabaseExecutor
     fun execute(query : String) : ResultSet? {
         // removes extra spaces in the query
         val sqlQuery = query.trim()
+
+        printQuery(sqlQuery)
+
         // instantiates the resultSet with null value
         var resultSet : ResultSet? = null
 
@@ -46,6 +51,8 @@ object DatabaseExecutor
         val conn = DatabaseConfig.connect()
         val sqlQuery = query.trim()
 
+        printQuery(sqlQuery)
+
         try {
             val stmt = conn!!.createStatement()
 
@@ -60,5 +67,10 @@ object DatabaseExecutor
         } catch (ex : NullPointerException) {
             ex.printStackTrace()
         }
+    }
+
+    private fun printQuery(sqlQuery : String) {
+        if (showQuery)
+            println("\n\n$sqlQuery\n\n")
     }
 }

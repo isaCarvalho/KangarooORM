@@ -87,21 +87,38 @@ fun main() {
     DatabaseConfig.setConfiguration("host", 1234, "user", "password", "example", false)
 
     val model = ModelExample(exampleProp1, exampleProp2, exampleProp3)
+    
+    /** Creating table and modifying data */  
 
     val modelQuery = QueryManager(ModelExample::class) // creates the table
         .insert(model) // returns the queryManager's instance
         .update(model) // returns the queryManager's instance
         .delete(model) // returns the queryManager's instance
-        .select(model) // returns the model object if exists and null if it does not.
+
+    /** Selecting data */    
+
+    // returns an ArrayList of models
+    var map = modelQuery.selectAll<Model>()
+    map.forEach {
+        println(it)
+    }
     
-    // returns a mutable map when each index is a map with the model's properties
-    val map = modelQuery.selectAll()
+    // returns an ArrayList of models with a condition
+    map = modelQuery.selectAll<Model>("WHERE prop1 = 1")
     map.forEach {
         println(it)
     }
 
+    val exists = modelQuery.exists(model)
+    println(exists) // returns true or false
+
+    val model2 = modelQuery.select<Model>("prop1", "=", "1") // returns null or model
+    val model3 = modelQuery.select<Model>("WHERE prop1 = 1") // returns null or model
+
     // returns an int value with how many model registers there is in the database
     val countModel = modelQuery.count()
+
+    /** Dropping table */  
 
     modelQuery.dropTable() // returns unit
 }

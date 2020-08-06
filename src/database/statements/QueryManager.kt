@@ -8,7 +8,7 @@ class QueryManager(cls : KClass<*>)
     /**
      * Database Manager instance. Contains the table and properties' information.
      */
-    private val databaseManager = DatabaseManager()
+    val databaseManager = DatabaseManager()
 
     init {
         // sets the entity passed
@@ -22,10 +22,19 @@ class QueryManager(cls : KClass<*>)
     /**
      * Method that selects all the data in the table.
      * @param where
-     * @return MutableMap
+     * @return ArrayList<T>
      */
-    fun selectAll(where : String? = null) : MutableMap<Int, MutableMap<String, String>> {
+
+    inline fun <reified T: Any> selectAll(where : String? = null) : ArrayList<T> {
         return Select().selectAll(databaseManager, where)
+    }
+
+    inline fun <reified T: Any> select(field : String, operator : String, value : String) : T? {
+        return Select().select<T>(field, operator, value, databaseManager)
+    }
+
+    inline fun <reified T: Any> select(where: String) : T? {
+        return Select().select(where, databaseManager)
     }
 
     /**
@@ -40,8 +49,8 @@ class QueryManager(cls : KClass<*>)
      * @param entity
      * @return Entity?
      */
-    fun <T : Any> select(entity: T) : T? {
-        return Select().select(entity, databaseManager)
+    fun <T : Any> exists(entity: T) : Boolean {
+        return Select().exists(entity, databaseManager)
     }
 
     /**

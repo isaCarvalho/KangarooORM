@@ -2,6 +2,8 @@ package database
 
 import database.annotations.ForeignKey
 import database.annotations.Property
+import kotlin.reflect.KFunction
+import kotlin.reflect.KParameter
 
 object DatabaseHelper
 {
@@ -70,5 +72,16 @@ object DatabaseHelper
         }
 
         return null
+    }
+
+    fun <T : Any> getMappedParameter(constructor: KFunction<T>, name: String): KParameter {
+        var parameter = constructor.parameters[0]
+
+        constructor.parameters.forEach { param ->
+            if (param.name == name)
+                parameter = param
+        }
+
+        return parameter
     }
 }

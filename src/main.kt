@@ -26,17 +26,15 @@ fun main() {
             .insert(user)
             .insert(user2)
 
-    var map = userQuery.selectAll("WHERE id = 1")
-    println(map)
+    println(userQuery.selectAll<User>("WHERE id = 1"))
+    println(userQuery.selectAll<User>())
+    println(userQuery.select<User>("id", "=", "1"))
 
-    map = userQuery.selectAll()
-    println(map)
+    userQuery.update(user)
+            .delete(user)
 
-    userQuery.update(user).delete(user)
-
-
-    println(userQuery.select(User(3, "user 2", 1)))
-    println(userQuery.select(user2))
+    println(userQuery.exists(User(3, "user 2", 1)))
+    println(userQuery.exists(user2))
     println(userQuery.count())
 
     // dropping the tables

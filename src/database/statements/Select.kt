@@ -3,54 +3,84 @@ package database.statements
 import database.DatabaseExecutor
 import database.DatabaseHelper.checkTypes
 import database.DatabaseHelper.getMappedPropertyOrNull
+import database.DatabaseHelper.getMappedParameter
 import database.DatabaseManager
-import java.util.*
+import java.sql.ResultSet
+import kotlin.collections.ArrayList
+import kotlin.reflect.KFunction
 import kotlin.reflect.KMutableProperty1
+import kotlin.reflect.KParameter
 import kotlin.reflect.full.declaredMemberProperties
 
-class Select
-{
+class Select {
+
     /**
      * Method that selects the values from the database.
-     * @param where
-     * @return unit
+     * @param databaseManager
+     * @return ArrayList<T>
      */
-    fun selectAll(databaseManager: DatabaseManager, where : String? = null) : MutableMap<Int, MutableMap<String, String>> {
+    inline fun <reified T : Any> selectAll(databaseManager: DatabaseManager, where : String? = null): ArrayList<T> {
         // initiates the query with the select statement
         var sqlQuery = "SELECT * FROM ${databaseManager.tableName}"
 
-        // appends the where statement
-        if (where != null) {
-            sqlQuery += " $where"
-        }
+        if (where != null)
+            sqlQuery += where
 
         // executes the query and puts the result inside of a mutable map
         val result = DatabaseExecutor.execute(sqlQuery)
-        val resultMap = mutableMapOf<Int, MutableMap<String, String>>()
+        val constructor = T::class.constructors.first()
 
-        var index = 0
+        val results = ArrayList<T>()
         while (result!!.next()) {
-            val map = mutableMapOf<String, String>()
-            databaseManager.propertiesList.forEach {
-                val value = result.getString(it.name)
-                map[it.name] = value
-            }
 
-            resultMap[index] = map
-            index++
+            val entity = setParameterValue(databaseManager, constructor, result)
+            results.add(entity)
         }
 
         // returns the result converted to a mutable map
-        return resultMap
+        return results
     }
 
     /**
-     * Method that selects a entity
-     * @param entity
+     * Method that selects a entity filtering by one field
+     * @param field
+     * @param operator
+     * @param value
      * @param databaseManager
      * @return Entity?
      */
-    fun <T : Any> select(entity: T, databaseManager: DatabaseManager) : T? {
+    inline fun <reified T : Any> select(field : String, operator : String, value : String, databaseManager: DatabaseManager) : T? {
+        return select<T>("WHERE $field $operator $value", databaseManager)
+    }
+
+    /**
+     * Method that selects a entity filtering by fields
+     * @param where
+     * @return Entity?
+     */
+    inline fun <reified T : Any> select(where : String, databaseManager: DatabaseManager) : T? {
+
+        // initiates the query with the insert statement
+        val sqlQuery = "SELECT * FROM ${databaseManager.tableName} $where;"
+
+        var entity : T? = null
+        val result = DatabaseExecutor.execute(sqlQuery)
+        val constructor = T::class.constructors.first()
+
+        if (result!!.next()) {
+            entity = setParameterValue(databaseManager, constructor, result)
+        }
+
+        return entity
+    }
+
+    /**
+     * Method that checks if a entity exists
+     * @param entity
+     * @param databaseManager
+     * @return Boolean
+     */
+    fun <T : Any> exists(entity: T, databaseManager: DatabaseManager): Boolean {
         // gets the entity's declared properties
         val members = entity::class.declaredMemberProperties
 
@@ -81,83 +111,74 @@ class Select
 
         while (result!!.next()) {
             hasValue = true
-
-            entity::class.declaredMemberProperties.forEach {
-                val property = getMappedPropertyOrNull(it.name, databaseManager.propertiesList)
-
-                if (property != null)
-                {
-                    when (property.type)
-                    {
-                        "varchar" -> {
-                            val value = result.getString(property.name)
-                            val prop = it as KMutableProperty1<T, String>
-
-                            prop.set(entity, value)
-                        }
-
-                        "int" -> {
-                            val value = result.getInt(property.name)
-                            val prop = it as KMutableProperty1<T, Int>
-
-                            prop.set(entity, value)
-                        }
-
-                        "float" -> {
-                            val value = result.getFloat(property.name)
-                            val prop = it as KMutableProperty1<T, Float>
-
-                            prop.set(entity, value)
-                        }
-
-                        "long" -> {
-                            val value = result.getLong(property.name)
-                            val prop = it as KMutableProperty1<T, Long>
-
-                            prop.set(entity, value)
-                        }
-
-                        "double" -> {
-                            val value = result.getDouble(property.name)
-                            val prop = it as KMutableProperty1<T, Double>
-
-                            prop.set(entity, value)
-                        }
-
-                        "short" -> {
-                            val value = result.getShort(property.name)
-                            val prop = it as KMutableProperty1<T, Short>
-
-                            prop.set(entity, value)
-                        }
-
-                        "boolean" -> {
-                            val value = result.getBoolean(property.name)
-                            val prop = it as KMutableProperty1<T, Boolean>
-
-                            prop.set(entity, value)
-                        }
-
-                        "date" -> {
-                            val value = result.getString(property.name)
-                            val prop = it as KMutableProperty1<T, Date>
-
-                            prop.set(entity, Date(value))
-                        }
-                    }
-                }
-            }
         }
 
-        return if (hasValue)
-            entity
-        else
-            null
+        return hasValue
     }
 
     /**
      * SQL Count
      * @param databaseManager
      */
-    fun count(databaseManager: DatabaseManager) : Int = selectAll(databaseManager).size
+    fun count(databaseManager: DatabaseManager): Int {
+        val result = DatabaseExecutor.execute("SELECT count(*) FROM ${databaseManager.tableName}")
+        return result?.fetchSize ?: 0
+    }
+
+    /**
+     * method that sets the parameters values
+     */
+    fun <T : Any> setParameterValue(databaseManager: DatabaseManager, constructor : KFunction<T>, result : ResultSet) : T
+    {
+        // parameters of constructor
+        val constructorParameterValues = mutableMapOf<KParameter, Any>()
+
+        databaseManager.propertiesList.forEach {
+            val parameter = getMappedParameter(constructor, it.name)
+
+            when (it.type) {
+                "varchar" -> {
+                    val value = result.getString(it.name)
+                    constructorParameterValues[parameter] = value
+                }
+
+                "int" -> {
+                    val value = result.getInt(it.name)
+                    constructorParameterValues[parameter] = value
+                }
+
+                "float" -> {
+                    val value = result.getFloat(it.name)
+                    constructorParameterValues[parameter] = value
+                }
+
+                "long" -> {
+                    val value = result.getLong(it.name)
+                    constructorParameterValues[parameter] = value
+                }
+
+                "double" -> {
+                    val value = result.getDouble(it.name)
+                    constructorParameterValues[parameter] = value
+                }
+
+                "short" -> {
+                    val value = result.getShort(it.name)
+                    constructorParameterValues[parameter] = value
+                }
+
+                "boolean" -> {
+                    val value = result.getBoolean(it.name)
+                    constructorParameterValues[parameter] = value
+                }
+
+                "date" -> {
+                    val value = result.getString(it.name)
+                    constructorParameterValues[parameter] = value
+                }
+            }
+        }
+
+        return constructor.callBy(constructorParameterValues)
+    }
 }

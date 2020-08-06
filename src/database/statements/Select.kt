@@ -24,7 +24,7 @@ class Select {
         var sqlQuery = "SELECT * FROM ${databaseManager.tableName}"
 
         if (where != null)
-            sqlQuery += where
+            sqlQuery += " $where"
 
         // executes the query and puts the result inside of a mutable map
         val result = DatabaseExecutor.execute(sqlQuery)
@@ -122,7 +122,11 @@ class Select {
      */
     fun count(databaseManager: DatabaseManager): Int {
         val result = DatabaseExecutor.execute("SELECT count(*) FROM ${databaseManager.tableName}")
-        return result?.fetchSize ?: 0
+
+        return if (result!!.next())
+            result.getInt("count")
+        else
+            0
     }
 
     /**

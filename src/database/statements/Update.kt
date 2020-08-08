@@ -11,13 +11,18 @@ import kotlin.reflect.full.declaredMemberProperties
 class Update : IQuery {
 
     override var sqlQuery: String = ""
+    override lateinit var databaseManager: DatabaseManager
+
+    override fun setDatabaseManager(databaseManager: DatabaseManager): Update {
+        this.databaseManager = databaseManager
+        return this
+    }
 
     /**
      * Method that update a entity in the database
      * @param entity
-     * @param databaseManager
      */
-    fun <T : Any> update(entity : T, databaseManager: DatabaseManager) : Update {
+    fun <T : Any> update(entity : T) : Update {
         // initiates the query with the update statement
         sqlQuery = "UPDATE ${databaseManager.tableName} SET "
 

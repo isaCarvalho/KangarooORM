@@ -6,16 +6,18 @@ import database.DatabaseManager
 
 class Create : IQuery {
 
-    private lateinit var databaseManager : DatabaseManager
+    override lateinit var databaseManager : DatabaseManager
     override var sqlQuery: String = ""
+
+    override fun setDatabaseManager(databaseManager: DatabaseManager): Create {
+        this.databaseManager = databaseManager
+        return this
+    }
 
     /**
      * Method that creates the table
-     * @param databaseManager
      */
-    fun createTable(databaseManager: DatabaseManager) : Create {
-        this.databaseManager = databaseManager
-
+    fun createTable() : Create {
         sqlQuery = ""
         var sequenceQuery = ""
 
@@ -70,7 +72,7 @@ class Create : IQuery {
 
             val result = DatabaseExecutor.execute(constraintQuery)
             // if it does not exists, it will creates the constraint
-            if (result != null && result.fetchSize == 0) {
+            if (result != null && result.findColumn("conname") == -1) {
 
                 sqlQuery += "ALTER TABLE ${databaseManager.tableName} ADD CONSTRAINT ${foreignKey.constraintName}\n" +
                         "FOREIGN KEY ($propertyName)\n" +

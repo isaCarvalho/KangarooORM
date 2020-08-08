@@ -10,13 +10,18 @@ import kotlin.reflect.full.declaredMemberProperties
 class Insert : IQuery
 {
     override var sqlQuery: String = ""
+    override lateinit var databaseManager: DatabaseManager
+
+    override fun setDatabaseManager(databaseManager: DatabaseManager): Insert {
+        this.databaseManager = databaseManager
+        return this
+    }
 
     /**
      * Method that inserts an entity in the database
      * @param entity
-     * @param databaseManager
      */
-    fun <T : Any> insert(entity : T, databaseManager: DatabaseManager) : Insert {
+    fun <T : Any> insert(entity : T) : Insert {
         // gets the entity's declared properties
         val members = entity::class.declaredMemberProperties
 

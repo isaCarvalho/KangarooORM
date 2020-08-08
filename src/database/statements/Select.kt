@@ -12,28 +12,44 @@ import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KParameter
 import kotlin.reflect.full.declaredMemberProperties
 
-class Select {
+class Select : IQuery {
+
+    var resultSet : ResultSet? = null
+
+    override var sqlQuery: String = ""
+    override lateinit var databaseManager: DatabaseManager
+
+    override fun execute() {
+        resultSet = DatabaseExecutor.execute(sqlQuery)
+    }
+
+    override fun setDatabaseManager(databaseManager: DatabaseManager) : Select
+    {
+        this.databaseManager = databaseManager
+        return this
+    }
 
     /**
      * Method that selects the values from the database.
-     * @param databaseManager
      * @return ArrayList<T>
      */
-    inline fun <reified T : Any> selectAll(databaseManager: DatabaseManager, where : String? = null): ArrayList<T> {
+    inline fun <reified T : Any> selectAll(where : String? = null): ArrayList<T> {
         // initiates the query with the select statement
-        var sqlQuery = "SELECT * FROM ${databaseManager.tableName}"
+        sqlQuery = "SELECT * FROM ${databaseManager.tableName}"
 
         if (where != null)
-            sqlQuery += " $where"
+            sqlQuery += " $where;"
 
-        // executes the query and puts the result inside of a mutable map
-        val result = DatabaseExecutor.execute(sqlQuery)
+        // executes the query and cleans the sql query
+        execute()
+        cleanSqlQuery()
+
         val constructor = T::class.constructors.first()
-
         val results = ArrayList<T>()
-        while (result!!.next()) {
 
-            val entity = setParameterValue(databaseManager, constructor, result)
+        while (resultSet != null && resultSet!!.next()) {
+
+            val entity = setParameterValue(constructor, resultSet!!)
             results.add(entity)
         }
 
@@ -46,11 +62,10 @@ class Select {
      * @param field
      * @param operator
      * @param value
-     * @param databaseManager
      * @return Entity?
      */
-    inline fun <reified T : Any> select(field : String, operator : String, value : String, databaseManager: DatabaseManager) : T? {
-        return select<T>("WHERE $field $operator $value", databaseManager)
+    inline fun <reified T : Any> select(field : String, operator : String, value : String) : T? {
+        return select<T>("WHERE $field $operator $value")
     }
 
     /**
@@ -58,17 +73,20 @@ class Select {
      * @param where
      * @return Entity?
      */
-    inline fun <reified T : Any> select(where : String, databaseManager: DatabaseManager) : T? {
+    inline fun <reified T : Any> select(where : String) : T? {
 
         // initiates the query with the insert statement
-        val sqlQuery = "SELECT * FROM ${databaseManager.tableName} $where;"
+        sqlQuery = "SELECT * FROM ${databaseManager.tableName} $where;"
+
+        // executes the query and cleans the sql query
+        execute()
+        cleanSqlQuery()
 
         var entity : T? = null
-        val result = DatabaseExecutor.execute(sqlQuery)
         val constructor = T::class.constructors.first()
 
-        if (result!!.next()) {
-            entity = setParameterValue(databaseManager, constructor, result)
+        if (resultSet != null && resultSet!!.next()) {
+            entity = setParameterValue(constructor, resultSet!!)
         }
 
         return entity
@@ -77,15 +95,14 @@ class Select {
     /**
      * Method that checks if a entity exists
      * @param entity
-     * @param databaseManager
      * @return Boolean
      */
-    fun <T : Any> exists(entity: T, databaseManager: DatabaseManager): Boolean {
+    fun <T : Any> exists(entity: T): Boolean {
         // gets the entity's declared properties
         val members = entity::class.declaredMemberProperties
 
         // initiates the query with the insert statement
-        var sqlQuery = "SELECT * FROM ${databaseManager.tableName} WHERE "
+        sqlQuery = "SELECT * FROM ${databaseManager.tableName} WHERE "
 
         // puts the properties' names in the insert's fields
         members.forEach {
@@ -107,9 +124,12 @@ class Select {
         }
 
         var hasValue = false
-        val result = DatabaseExecutor.execute(sqlQuery)
 
-        while (result!!.next()) {
+        // executes the query and cleans the sql query
+        execute()
+        cleanSqlQuery()
+
+        while (resultSet != null && resultSet!!.next()) {
             hasValue = true
         }
 
@@ -118,91 +138,110 @@ class Select {
 
     /**
      * SQL Count
-     * @param databaseManager
      */
-    fun count(databaseManager: DatabaseManager): Int {
-        val result = DatabaseExecutor.execute("SELECT count(*) FROM ${databaseManager.tableName}")
+    fun count(): Int {
+        sqlQuery = "SELECT count(*) FROM ${databaseManager.tableName}"
 
-        return if (result!!.next())
-            result.getInt("count")
+        // executes and cleans the query
+        execute()
+        cleanSqlQuery()
+
+        return if (resultSet!!.next())
+            resultSet!!.getInt("count")
         else
             -1
     }
 
     /**
      * SQL Max int
-     * @param databaseManager
      */
-    fun maxInt(field : String, databaseManager: DatabaseManager): Int {
-        val result = DatabaseExecutor.execute("SELECT max($field) FROM ${databaseManager.tableName}")
+    fun maxInt(field : String): Int {
+        sqlQuery = "SELECT max($field) FROM ${databaseManager.tableName}"
 
-        return if (result!!.next())
-            result.getInt("max")
+        // executes and cleans the query
+        execute()
+        cleanSqlQuery()
+
+        return if (resultSet!!.next())
+            resultSet!!.getInt("max")
         else
             -1
     }
 
     /**
      * SQL Min int
-     * @param databaseManager
      */
-    fun minInt(field : String, databaseManager: DatabaseManager): Int {
-        val result = DatabaseExecutor.execute("SELECT min($field) FROM ${databaseManager.tableName}")
+    fun minInt(field : String): Int {
+        sqlQuery = "SELECT min($field) FROM ${databaseManager.tableName}"
 
-        return if (result!!.next())
-            result.getInt("min")
+        // executes and cleans the query
+        execute()
+        cleanSqlQuery()
+
+        return if (resultSet!!.next())
+            resultSet!!.getInt("min")
         else
             -1
     }
 
     /**
      * SQL Max Float
-     * @param databaseManager
      */
-    fun maxFloat(field : String, databaseManager: DatabaseManager): Float {
-        val result = DatabaseExecutor.execute("SELECT max($field) FROM ${databaseManager.tableName}")
+    fun maxFloat(field : String): Float {
+        sqlQuery = "SELECT max($field) FROM ${databaseManager.tableName}"
 
-        return if (result!!.next())
-            result.getFloat("max")
+        // executes and cleans the query
+        execute()
+        cleanSqlQuery()
+
+        return if (resultSet!!.next())
+            resultSet!!.getFloat("max")
         else
             -1F
     }
 
     /**
      * SQL Min Float
-     * @param databaseManager
      */
-    fun minFloat(field : String, databaseManager: DatabaseManager): Float {
-        val result = DatabaseExecutor.execute("SELECT min($field) FROM ${databaseManager.tableName}")
+    fun minFloat(field : String): Float {
+        sqlQuery = "SELECT min($field) FROM ${databaseManager.tableName}"
 
-        return if (result!!.next())
-            result.getFloat("min")
+        // executes and cleans the query
+        execute()
+        cleanSqlQuery()
+
+        return if (resultSet!!.next())
+            resultSet!!.getFloat("min")
         else
             -1F
     }
 
     /**
      * SQL Sum Int
-     * @param databaseManager
      */
-    fun sumInt(field : String, databaseManager: DatabaseManager): Int {
-        val result = DatabaseExecutor.execute("SELECT sum($field) FROM ${databaseManager.tableName}")
+    fun sumInt(field : String): Int {
+        sqlQuery = "SELECT sum($field) FROM ${databaseManager.tableName}"
 
-        return if (result!!.next())
-            result.getInt("sum")
+        execute()
+        cleanSqlQuery()
+
+        return if (resultSet!!.next())
+            resultSet!!.getInt("sum")
         else
             -1
     }
 
     /**
      * SQL Sum Float
-     * @param databaseManager
      */
-    fun sumFloat(field : String, databaseManager: DatabaseManager): Float {
-        val result = DatabaseExecutor.execute("SELECT sum($field) FROM ${databaseManager.tableName}")
+    fun sumFloat(field : String): Float {
+        sqlQuery = "SELECT sum($field) FROM ${databaseManager.tableName}"
 
-        return if (result!!.next())
-            result.getFloat("sum")
+        execute()
+        cleanSqlQuery()
+
+        return if (resultSet!!.next())
+            resultSet!!.getFloat("sum")
         else
             -1F
     }
@@ -210,11 +249,14 @@ class Select {
     /**
      * SQL AVG
      */
-    fun avg(field : String, databaseManager: DatabaseManager) : Float {
-        val result = DatabaseExecutor.execute("SELECT avg($field) FROM ${databaseManager.tableName}")
+    fun avg(field : String) : Float {
+        sqlQuery = "SELECT avg($field) FROM ${databaseManager.tableName}"
 
-        return if (result!!.next())
-            result.getFloat("avg")
+        execute()
+        cleanSqlQuery()
+
+        return if (resultSet!!.next())
+            resultSet!!.getFloat("avg")
         else
             -1F
     }
@@ -222,7 +264,7 @@ class Select {
     /**
      * method that sets the parameters values
      */
-    fun <T : Any> setParameterValue(databaseManager: DatabaseManager, constructor : KFunction<T>, result : ResultSet) : T
+    fun <T : Any> setParameterValue(constructor : KFunction<T>, result : ResultSet) : T
     {
         // parameters of constructor
         val constructorParameterValues = mutableMapOf<KParameter, Any>()
@@ -274,5 +316,9 @@ class Select {
         }
 
         return constructor.callBy(constructorParameterValues)
+    }
+
+    fun cleanSqlQuery() {
+        sqlQuery = ""
     }
 }

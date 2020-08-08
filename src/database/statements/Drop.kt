@@ -6,12 +6,17 @@ import database.DatabaseManager
 class Drop : IQuery {
 
     override var sqlQuery: String = ""
+    override lateinit var databaseManager: DatabaseManager
+
+    override fun setDatabaseManager(databaseManager: DatabaseManager): Drop {
+        this.databaseManager = databaseManager
+        return this
+    }
 
     /**
      * Method that drops a table and a sequence
-     * @param databaseManager
      */
-    fun dropTableAndSequence(databaseManager: DatabaseManager) : Drop {
+    fun dropTableAndSequence() : Drop {
         val sequenceName = databaseManager.tableName + "_seq"
 
         sqlQuery = "DROP TABLE IF EXISTS ${databaseManager.tableName};\n" +

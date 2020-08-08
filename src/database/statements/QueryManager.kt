@@ -8,13 +8,15 @@ class QueryManager(cls : KClass<*>)
     /**
      * Database Manager instance. Contains the table and properties' information.
      */
-    val databaseManager = DatabaseManager()
+    private val databaseManager = DatabaseManager()
+    val selectObject = Select().setDatabaseManager(databaseManager)
 
     init {
         // sets the entity passed
         databaseManager.setEntity(cls)
         // creates the table
-        Create().createTable(databaseManager)
+        Create().setDatabaseManager(databaseManager)
+                .createTable()
                 .createForeignKeyConstraints()
                 .execute()
     }
@@ -26,57 +28,57 @@ class QueryManager(cls : KClass<*>)
      */
 
     inline fun <reified T: Any> selectAll(where : String? = null) : ArrayList<T> {
-        return Select().selectAll(databaseManager, where)
+        return selectObject.selectAll(where)
     }
 
     inline fun <reified T: Any> select(field : String, operator : String, value : String) : T? {
-        return Select().select<T>(field, operator, value, databaseManager)
+        return selectObject.select<T>(field, operator, value)
     }
 
     inline fun <reified T: Any> select(where: String) : T? {
-        return Select().select(where, databaseManager)
+        return selectObject.select(where)
     }
 
     /**
      * Method that returns how many data the table contains.
      * @return Int
      */
-    fun count() : Int = Select().count(databaseManager)
+    fun count() : Int = selectObject.count()
 
     /**
      * Method that returns the max int data the table contains.
      * @return Int
      */
-    fun maxInt(field: String) : Int = Select().maxInt(field, databaseManager)
+    fun maxInt(field: String) : Int = selectObject.maxInt(field)
 
     /**
      * Method that returns the min int data the table contains.
      * @return Int
      */
-    fun minInt(field: String) : Int = Select().minInt(field, databaseManager)
+    fun minInt(field: String) : Int = selectObject.minInt(field)
 
     /**
      * Method that returns the max float data the table contains.
      * @return Float
      */
-    fun maxFloat(field: String) : Float = Select().maxFloat(field, databaseManager)
+    fun maxFloat(field: String) : Float = selectObject.maxFloat(field)
 
     /**
      * Method that returns the min float data the table contains.
      * @return Float
      */
-    fun minFloat(field: String) : Float = Select().minFloat(field, databaseManager)
+    fun minFloat(field: String) : Float = selectObject.minFloat(field)
 
     /**
      * Method that returns the sum int data the table contains.
      * @return Int
      */
-    fun sumInt(field: String) : Int = Select().sumInt(field, databaseManager)
+    fun sumInt(field: String) : Int = selectObject.sumInt(field)
 
     /**
      * Method that returns the average
      */
-    fun avg(field: String) : Float = Select().avg(field, databaseManager)
+    fun avg(field: String) : Float = selectObject.avg(field)
 
     /**
      * Method that selects a entity. If the entity does not exists in the database,
@@ -85,7 +87,7 @@ class QueryManager(cls : KClass<*>)
      * @return Entity?
      */
     fun <T : Any> exists(entity: T) : Boolean {
-        return Select().exists(entity, databaseManager)
+        return selectObject.exists(entity)
     }
 
     /**
@@ -93,7 +95,8 @@ class QueryManager(cls : KClass<*>)
      * @param entity
      */
     fun <T : Any> insert(entity : T) : QueryManager {
-        Insert().insert(entity, databaseManager)
+        Insert().setDatabaseManager(databaseManager)
+                .insert(entity)
                 .execute()
 
         return this
@@ -104,7 +107,8 @@ class QueryManager(cls : KClass<*>)
      * @param entity
      */
     fun <T : Any> delete(entity : T) : QueryManager {
-        Delete().delete(entity, databaseManager)
+        Delete().setDatabaseManager(databaseManager)
+                .delete(entity)
                 .execute()
 
         return this
@@ -115,7 +119,8 @@ class QueryManager(cls : KClass<*>)
      * @param entity
      */
     fun <T : Any> update(entity : T) : QueryManager {
-        Update().update(entity, databaseManager)
+        Update().setDatabaseManager(databaseManager)
+                .update(entity)
                 .execute()
 
         return this
@@ -125,7 +130,8 @@ class QueryManager(cls : KClass<*>)
      * Method that drops a table.
      */
     fun dropTable() {
-        Drop().dropTableAndSequence(databaseManager)
+        Drop().setDatabaseManager(databaseManager)
+                .dropTableAndSequence()
                 .execute()
     }
 }

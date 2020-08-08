@@ -10,13 +10,18 @@ import kotlin.reflect.full.declaredMemberProperties
 class Delete : IQuery {
 
     override var sqlQuery: String = ""
+    override lateinit var databaseManager: DatabaseManager
+
+    override fun setDatabaseManager(databaseManager: DatabaseManager): Delete {
+        this.databaseManager = databaseManager
+        return this
+    }
 
     /**
      * Method that deletes an entity from the database
      * @param entity
-     * @param databaseManager
      */
-    fun <T : Any> delete(entity : T, databaseManager: DatabaseManager) : Delete {
+    fun <T : Any> delete(entity : T) : Delete {
         // initiates the query with the delete statements
         sqlQuery = "DELETE FROM ${databaseManager.tableName} WHERE "
 

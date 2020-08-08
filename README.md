@@ -105,7 +105,7 @@ fun main() {
     }
     
     // returns an ArrayList of models with a condition
-    map = modelQuery.selectAll<Model>("WHERE prop1 = 1")
+    map = modelQuery.selectAll<Model>("WHERE exampleProp1 = 1")
     map.forEach {
         println(it)
     }
@@ -113,11 +113,21 @@ fun main() {
     val exists = modelQuery.exists(model)
     println(exists) // returns true or false
 
-    val model2 = modelQuery.select<Model>("prop1", "=", "1") // returns null or model
-    val model3 = modelQuery.select<Model>("WHERE prop1 = 1") // returns null or model
+    val model2 = modelQuery.select<Model>("exampleProp1", "=", "1") // returns null or model
+    val model3 = modelQuery.select<Model>("WHERE exampleProp1 = 1") // returns null or model
+
+    /** SQL Aggregation Functions */
 
     // returns an int value with how many model registers there is in the database
     val countModel = modelQuery.count()
+    // returns the maximum value of a model's property
+    val max = userQuery.maxInt(exampleProp1)
+    // returns the minimum value of a model's property
+    val min = userQuery.minInt(exampleProp1)
+    // returns the sum of the values of a property
+    val sum = userQuery.sumInt(exampleProp1)
+    // returns the average of a property
+    val avg = userQuery.avg(exampleProp1)
 
     /** Dropping table */  
 

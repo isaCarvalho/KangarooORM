@@ -126,7 +126,97 @@ class Select {
         return if (result!!.next())
             result.getInt("count")
         else
-            0
+            -1
+    }
+
+    /**
+     * SQL Max int
+     * @param databaseManager
+     */
+    fun maxInt(field : String, databaseManager: DatabaseManager): Int {
+        val result = DatabaseExecutor.execute("SELECT max($field) FROM ${databaseManager.tableName}")
+
+        return if (result!!.next())
+            result.getInt("max")
+        else
+            -1
+    }
+
+    /**
+     * SQL Min int
+     * @param databaseManager
+     */
+    fun minInt(field : String, databaseManager: DatabaseManager): Int {
+        val result = DatabaseExecutor.execute("SELECT min($field) FROM ${databaseManager.tableName}")
+
+        return if (result!!.next())
+            result.getInt("min")
+        else
+            -1
+    }
+
+    /**
+     * SQL Max Float
+     * @param databaseManager
+     */
+    fun maxFloat(field : String, databaseManager: DatabaseManager): Float {
+        val result = DatabaseExecutor.execute("SELECT max($field) FROM ${databaseManager.tableName}")
+
+        return if (result!!.next())
+            result.getFloat("max")
+        else
+            -1F
+    }
+
+    /**
+     * SQL Min Float
+     * @param databaseManager
+     */
+    fun minFloat(field : String, databaseManager: DatabaseManager): Float {
+        val result = DatabaseExecutor.execute("SELECT min($field) FROM ${databaseManager.tableName}")
+
+        return if (result!!.next())
+            result.getFloat("min")
+        else
+            -1F
+    }
+
+    /**
+     * SQL Sum Int
+     * @param databaseManager
+     */
+    fun sumInt(field : String, databaseManager: DatabaseManager): Int {
+        val result = DatabaseExecutor.execute("SELECT sum($field) FROM ${databaseManager.tableName}")
+
+        return if (result!!.next())
+            result.getInt("sum")
+        else
+            -1
+    }
+
+    /**
+     * SQL Sum Float
+     * @param databaseManager
+     */
+    fun sumFloat(field : String, databaseManager: DatabaseManager): Float {
+        val result = DatabaseExecutor.execute("SELECT sum($field) FROM ${databaseManager.tableName}")
+
+        return if (result!!.next())
+            result.getFloat("sum")
+        else
+            -1F
+    }
+
+    /**
+     * SQL AVG
+     */
+    fun avg(field : String, databaseManager: DatabaseManager) : Float {
+        val result = DatabaseExecutor.execute("SELECT avg($field) FROM ${databaseManager.tableName}")
+
+        return if (result!!.next())
+            result.getFloat("avg")
+        else
+            -1F
     }
 
     /**

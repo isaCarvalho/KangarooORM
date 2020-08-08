@@ -44,6 +44,41 @@ class QueryManager(cls : KClass<*>)
     fun count() : Int = Select().count(databaseManager)
 
     /**
+     * Method that returns the max int data the table contains.
+     * @return Int
+     */
+    fun maxInt(field: String) : Int = Select().maxInt(field, databaseManager)
+
+    /**
+     * Method that returns the min int data the table contains.
+     * @return Int
+     */
+    fun minInt(field: String) : Int = Select().minInt(field, databaseManager)
+
+    /**
+     * Method that returns the max float data the table contains.
+     * @return Float
+     */
+    fun maxFloat(field: String) : Float = Select().maxFloat(field, databaseManager)
+
+    /**
+     * Method that returns the min float data the table contains.
+     * @return Float
+     */
+    fun minFloat(field: String) : Float = Select().minFloat(field, databaseManager)
+
+    /**
+     * Method that returns the sum int data the table contains.
+     * @return Int
+     */
+    fun sumInt(field: String) : Int = Select().sumInt(field, databaseManager)
+
+    /**
+     * Method that returns the average
+     */
+    fun avg(field: String) : Float = Select().avg(field, databaseManager)
+
+    /**
      * Method that selects a entity. If the entity does not exists in the database,
      * it will return null.
      * @param entity

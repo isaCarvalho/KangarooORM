@@ -70,9 +70,9 @@ class Create : IQuery {
 
             val result = DatabaseExecutor.execute(constraintQuery)
             // if it does not exists, it will creates the constraint
-            if (result == null) {
+            if (result != null && result.fetchSize == 0) {
 
-                sqlQuery += "ALTER TABLE ${databaseManager.propertiesList} ADD CONSTRAINT ${foreignKey.constraintName}\n" +
+                sqlQuery += "ALTER TABLE ${databaseManager.tableName} ADD CONSTRAINT ${foreignKey.constraintName}\n" +
                         "FOREIGN KEY ($propertyName)\n" +
                         "REFERENCES ${foreignKey.referencedTable}(${foreignKey.referencedProperty})"
 

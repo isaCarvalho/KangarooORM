@@ -29,14 +29,13 @@ class Insert : IQuery
             val property = getMappedPropertyOrNull(it.name, databaseManager.propertiesList)
 
             if (property != null) {
-                sqlQuery += it.name
-
-                sqlQuery += if (members.indexOf(it) == members.size - 1)
-                    ") VALUES \n("
-                else
-                    ", "
+                sqlQuery += "${it.name}, "
             }
         }
+
+        // removes the last comma
+        sqlQuery = sqlQuery.take(sqlQuery.length - 2)
+        sqlQuery += ") VALUES \n("
 
         // puts the entity's declaredMember values in the insert's values
         members.forEach {
@@ -50,14 +49,13 @@ class Insert : IQuery
                 val value = prop.get(entity)
 
                 // checks if we have to wrap the value in ''
-                sqlQuery += checkTypes(property.type, value.toString())
-
-                sqlQuery += if (members.indexOf(it) == members.size - 1)
-                    ");\n"
-                else
-                    ", "
+                sqlQuery += "${checkTypes(property.type, value.toString())}, "
             }
         }
+
+        // removes the last comma
+        sqlQuery = sqlQuery.take(sqlQuery.length - 2)
+        sqlQuery += ");\n"
 
         return this
     }

@@ -31,8 +31,8 @@ class DatabaseManager {
         // setting the entity class and table name
         this.cls = c::class
 
-        val tableName = c.annotations.find { it is Table } as Table
-        this.tableName = tableName.tableName
+        val table = c.annotations.find { it is Table } as Table
+        this.tableName = table.name
 
         // setting the properties
         c.memberProperties.forEach {

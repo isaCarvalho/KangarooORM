@@ -1,5 +1,5 @@
 import database.DatabaseConfig
-import database.statements.QueryManager
+import database.query.ModelQueryManager
 
 fun main() {
 
@@ -15,14 +15,14 @@ fun main() {
     // Creating the book
 
     val book = Book(1, "Book 1")
-    val bookQuery = QueryManager(Book::class)
+    val bookQuery = ModelQueryManager(Book::class)
             .insert(book)
 
     // Creating the users
     val user = User(1, "User 1", 1)
     val user2 = User(2, "User 2", 1)
 
-    val userQuery = QueryManager(User::class)
+    val userQuery = ModelQueryManager(User::class)
             .insert(user)
             .insert(user2)
 

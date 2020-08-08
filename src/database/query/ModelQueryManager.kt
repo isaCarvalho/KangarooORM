@@ -1,9 +1,10 @@
-package database.statements
+package database.query
 
 import database.DatabaseManager
+import database.statements.*
 import kotlin.reflect.KClass
 
-class QueryManager(cls : KClass<*>)
+class ModelQueryManager(cls : KClass<*>)
 {
     /**
      * Database Manager instance. Contains the table and properties' information.
@@ -94,7 +95,7 @@ class QueryManager(cls : KClass<*>)
      * Method that inserts a entity
      * @param entity
      */
-    fun <T : Any> insert(entity : T) : QueryManager {
+    fun <T : Any> insert(entity : T) : ModelQueryManager {
         Insert().setDatabaseManager(databaseManager)
                 .insert(entity)
                 .execute()
@@ -106,7 +107,7 @@ class QueryManager(cls : KClass<*>)
      * Method that deletes a entity
      * @param entity
      */
-    fun <T : Any> delete(entity : T) : QueryManager {
+    fun <T : Any> delete(entity : T) : ModelQueryManager {
         Delete().setDatabaseManager(databaseManager)
                 .delete(entity)
                 .execute()
@@ -118,7 +119,7 @@ class QueryManager(cls : KClass<*>)
      * Method that updates a entity
      * @param entity
      */
-    fun <T : Any> update(entity : T) : QueryManager {
+    fun <T : Any> update(entity : T) : ModelQueryManager {
         Update().setDatabaseManager(databaseManager)
                 .update(entity)
                 .execute()

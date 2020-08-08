@@ -91,7 +91,7 @@ fun main() {
     
     /** Creating table and modifying data */  
 
-    val modelQuery = QueryManager(ModelExample::class) // creates the table
+    val modelQuery = ModelQueryManager(ModelExample::class) // creates the table
         .insert(model) // returns the queryManager's instance
         .update(model) // returns the queryManager's instance
         .delete(model) // returns the queryManager's instance

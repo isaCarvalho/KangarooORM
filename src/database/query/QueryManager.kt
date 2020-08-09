@@ -50,7 +50,8 @@ class QueryManager(private val tableName: String)
         return this
     }
 
-    fun dropSequence(sequenceName: String) : QueryManager {
+    fun dropSequence() : QueryManager {
+        val sequenceName = "${tableName}_seq"
         Drop().dropSequence(sequenceName)
                 .execute()
 

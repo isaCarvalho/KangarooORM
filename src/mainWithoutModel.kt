@@ -28,5 +28,5 @@ fun main() {
     println(clothesManager.select(arrayOf("id", "name")))
 
     clothesManager.dropTable()
-    clothesManager.dropSequence("clothes_seq")
+    clothesManager.dropSequence()
 }

@@ -76,7 +76,7 @@ class RelationExample(
 )
 ```
 
-## Executing Queries
+### Executing Queries
 
 After you defined your model and the database's configurations, you should
 create an instance of the class `QueryManager` passing the model class you want
@@ -133,6 +133,12 @@ fun main() {
 
     modelQuery.dropTable() // returns unit
 }
+```
+
+## Usage Without Model
+
+```kotlin
+
 ```
 
 ## Supported Types

@@ -9,7 +9,8 @@ fun main() {
         "postgres",
         "123456",
         "test",
-        false
+        false,
+        showQuery = true
     )
 
     // Creating the book
@@ -19,21 +20,21 @@ fun main() {
             .insert(book)
 
     // Creating the users
-    val user = User(1, "User 1", 1)
-    val user2 = User(2, "User 2", 1)
+    val user = User(1, "User 1", book)
+    val user2 = User(2, "User 2", book)
 
     val userQuery = ModelQueryManager(User::class)
             .insert(user)
             .insert(user2)
-
-    println(userQuery.selectAll<User>("WHERE id = 1"))
-    println(userQuery.selectAll<User>())
-    println(userQuery.select<User>("id", "=", "1"))
-
+//
+//    println(userQuery.selectAll<User>("WHERE id = 1"))
+//    println(userQuery.selectAll<User>())
+//    println(userQuery.select<User>("id", "=", "1"))
+//
     userQuery.update(user)
             .delete(user)
-
-    println(userQuery.exists(User(3, "user 2", 1)))
+//
+    println(userQuery.exists(User(3, "user 2", book)))
     println(userQuery.exists(user2))
 
     println(userQuery.count())

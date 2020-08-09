@@ -3,6 +3,7 @@ package database.statements
 import database.DatabaseExecutor
 import database.DatabaseHelper
 import database.DatabaseManager
+import database.annotations.ForeignKey
 
 class Create : IQuery {
 
@@ -57,6 +58,15 @@ class Create : IQuery {
         return this
     }
 
+    fun createOneToOne() : Create {
+        databaseManager.oneToOneList.forEach {
+            val columnName = "id_${it.key}"
+            sqlQuery += createConstraint(it.value.foreignKey, columnName, true)
+        }
+
+        return this
+    }
+
     /**
      * Creates a table without the entity
      */
@@ -84,31 +94,42 @@ class Create : IQuery {
             val propertyName = it.key
             val foreignKey = it.value
 
-            // verifies if the constraint already exists using pg_catalog
-            val constraintQuery = "SELECT con.* FROM pg_catalog.pg_constraint con " +
-                    "WHERE conname = '${foreignKey.constraintName}';"
-
-            val result = DatabaseExecutor.execute(constraintQuery)
-            // if it does not exists, it will creates the constraint
-            if (result != null && result.findColumn("conname") == -1) {
-
-                sqlQuery += "ALTER TABLE ${databaseManager.tableName} ADD CONSTRAINT ${foreignKey.constraintName}\n" +
-                        "FOREIGN KEY ($propertyName)\n" +
-                        "REFERENCES ${foreignKey.referencedTable}(${foreignKey.referencedProperty})"
-
-                if (foreignKey.deleteCascade) {
-                    sqlQuery += "ON DELETE CASCADE\n"
-                }
-
-                if (foreignKey.updateCascade) {
-                    sqlQuery += "ON UPDATE CASCADE\n"
-                }
-
-                sqlQuery += ";"
-            }
+            sqlQuery += createConstraint(foreignKey, propertyName)
         }
 
         return this
+    }
+
+    private fun createConstraint(foreignKey: ForeignKey, propertyName: String, isRelation : Boolean = false) : String {
+        var sqlQuery = ""
+
+        // verifies if the constraint already exists using pg_catalog
+        val constraintQuery = "SELECT con.* FROM pg_catalog.pg_constraint con " +
+                "WHERE conname = '${foreignKey.constraintName}';"
+
+        val result = DatabaseExecutor.execute(constraintQuery)
+        // if it does not exists, it will creates the constraint
+        if (result != null && !result.next()) {
+
+            if (isRelation)
+                sqlQuery += "ALTER TABLE ${databaseManager.tableName} ADD COLUMN $propertyName INT;\n"
+
+            sqlQuery += "ALTER TABLE ${databaseManager.tableName} ADD CONSTRAINT ${foreignKey.constraintName}\n" +
+                    "FOREIGN KEY ($propertyName)\n" +
+                    "REFERENCES ${foreignKey.referencedTable}(${foreignKey.referencedProperty})"
+
+            if (foreignKey.deleteCascade) {
+                sqlQuery += " ON DELETE CASCADE"
+            }
+
+            if (foreignKey.updateCascade) {
+                sqlQuery += " ON UPDATE CASCADE"
+            }
+
+            sqlQuery += ";"
+        }
+
+        return sqlQuery
     }
 
     /**

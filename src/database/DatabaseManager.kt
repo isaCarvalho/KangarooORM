@@ -1,6 +1,7 @@
 package database
 
 import database.annotations.ForeignKey
+import database.annotations.OneToOne
 import database.annotations.Property
 import database.annotations.Table
 import kotlin.reflect.*
@@ -13,6 +14,9 @@ class DatabaseManager {
 
     /** List with the properties annotations declared in the entity class */
     val propertiesList = ArrayList<Property>()
+
+    /** List with the properties annotations declared in the entity class */
+    val oneToOneList = mutableMapOf<String, OneToOne>()
 
     /** List with the foreign keys annotations declared in the entity class */
     val foreignKeyList = mutableMapOf<String, ForeignKey>()
@@ -40,6 +44,12 @@ class DatabaseManager {
             val property = it.annotations.find { annotation -> annotation is Property }
             if (property != null)
                 propertiesList.add(property as Property)
+        }
+
+        c.memberProperties.forEach {
+            val oneToOne = it.annotations.find { annotation -> annotation is OneToOne }
+            if (oneToOne != null)
+                oneToOneList[it.name] = oneToOne as OneToOne
         }
 
         c.memberProperties.forEach {

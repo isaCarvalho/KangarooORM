@@ -1,6 +1,7 @@
 package database
 
 import database.annotations.ForeignKey
+import database.annotations.OneToOne
 import database.annotations.Property
 import kotlin.reflect.KFunction
 import kotlin.reflect.KParameter
@@ -69,6 +70,15 @@ object DatabaseHelper
         propertiesList.forEach {
             if (it.name == name)
                 return it
+        }
+
+        return null
+    }
+
+    fun getMappedOneToOneOrNull(name: String, oneToOneList : MutableMap<String, OneToOne>) : OneToOne? {
+        oneToOneList.forEach {
+            if (it.key == name)
+                return it.value
         }
 
         return null

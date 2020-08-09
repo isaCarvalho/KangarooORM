@@ -1,11 +1,18 @@
 package database.statements
 
+import Book
 import database.DatabaseHelper.checkTypes
 import database.DatabaseHelper.getMappedPropertyOrNull
 import database.DatabaseExecutor
+import database.DatabaseHelper.getMappedOneToOneOrNull
 import database.DatabaseManager
-import kotlin.reflect.KMutableProperty1
+import java.lang.reflect.Type
+import kotlin.reflect.*
+import kotlin.reflect.full.cast
+import kotlin.reflect.full.createInstance
 import kotlin.reflect.full.declaredMemberProperties
+import kotlin.reflect.full.declaredMembers
+import kotlin.reflect.jvm.reflect
 
 class Insert : IQuery
 {
@@ -36,11 +43,42 @@ class Insert : IQuery
             if (property != null) {
                 sqlQuery += "${it.name}, "
             }
+
+            val propertyRelation = getMappedOneToOneOrNull(it.name, databaseManager.oneToOneList)
+            if (propertyRelation != null)
+                sqlQuery += "id_${it.name}, "
         }
 
         // removes the last comma
         sqlQuery = sqlQuery.take(sqlQuery.length - 2)
         sqlQuery += ") VALUES \n("
+
+        // one to one Relations
+        members.forEach {
+            // is the entity
+            val oneToOne = getMappedOneToOneOrNull(it.name, databaseManager.oneToOneList)
+
+            // if the entity is a relation
+            if (oneToOne != null)
+            {
+                // gets the object
+                val prop = it as KMutableProperty1<T, *>
+                val newEntity = prop.get(entity)
+
+                // if the relation entity is not a null object
+                if (newEntity != null)
+                {
+                    // we search for its id to do the join
+                    newEntity::class.declaredMemberProperties.forEach {newEntityProp ->
+                        if (newEntityProp.name == "id")
+                        {
+                            val prop1 = newEntityProp as KMutableProperty1<Any, *>
+                            sqlQuery += "${prop1.get(newEntity)}, "
+                        }
+                    }
+                }
+            }
+        }
 
         // puts the entity's declaredMember values in the insert's values
         members.forEach {

@@ -19,6 +19,7 @@ class ModelQueryManager(cls : KClass<*>)
         Create().setDatabaseManager(databaseManager)
                 .createTable()
                 .createForeignKeyConstraints()
+                .createOneToOne()
                 .execute()
     }
 

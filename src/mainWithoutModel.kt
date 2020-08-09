@@ -13,7 +13,7 @@ fun main() {
             showQuery = true
     )
 
-    val clothesManager = QueryManager("clothes")
+    val clothesQuery = QueryManager("clothes")
             .createTable(arrayOf(
                     "id int primary key not null",
                     "name varchar(255)"
@@ -25,8 +25,13 @@ fun main() {
             .update(mutableMapOf(Pair("name", "'Clothe 3'")), "id = 3")
             .delete("id = 2")
 
-    println(clothesManager.select(arrayOf("id", "name")))
+    println(clothesQuery.select(arrayOf("id", "name")))
+    println(clothesQuery.count())
+    println(clothesQuery.maxInt("id"))
+    println(clothesQuery.minInt("id"))
+    println(clothesQuery.sumInt("id"))
+    println(clothesQuery.avg("id"))
 
-    clothesManager.dropTable()
-    clothesManager.dropSequence()
+    clothesQuery.dropTable()
+    clothesQuery.dropSequence()
 }

@@ -155,6 +155,11 @@ fun main() {
             .delete("id = 2")
 
     println(examplesManager.select(arrayOf("id", "name")))
+    println(examplesManager.count())
+    println(examplesManager.maxInt("id"))
+    println(examplesManager.minInt("id"))
+    println(examplesManager.sumInt("id"))
+    println(examplesManager.avg("id"))
 
     examplesManager.dropTable()
     examplesManager.dropSequence()

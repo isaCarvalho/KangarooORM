@@ -139,8 +139,10 @@ class Select : IQuery {
     /**
      * SQL Count
      */
-    fun count(): Int {
-        sqlQuery = "SELECT count(*) FROM ${databaseManager.tableName}"
+    fun count(tableName : String? = null): Int {
+        sqlQuery = "SELECT count(*) FROM "
+
+        sqlQuery += tableName ?: databaseManager.tableName
 
         // executes and cleans the query
         execute()
@@ -155,8 +157,9 @@ class Select : IQuery {
     /**
      * SQL Max int
      */
-    fun maxInt(field : String): Int {
-        sqlQuery = "SELECT max($field) FROM ${databaseManager.tableName}"
+    fun maxInt(field : String, tableName: String? = null): Int {
+        sqlQuery = "SELECT max($field) FROM "
+        sqlQuery += tableName ?: databaseManager.tableName
 
         // executes and cleans the query
         execute()
@@ -171,8 +174,9 @@ class Select : IQuery {
     /**
      * SQL Min int
      */
-    fun minInt(field : String): Int {
-        sqlQuery = "SELECT min($field) FROM ${databaseManager.tableName}"
+    fun minInt(field : String, tableName: String? = null): Int {
+        sqlQuery = "SELECT min($field) FROM "
+        sqlQuery += tableName ?: databaseManager.tableName
 
         // executes and cleans the query
         execute()
@@ -187,8 +191,9 @@ class Select : IQuery {
     /**
      * SQL Max Float
      */
-    fun maxFloat(field : String): Float {
-        sqlQuery = "SELECT max($field) FROM ${databaseManager.tableName}"
+    fun maxFloat(field : String, tableName: String? = null): Float {
+        sqlQuery = "SELECT max($field) FROM "
+        sqlQuery += tableName ?: databaseManager.tableName
 
         // executes and cleans the query
         execute()
@@ -203,8 +208,9 @@ class Select : IQuery {
     /**
      * SQL Min Float
      */
-    fun minFloat(field : String): Float {
-        sqlQuery = "SELECT min($field) FROM ${databaseManager.tableName}"
+    fun minFloat(field : String, tableName: String? = null): Float {
+        sqlQuery = "SELECT min($field) FROM "
+        sqlQuery += tableName ?: databaseManager.tableName
 
         // executes and cleans the query
         execute()
@@ -219,8 +225,9 @@ class Select : IQuery {
     /**
      * SQL Sum Int
      */
-    fun sumInt(field : String): Int {
-        sqlQuery = "SELECT sum($field) FROM ${databaseManager.tableName}"
+    fun sumInt(field : String, tableName: String? = null): Int {
+        sqlQuery = "SELECT sum($field) FROM "
+        sqlQuery += tableName ?: databaseManager.tableName
 
         execute()
         cleanSqlQuery()
@@ -234,8 +241,9 @@ class Select : IQuery {
     /**
      * SQL Sum Float
      */
-    fun sumFloat(field : String): Float {
-        sqlQuery = "SELECT sum($field) FROM ${databaseManager.tableName}"
+    fun sumFloat(field : String, tableName: String? = null): Float {
+        sqlQuery = "SELECT sum($field) FROM "
+        sqlQuery += tableName ?: databaseManager.tableName
 
         execute()
         cleanSqlQuery()
@@ -249,8 +257,9 @@ class Select : IQuery {
     /**
      * SQL AVG
      */
-    fun avg(field : String) : Float {
-        sqlQuery = "SELECT avg($field) FROM ${databaseManager.tableName}"
+    fun avg(field : String, tableName: String? = null) : Float {
+        sqlQuery = "SELECT avg($field) FROM "
+        sqlQuery += tableName ?: databaseManager.tableName
 
         execute()
         cleanSqlQuery()

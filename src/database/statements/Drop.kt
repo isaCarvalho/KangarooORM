@@ -25,6 +25,18 @@ class Drop : IQuery {
         return this
     }
 
+    fun dropTable(tableName : String) : Drop {
+        sqlQuery += "DROP TABLE IF EXISTS $tableName;"
+
+        return this
+    }
+
+    fun dropSequence(sequenceName : String) : Drop {
+        sqlQuery += "DROP SEQUENCE IF EXISTS $sequenceName;"
+
+        return this
+    }
+
     override fun execute() {
         DatabaseExecutor.executeOperation(sqlQuery)
     }

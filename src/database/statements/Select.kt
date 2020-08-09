@@ -318,6 +318,43 @@ class Select : IQuery {
         return constructor.callBy(constructorParameterValues)
     }
 
+    fun select(tableName : String, fields : Array<String>, condition: String?) : ArrayList<MutableMap<String, String>> {
+        sqlQuery += "SELECT "
+
+        fields.forEach {
+            sqlQuery += it
+
+            sqlQuery += if (fields.indexOf(it) == fields.size -1)
+                " "
+            else
+                ", "
+        }
+
+        sqlQuery += "FROM $tableName"
+        if (condition != null)
+            sqlQuery += " WHERE $condition"
+
+        sqlQuery += ";"
+
+        val list = ArrayList<MutableMap<String, String>>()
+
+        // executes and cleans the query
+        execute()
+        cleanSqlQuery()
+
+        while (resultSet!!.next()) {
+            val map = mutableMapOf<String, String>()
+            fields.forEach {
+                val value = resultSet!!.getString(it)
+                map[it] = value
+            }
+
+            list.add(map)
+        }
+
+        return list
+    }
+
     fun cleanSqlQuery() {
         sqlQuery = ""
     }

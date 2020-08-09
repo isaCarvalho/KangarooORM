@@ -65,6 +65,37 @@ class Insert : IQuery
         return this
     }
 
+    /**
+     * Method that inserts a line in the database
+     * @param tableName
+     * @param fields
+     * @param values
+     */
+    fun insert(tableName : String, fields : Array<String>, values : Array<String>) : Insert {
+
+        // initiates the query with the insert statement
+        sqlQuery = "INSERT INTO $tableName ("
+
+        // puts the properties' names in the insert's fields
+        fields.forEach {
+            sqlQuery += "$it, "
+        }
+
+        // removes the last comma
+        sqlQuery = sqlQuery.take(sqlQuery.length - 2)
+        sqlQuery += ") VALUES \n("
+
+        values.forEach {
+            sqlQuery += "$it, "
+        }
+
+        // removes the last comma
+        sqlQuery = sqlQuery.take(sqlQuery.length - 2)
+        sqlQuery += ");\n"
+
+        return this
+    }
+
     override fun execute() {
         DatabaseExecutor.executeOperation(sqlQuery, true)
     }

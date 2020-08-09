@@ -15,7 +15,7 @@ class Create : IQuery {
     }
 
     /**
-     * Method that creates the table
+     * Method that creates the table with an entity
      */
     fun createTable() : Create {
         sqlQuery = ""
@@ -48,11 +48,29 @@ class Create : IQuery {
 
             // creates a sequence in case of an auto increment attribute
             if (it.autoIncrement) {
-                sequenceQuery = createSequence(databaseManager.tableName + "_seq", it.name)
+                sequenceQuery = createSequence(it.name)
             }
         }
 
         sqlQuery += "\n" + sequenceQuery + "\n"
+
+        return this
+    }
+
+    /**
+     * Creates a table without the entity
+     */
+    fun createTable(tableName : String, columns : Array<String>) : Create {
+        sqlQuery += "CREATE TABLE $tableName (\n"
+
+        columns.forEach {
+            sqlQuery += it
+
+            sqlQuery += if (columns.indexOf(it) == columns.size -1)
+                "\n);"
+            else
+                ",\n"
+        }
 
         return this
     }
@@ -94,14 +112,38 @@ class Create : IQuery {
     }
 
     /**
-     * Method that creates a sequence.
-     * @param sequenceName
+     * Method that creates a sequence with a entity.
      * @param propertyName
      * @return String
      */
-    private fun createSequence(sequenceName : String, propertyName : String) : String {
+    private fun createSequence(propertyName : String) : String {
+        val sequenceName = "${databaseManager.tableName}_seq"
+        return createSequence(databaseManager.tableName, sequenceName, propertyName)
+    }
+
+    /**
+     * Method that creates a sequence without any entity.
+     * @param tableName
+     * @param propertyName
+     * @return String
+     */
+    fun createSequence(tableName: String, propertyName : String) : Create {
+        val sequenceName = "${tableName}_seq"
+        sqlQuery += createSequence(tableName, sequenceName, propertyName)
+
+        return this
+    }
+
+    /**
+     * Method that generates the sql to create a sequence.
+     * @param sequenceName
+     * @param propertyName
+     * @param tableName
+     * @return String
+     */
+    private fun createSequence(tableName: String, sequenceName : String, propertyName : String) : String {
         return "CREATE SEQUENCE IF NOT EXISTS $sequenceName INCREMENT 1 MINVALUE 1 START 1;\n" +
-                "ALTER TABLE ${databaseManager.tableName} ALTER COLUMN $propertyName SET DEFAULT nextval('$sequenceName');\n"
+                "ALTER TABLE $tableName ALTER COLUMN $propertyName SET DEFAULT nextval('$sequenceName');\n"
     }
 
     override fun execute() {

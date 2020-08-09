@@ -60,6 +60,26 @@ class Update : IQuery {
         return this
     }
 
+    fun update(tableName : String, values : MutableMap<String, String>, condition: String?) : Update {
+        val keys = values.keys
+        sqlQuery += "UPDATE $tableName SET "
+
+        values.forEach { (t, u) ->
+            sqlQuery += "$t = $u"
+            sqlQuery += if (keys.indexOf(t) == keys.size -1)
+                " "
+            else
+                ", "
+        }
+
+        if (condition != null)
+            sqlQuery += "WHERE $condition"
+
+        sqlQuery += ";"
+
+        return this;
+    }
+
     override fun execute() {
         DatabaseExecutor.executeOperation(sqlQuery)
     }

@@ -49,6 +49,16 @@ class Delete : IQuery {
         return this
     }
 
+    fun delete(tableName : String, condition: String? = null) : Delete {
+        sqlQuery += "DELETE FROM $tableName"
+
+        if (condition != null)
+            sqlQuery += " WHERE $condition"
+        sqlQuery += ";"
+
+        return this
+    }
+
     override fun execute() {
         DatabaseExecutor.executeOperation(sqlQuery)
     }

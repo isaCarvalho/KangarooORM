@@ -138,7 +138,27 @@ fun main() {
 ## Usage Without Model
 
 ```kotlin
+fun main() {
 
+    DatabaseConfig.setConfiguration("host", 1234, "user", "password", "example", false)
+
+    val examplesManager = QueryManager("examples")
+            .createTable(arrayOf(
+                    "id int primary key not null",
+                    "name varchar(255)"
+            ))
+            .createSequence("id")
+            .insert(arrayOf("id", "name"), arrayOf("1", "'example 1'"))
+            .insert(arrayOf("id", "name"), arrayOf("2", "'example 2'"))
+            .insert(arrayOf("id", "name"), arrayOf("3", "'example 3'"))
+            .update(mutableMapOf(Pair("name", "'Example 3'")), "id = 3")
+            .delete("id = 2")
+
+    println(examplesManager.select(arrayOf("id", "name")))
+
+    examplesManager.dropTable()
+    examplesManager.dropSequence()
+}
 ```
 
 ## Supported Types

@@ -35,8 +35,8 @@ fun main() {
     val userQuery = ModelQueryManager(User::class)
             .insert(user)
             .insert(user2)
-//
-//    println(userQuery.selectAll<User>("WHERE id = 1"))
+
+    println(userQuery.selectAll<User>("WHERE id = 1"))
 //    println(userQuery.selectAll<User>())
 //    println(userQuery.select<User>("id", "=", "1"))
 //
@@ -53,7 +53,7 @@ fun main() {
     println(userQuery.avg("id"))
 
     // dropping the tables
-//    userQuery.dropTable()
-//    bookQuery.dropTable()
-//    houseQuery.dropTable()
+    userQuery.dropTable()
+    bookQuery.dropTable()
+    houseQuery.dropTable()
 }

@@ -84,11 +84,14 @@ object DatabaseHelper
         return null
     }
 
+    /**
+     * Maps the parameter
+     */
     fun <T : Any> getMappedParameter(constructor: KFunction<T>, name: String): KParameter {
         var parameter = constructor.parameters[0]
 
         constructor.parameters.forEach { param ->
-            if (param.name == name)
+            if (param.name == name || "id_${param.name}" == name)
                 parameter = param
         }
 

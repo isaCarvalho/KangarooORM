@@ -49,20 +49,11 @@ class Create : IQuery {
 
             // creates a sequence in case of an auto increment attribute
             if (it.autoIncrement) {
-                sequenceQuery = createSequence(it.name)
+                sequenceQuery = createSequence(databaseManager.tableName, "${databaseManager.tableName}_seq", it.name)
             }
         }
 
         sqlQuery += "\n" + sequenceQuery + "\n"
-
-        return this
-    }
-
-    fun createOneToOne() : Create {
-        databaseManager.oneToOneList.forEach {
-            val columnName = "id_${it.key}"
-            sqlQuery += createConstraint(it.value.foreignKey, columnName, true)
-        }
 
         return this
     }
@@ -80,6 +71,16 @@ class Create : IQuery {
                 "\n);"
             else
                 ",\n"
+        }
+
+        return this
+    }
+
+
+    fun createOneToOne() : Create {
+        databaseManager.oneToOneList.forEach {
+            val columnName = "id_${it.key}"
+            sqlQuery += createConstraint(it.value.foreignKey, columnName, true)
         }
 
         return this
@@ -135,22 +136,19 @@ class Create : IQuery {
     /**
      * Method that creates a sequence with a entity.
      * @param propertyName
-     * @return String
+     * @param tableName String?
+     * @return Create
      */
-    private fun createSequence(propertyName : String) : String {
-        val sequenceName = "${databaseManager.tableName}_seq"
-        return createSequence(databaseManager.tableName, sequenceName, propertyName)
-    }
+    fun createSequence(propertyName : String, tableName: String? = null) : Create {
+        val table = tableName ?: databaseManager.tableName
 
-    /**
-     * Method that creates a sequence without any entity.
-     * @param tableName
-     * @param propertyName
-     * @return String
-     */
-    fun createSequence(tableName: String, propertyName : String) : Create {
-        val sequenceName = "${tableName}_seq"
-        sqlQuery += createSequence(tableName, sequenceName, propertyName)
+        val sequenceName = if (tableName == null)
+            "${databaseManager.tableName}_seq"
+        else
+            "${tableName}_seq"
+
+
+        sqlQuery += createSequence(table, sequenceName, propertyName)
 
         return this
     }

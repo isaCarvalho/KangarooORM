@@ -25,7 +25,7 @@ class QueryManager(private val tableName: String)
      * @return QueryManager
      */
     fun createSequence(propertyName : String) : QueryManager {
-        Create().createSequence(tableName, propertyName)
+        Create().createSequence(propertyName, tableName)
                 .execute()
 
         return this

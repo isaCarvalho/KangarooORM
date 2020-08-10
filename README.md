@@ -20,8 +20,9 @@ DatabaseConfig.setConfiguration(
         showQuery // set to true if you want to see your queries in the console. Default value false.
 )
 ```
+## Usage With Model
 
-## Defining the Model
+### Defining the Model
 
 To define your model class, you should use the annotations as follows:
 
@@ -76,7 +77,7 @@ class RelationExample(
 )
 ```
 
-### Executing Queries
+### Example
 
 After you defined your model and the database's configurations, you should
 create an instance of the class `QueryManager` passing the model class you want
@@ -136,6 +137,8 @@ fun main() {
 ```
 
 ## Usage Without Model
+
+### Example
 
 ```kotlin
 fun main() {

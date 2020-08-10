@@ -5,10 +5,14 @@ import database.annotations.Table
 
 @Table("users")
 class User(
-        @Property("id", "int", true, autoIncrement = true) var id : Int,
-        @Property("name", "varchar", size = 255) var name : String,
+        @Property("id", "int", true, autoIncrement = true)
+        var id : Int,
+        @Property("name", "varchar", size = 255)
+        var name : String,
         @OneToOne(ForeignKey("fk_user_book", "books", "id"))
-        var book : Book
+        var book : Book,
+        @Property("id_house", "int") @ForeignKey("fk_user_house", "houses", "id")
+        var id_house : Int
 ) {
     override fun toString(): String {
         return "Name: $name\n" +

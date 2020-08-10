@@ -13,15 +13,24 @@ fun main() {
         showQuery = true
     )
 
+    // Creating the houses
+    val house = House(1, "Street 1")
+    val house2 = House(2, "Street 2")
+
+    val houseQuery = ModelQueryManager(House::class)
+            .insert(house)
+            .insert(house2)
+
     // Creating the book
 
     val book = Book(1, "Book 1")
+
     val bookQuery = ModelQueryManager(Book::class)
             .insert(book)
 
     // Creating the users
-    val user = User(1, "User 1", book)
-    val user2 = User(2, "User 2", book)
+    val user = User(1, "User 1", book, 1)
+    val user2 = User(2, "User 2", book, 2)
 
     val userQuery = ModelQueryManager(User::class)
             .insert(user)
@@ -34,7 +43,7 @@ fun main() {
     userQuery.update(user)
             .delete(user)
 //
-    println(userQuery.exists(User(3, "user 2", book)))
+    println(userQuery.exists(User(3, "user 2", book, 1)))
     println(userQuery.exists(user2))
 
     println(userQuery.count())
@@ -44,6 +53,7 @@ fun main() {
     println(userQuery.avg("id"))
 
     // dropping the tables
-    userQuery.dropTable()
-    bookQuery.dropTable()
+//    userQuery.dropTable()
+//    bookQuery.dropTable()
+//    houseQuery.dropTable()
 }

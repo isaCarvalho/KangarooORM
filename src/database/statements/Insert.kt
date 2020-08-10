@@ -70,6 +70,7 @@ class Insert : IQuery
                 {
                     // we search for its id to do the join
                     newEntity::class.declaredMemberProperties.forEach {newEntityProp ->
+                        // gets the value of the id property
                         if (newEntityProp.name == "id")
                         {
                             val prop1 = newEntityProp as KMutableProperty1<Any, *>

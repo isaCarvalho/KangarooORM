@@ -29,13 +29,19 @@ To define your model class, you should use the annotations as follows:
 ```kotlin
 @Table("modelTable")
 class ModelExample(
+    @Property("id", "int", primaryKey = true) var id : Int,
     @Property("property1", "type") var property1 : T,
     @Property("property2", "type") var property2 : T,
     @Property("property3", "type") var property3 : T
 )
 ```
 
+It is vital the model has a primary key named `id` if you want to implement relations. Kangaroo will 
+search for this property in the relations.
+
 ### Property Values
+
+Remember that properties must always be `var` not `val`.
 
 - name : String
 
@@ -67,13 +73,30 @@ Sets the column's size. Numeric types should not have sizes. It's default value 
 
 ### Relations
 
-To implement a foreign key constraint do as follows:
+As said above, it is vital the table you want to relate with another table has an id property. It must be named `id`.
+Kangaroo will search for this property when inserts and selects data from the related table. So you'll have to 
+implement it. You may implement relations by `@OneToOne`, `@OneToMany`, `@ManyToMany` annotations or just `@ForeignKey`
+if you just want to create the constraint but not retrieve the whole object. To implement relations do as follows:
+
+#### Foreign Key Constraint
+
+````kotlin
+@Table("relationTable")
+class RelationExample(
+    @Property("property1", "type") var property1 : T,
+    @Property @ForeingKey("constraintName", "referencedTable", "referencedProperty") var id_model : Int
+)
+````
+
+Notice that foreign key is a property. Bellow you'll see that the other relations annotations receives a foreign key.
+
+#### One to One
 
 ```kotlin
 @Table("relationTable")
 class RelationExample(
     @Property("property1", "type") var property1 : T,
-    @Property("property2", "type") @ForeingKey("constraintName", "referencedTable", "referencedProperty") var property2 : T,
+    @OneToOne(ForeingKey("constraintName", "referencedTable", "referencedProperty")) var modelExample : ModelExample,
 )
 ```
 

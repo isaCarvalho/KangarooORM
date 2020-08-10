@@ -73,7 +73,7 @@ Sets the column's size. Numeric types should not have sizes. It's default value 
 
 ### Relations
 
-As said above, it is vital the table you want to relate with another table has an id property. It must be named `id`.
+As said above, it is vital the table you want to relate with another table has an `id` property. It must be named `id`.
 Kangaroo will search for this property when inserts and selects data from the related table. So you'll have to 
 implement it. You may implement relations by `@OneToOne`, `@OneToMany`, `@ManyToMany` annotations or just `@ForeignKey`
 if you just want to create the constraint but not retrieve the whole object. To implement relations do as follows:
@@ -84,7 +84,7 @@ if you just want to create the constraint but not retrieve the whole object. To 
 @Table("relationTable")
 class RelationExample(
     @Property("property1", "type") var property1 : T,
-    @Property @ForeingKey("constraintName", "referencedTable", "referencedProperty") var id_model : Int
+    @Property("id_model", "int") @ForeingKey("constraintName", "referencedTable", "referencedProperty") var id_model : Int
 )
 ````
 

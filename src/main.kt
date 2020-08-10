@@ -9,8 +9,7 @@ fun main() {
         "postgres",
         "123456",
         "test",
-        false,
-        showQuery = true
+        false
     )
 
     // Creating the houses
@@ -37,12 +36,12 @@ fun main() {
             .insert(user2)
 
     println(userQuery.selectAll<User>("WHERE id = 1"))
-//    println(userQuery.selectAll<User>())
-//    println(userQuery.select<User>("id", "=", "1"))
-//
+    println(userQuery.selectAll<User>())
+    println(userQuery.select<User>("id", "=", "1"))
+
     userQuery.update(user)
             .delete(user)
-//
+
     println(userQuery.exists(User(3, "user 2", book, 1)))
     println(userQuery.exists(user2))
 

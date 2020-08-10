@@ -11,11 +11,7 @@ import kotlin.collections.ArrayList
 import kotlin.reflect.KFunction
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KParameter
-import kotlin.reflect.full.createInstance
-import kotlin.reflect.full.createType
 import kotlin.reflect.full.declaredMemberProperties
-import kotlin.reflect.full.starProjectedType
-import kotlin.reflect.jvm.javaType
 import kotlin.reflect.jvm.jvmErasure
 
 class Select : IQuery {
@@ -146,13 +142,7 @@ class Select : IQuery {
      * SQL Count
      */
     fun count(tableName : String? = null): Int {
-        sqlQuery = "SELECT count(*) FROM "
-
-        sqlQuery += tableName ?: databaseManager.tableName
-
-        // executes and cleans the query
-        execute()
-        cleanSqlQuery()
+        executeAggregationsSQL("SELECT count(*) FROM ", tableName)
 
         return if (resultSet!!.next())
             resultSet!!.getInt("count")
@@ -164,12 +154,7 @@ class Select : IQuery {
      * SQL Max int
      */
     fun maxInt(field : String, tableName: String? = null): Int {
-        sqlQuery = "SELECT max($field) FROM "
-        sqlQuery += tableName ?: databaseManager.tableName
-
-        // executes and cleans the query
-        execute()
-        cleanSqlQuery()
+        executeAggregationsSQL("SELECT max($field) FROM ", tableName)
 
         return if (resultSet!!.next())
             resultSet!!.getInt("max")
@@ -181,12 +166,7 @@ class Select : IQuery {
      * SQL Min int
      */
     fun minInt(field : String, tableName: String? = null): Int {
-        sqlQuery = "SELECT min($field) FROM "
-        sqlQuery += tableName ?: databaseManager.tableName
-
-        // executes and cleans the query
-        execute()
-        cleanSqlQuery()
+        executeAggregationsSQL("SELECT min($field) FROM ", tableName)
 
         return if (resultSet!!.next())
             resultSet!!.getInt("min")
@@ -198,12 +178,7 @@ class Select : IQuery {
      * SQL Max Float
      */
     fun maxFloat(field : String, tableName: String? = null): Float {
-        sqlQuery = "SELECT max($field) FROM "
-        sqlQuery += tableName ?: databaseManager.tableName
-
-        // executes and cleans the query
-        execute()
-        cleanSqlQuery()
+        executeAggregationsSQL("SELECT max($field) FROM ", tableName)
 
         return if (resultSet!!.next())
             resultSet!!.getFloat("max")
@@ -215,12 +190,7 @@ class Select : IQuery {
      * SQL Min Float
      */
     fun minFloat(field : String, tableName: String? = null): Float {
-        sqlQuery = "SELECT min($field) FROM "
-        sqlQuery += tableName ?: databaseManager.tableName
-
-        // executes and cleans the query
-        execute()
-        cleanSqlQuery()
+        executeAggregationsSQL("SELECT min($field) FROM ", tableName)
 
         return if (resultSet!!.next())
             resultSet!!.getFloat("min")
@@ -232,11 +202,7 @@ class Select : IQuery {
      * SQL Sum Int
      */
     fun sumInt(field : String, tableName: String? = null): Int {
-        sqlQuery = "SELECT sum($field) FROM "
-        sqlQuery += tableName ?: databaseManager.tableName
-
-        execute()
-        cleanSqlQuery()
+        executeAggregationsSQL("SELECT sum($field) FROM ", tableName)
 
         return if (resultSet!!.next())
             resultSet!!.getInt("sum")
@@ -248,11 +214,7 @@ class Select : IQuery {
      * SQL Sum Float
      */
     fun sumFloat(field : String, tableName: String? = null): Float {
-        sqlQuery = "SELECT sum($field) FROM "
-        sqlQuery += tableName ?: databaseManager.tableName
-
-        execute()
-        cleanSqlQuery()
+        executeAggregationsSQL("SELECT sum($field) FROM ", tableName)
 
         return if (resultSet!!.next())
             resultSet!!.getFloat("sum")
@@ -264,11 +226,7 @@ class Select : IQuery {
      * SQL AVG
      */
     fun avg(field : String, tableName: String? = null) : Float {
-        sqlQuery = "SELECT avg($field) FROM "
-        sqlQuery += tableName ?: databaseManager.tableName
-
-        execute()
-        cleanSqlQuery()
+        executeAggregationsSQL("SELECT avg($field) FROM ", tableName)
 
         return if (resultSet!!.next())
             resultSet!!.getFloat("avg")
@@ -419,5 +377,13 @@ class Select : IQuery {
 
     fun cleanSqlQuery() {
         sqlQuery = ""
+    }
+
+    private val executeAggregationsSQL = { query : String, tableName : String? ->
+        sqlQuery = query + (tableName ?: databaseManager.tableName)
+
+        // executes and cleans the query
+        execute()
+        cleanSqlQuery()
     }
 }

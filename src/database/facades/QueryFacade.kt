@@ -38,7 +38,7 @@ class QueryFacade(private val tableName: String)
      * @return ArrayList<MutableMap<String, String>>
      */
     fun select(fields : Array<String>, condition : String? = null) : ArrayList<MutableMap<String, String>> {
-        return selectObject.select(tableName, fields, condition)
+        return selectObject.selectAll(tableName, fields, condition)
     }
 
     /**

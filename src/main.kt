@@ -36,15 +36,12 @@ fun main() {
             .insert(user)
             .insert(user2)
 
-    println(userQuery.selectAll<User>("WHERE id = 1"))
-    println(userQuery.selectAll<User>())
-    println(userQuery.select<User>("id", "=", "1"))
+    println(userQuery.find(1))
+    println(userQuery.select("id = 1"))
+    println(userQuery.selectAll("true"))
 
     userQuery.update(user)
             .delete(user)
-
-    println(userQuery.exists(User(3, "user 2", book, 1)))
-    println(userQuery.exists(user2))
 
     println(userQuery.count())
     println(userQuery.maxInt("id"))
@@ -53,7 +50,7 @@ fun main() {
     println(userQuery.avg("id"))
 
     // dropping the tables
-    userQuery.dropTable()
-    bookQuery.dropTable()
-    houseQuery.dropTable()
+//    userQuery.dropTable()
+//    bookQuery.dropTable()
+//    houseQuery.dropTable()
 }

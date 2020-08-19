@@ -3,6 +3,9 @@ import database.annotations.Table
 import kotlin.reflect.KClass
 import kotlin.reflect.KFunction
 import kotlin.reflect.full.declaredMemberProperties
+import kotlin.reflect.full.defaultType
+import kotlin.reflect.full.starProjectedType
+import kotlin.reflect.jvm.jvmErasure
 
 class ReflectClass(val cls : KClass<*>) {
 
@@ -18,6 +21,8 @@ class ReflectClass(val cls : KClass<*>) {
 
     /** Constructor */
     val primaryConstructor : KFunction<*> = cls::class.constructors.first()
+
+    val type = cls.starProjectedType
 
     /**
      * init block

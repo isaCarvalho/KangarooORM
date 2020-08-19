@@ -23,24 +23,6 @@ class ModelQueryFacade(cls : KClass<*>)
     }
 
     /**
-     * Method that selects all the data in the table.
-     * @param where
-     * @return ArrayList<Any>
-     */
-
-    inline fun <reified T : Any> selectAll(where : String? = null) : ArrayList<Any> {
-        return selectObject.selectAll<T>(where)
-    }
-
-    inline fun <reified T : Any> select(field : String, operator : String, value : String) : Any? {
-        return selectObject.select<T>(field, operator, value)
-    }
-
-    inline fun <reified T : Any> select(where: String) : Any? {
-        return selectObject.select<T>(where)
-    }
-
-    /**
      * Method that returns how many data the table contains.
      * @return Int
      */
@@ -80,16 +62,6 @@ class ModelQueryFacade(cls : KClass<*>)
      * Method that returns the average
      */
     fun avg(field: String) : Float = selectObject.avg(field, databaseManager.reflectClass.tableName)
-
-    /**
-     * Method that selects a entity. If the entity does not exists in the database,
-     * it will return null.
-     * @param entity
-     * @return Entity?
-     */
-    fun exists(entity: Any) : Boolean {
-        return selectObject.exists(entity)
-    }
 
     /**
      * Method that inserts a entity
@@ -134,5 +106,17 @@ class ModelQueryFacade(cls : KClass<*>)
         Drop().setDatabaseManager(databaseManager)
                 .dropTableAndSequence()
                 .execute()
+    }
+
+    fun find(id: Int) : Any? {
+        return selectObject.find(id, databaseManager.reflectClass.type)
+    }
+
+    fun select(where: String) : Any? {
+        return selectObject.select(where, databaseManager.reflectClass.type)
+    }
+
+    fun selectAll(where: String) : List<Any> {
+        return selectObject.selectAll(where, databaseManager.reflectClass.type)
     }
 }

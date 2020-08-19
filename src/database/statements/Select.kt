@@ -1,18 +1,17 @@
 package database.statements
 
 import database.DatabaseExecutor
-import database.DatabaseHelper.checkTypes
-import database.DatabaseHelper.getMappedPropertyOrNull
 import database.DatabaseHelper.getMappedParameterOrNull
 import database.DatabaseManager
 import database.annotations.OneToOne
-import database.reflections.ReflectProperty
+import database.annotations.Property
+import database.annotations.Table
 import java.sql.ResultSet
 import kotlin.collections.ArrayList
-import kotlin.reflect.KFunction
-import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KParameter
+import kotlin.reflect.KType
 import kotlin.reflect.full.declaredMemberProperties
+import kotlin.reflect.jvm.jvmErasure
 
 class Select : Query() {
 
@@ -31,111 +30,94 @@ class Select : Query() {
         return this
     }
 
-    /**
-     * Method that selects the values from the database.
-     * @return ArrayList<T>
-     */
-    inline fun <reified T: Any> selectAll(where : String? = null): ArrayList<Any> {
-        // initiates the query with the select statement
-        sqlQuery = "SELECT * FROM $tableName"
+    fun selectAll(tableName : String, fields : Array<String>, condition: String?) : ArrayList<MutableMap<String, String>> {
+        sqlQuery += "SELECT "
 
-        if (where != null)
-            sqlQuery += " $where;"
+        fields.forEach {
+            sqlQuery += it
 
-        // executes the query and cleans the sql query
+            sqlQuery += if (fields.indexOf(it) == fields.size -1)
+                " "
+            else
+                ", "
+        }
+
+        sqlQuery += "FROM $tableName"
+        if (condition != null)
+            sqlQuery += " WHERE $condition"
+
+        sqlQuery += ";"
+
+        val list = ArrayList<MutableMap<String, String>>()
+
+        // executes and cleans the query
         execute()
         cleanSqlQuery()
 
-        val constructor = T::class.constructors.first()
-        val results = ArrayList<Any>()
-
-        while (resultSet != null && resultSet!!.next()) {
-
-            val entity = setParameterValue(constructor, resultSet!!)
-            results.add(entity)
-        }
-
-        // returns the result converted to a mutable map
-        return results
-    }
-
-    /**
-     * Method that selects a entity filtering by one field
-     * @param field
-     * @param operator
-     * @param value
-     * @return Entity?
-     */
-    inline fun <reified T : Any> select(field : String, operator : String, value : String) : Any? {
-        return select<T>("WHERE $field $operator $value")
-    }
-
-    /**
-     * Method that selects a entity filtering by fields
-     * @param where
-     * @return Entity?
-     */
-    inline fun <reified T : Any> select(where : String) : Any? {
-
-        // initiates the query with the insert statement
-        sqlQuery = "SELECT * FROM $tableName $where;"
-
-        // executes the query and cleans the sql query
-        execute()
-        cleanSqlQuery()
-
-        var entity : Any? = null
-        val constructor = T::class.constructors.first()
-
-        if (resultSet != null && resultSet!!.next()) {
-            entity = setParameterValue(constructor, resultSet!!)
-        }
-
-        return entity
-    }
-
-    /**
-     * Method that checks if a entity exists
-     * @param entity
-     * @return Boolean
-     */
-    fun <T : Any> exists(entity: T): Boolean {
-        // gets the entity's declared properties
-        val members = entity::class.declaredMemberProperties
-
-        // initiates the query with the insert statement
-        sqlQuery = "SELECT * FROM $tableName WHERE "
-
-        // puts the properties' names in the insert's fields
-        members.forEach {
-            // checks if the member is a mapped property
-            val property = getMappedPropertyOrNull(it.name, properties)
-
-            if (property != null) {
-                val prop = it as KMutableProperty1<T, *>
-                // gets the value
-                val value = prop.get(entity)
-
-                sqlQuery += "${property.name} = ${checkTypes(property.type, value.toString())}"
-
-                sqlQuery += if (members.indexOf(it) == members.size - 1)
-                    ";"
-                else
-                    " AND "
+        while (resultSet!!.next()) {
+            val map = mutableMapOf<String, String>()
+            fields.forEach {
+                val value = resultSet!!.getString(it)
+                map[it] = value
             }
+
+            list.add(map)
         }
 
-        var hasValue = false
+        return list
+    }
 
-        // executes the query and cleans the sql query
-        execute()
-        cleanSqlQuery()
+    fun find(id : Int, type: KType) : Any? {
+        return select("id = $id", type)
+    }
 
-        while (resultSet != null && resultSet!!.next()) {
-            hasValue = true
+    fun select(where: String, type: KType) : Any? {
+        val result = selectAll(where, type)
+
+        return if (result.isEmpty())
+            null
+        else
+            result.first()
+    }
+
+    fun selectAll(where: String, type : KType) : List<Any>
+    {
+        val clazz = type.jvmErasure
+        val table = clazz.annotations.find { it is Table } as Table
+
+        val query = "SELECT * FROM ${table.name} WHERE $where;"
+
+        val result = DatabaseExecutor.execute(query)
+
+        val list = ArrayList<Any>()
+
+        while (result!!.next()) {
+            val mapParameters = mutableMapOf<KParameter, Any>()
+
+            clazz.declaredMemberProperties.forEach {
+                var annotations = it.annotations.find { annotation -> annotation is OneToOne }
+
+                val parameter = getMappedParameterOrNull(clazz.constructors.first(), it.name)
+
+                if (annotations != null) {
+                    annotations as OneToOne
+
+                    val whereRecursive = "id = ${result.getInt("id_${it.name}")}"
+                    mapParameters[parameter!!] = selectAll(whereRecursive, it.returnType).first()
+                }
+
+                annotations = it.annotations.find { annotation -> annotation is Property }
+                if (annotations != null) {
+                    annotations as Property
+
+                    mapParameters[parameter!!] = mapParameterType(it.name, annotations.type, result)!!
+                }
+            }
+
+            list.add(clazz.constructors.first().callBy(mapParameters))
         }
 
-        return hasValue
+        return list
     }
 
     /**
@@ -234,72 +216,6 @@ class Select : Query() {
             -1F
     }
 
-    /**
-     * method that sets the parameters values
-     */
-    fun setParameterValue(constructor : KFunction<Any>, result : ResultSet) : Any {
-        // parameters of constructor
-        val constructorParameterValues = mutableMapOf<KParameter, Any>()
-
-        properties.forEach {
-            val parameter = getMappedParameterOrNull(constructor, it.name)
-
-            if (it.propertyAnnotation != null && parameter != null) {
-                val value = mapParameterType(it.name, it.propertyAnnotation!!.type, result)!!
-                constructorParameterValues[parameter] = value
-            }
-        }
-
-        // foreach relation property, selects its data from the database
-        properties.forEach {
-            val parameter = getMappedParameterOrNull(constructor, it.name)
-
-            // adding to the main object construction
-            val value = selectRelation(it, result)
-
-            if (value != null && parameter != null)
-                constructorParameterValues[parameter] = value
-        }
-
-        return constructor.callBy(constructorParameterValues)
-    }
-
-    private fun selectRelation(reflectProperty: ReflectProperty, result: ResultSet) : Any? {
-        val relation = reflectProperty.relation
-
-        if (relation is OneToOne)
-        {
-            val resultSelect = DatabaseExecutor.execute("SELECT * FROM ${relation.foreignKey.referencedTable} " +
-                    "WHERE id = ${result.getInt("id_${reflectProperty.name}")}")
-
-            // if finds the result of the one to one object
-            if (resultSelect!!.next()) {
-
-                // gets the properties of the new entity
-                val newEntityClass = reflectProperty.type
-
-                // map of the entity's parameters to create the inside object
-                val mapConstructorEntity = mutableMapOf<KParameter, Any>()
-                // the entity constructor
-                val entityConstructor = newEntityClass.constructors.first()
-
-                newEntityClass.declaredMemberProperties.forEach { prop ->
-                    val entityParameter = getMappedParameterOrNull(entityConstructor, prop.name)
-
-                    if (entityParameter != null) {
-                        val type = prop.returnType.toString().replace("kotlin.", "")
-                        mapConstructorEntity[entityParameter] = mapParameterType(prop.name, type, resultSelect) as Any
-                    }
-                }
-
-                // building the object
-                return entityConstructor.callBy(mapConstructorEntity)
-            }
-        }
-
-        return null
-    }
-
     private fun mapParameterType(name : String, type: String, result: ResultSet) : Any? {
 
         when (type.toLowerCase()) {
@@ -313,32 +229,26 @@ class Select : Query() {
 
             "int" -> {
                 return result.getInt(name)
-
             }
 
             "float" -> {
                 return result.getFloat(name)
-
             }
 
             "long" -> {
                 return result.getLong(name)
-
             }
 
             "double" -> {
                 return result.getDouble(name)
-
             }
 
             "short" -> {
                 return result.getShort(name)
-
             }
 
             "boolean" -> {
                 return result.getBoolean(name)
-
             }
 
             "date" -> {
@@ -351,44 +261,7 @@ class Select : Query() {
         }
     }
 
-    fun select(tableName : String, fields : Array<String>, condition: String?) : ArrayList<MutableMap<String, String>> {
-        sqlQuery += "SELECT "
-
-        fields.forEach {
-            sqlQuery += it
-
-            sqlQuery += if (fields.indexOf(it) == fields.size -1)
-                " "
-            else
-                ", "
-        }
-
-        sqlQuery += "FROM $tableName"
-        if (condition != null)
-            sqlQuery += " WHERE $condition"
-
-        sqlQuery += ";"
-
-        val list = ArrayList<MutableMap<String, String>>()
-
-        // executes and cleans the query
-        execute()
-        cleanSqlQuery()
-
-        while (resultSet!!.next()) {
-            val map = mutableMapOf<String, String>()
-            fields.forEach {
-                val value = resultSet!!.getString(it)
-                map[it] = value
-            }
-
-            list.add(map)
-        }
-
-        return list
-    }
-
-    fun cleanSqlQuery() {
+    private fun cleanSqlQuery() {
         sqlQuery = ""
     }
 

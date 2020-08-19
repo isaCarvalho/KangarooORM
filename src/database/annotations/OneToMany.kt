@@ -1,0 +1,6 @@
+package database.annotations
+
+@Target(AnnotationTarget.PROPERTY, AnnotationTarget.FIELD)
+annotation class OneToMany(
+        val foreignKey : ForeignKey
+)

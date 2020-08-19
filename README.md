@@ -103,7 +103,7 @@ class RelationExample(
 ### Example
 
 After you defined your model and the database's configurations, you should
-create an instance of the class `QueryManager` passing the model class you want
+create an instance of the class `ModelQueryFacade` passing the model class you want
 to map. Do as follows:
 
 ```kotlin
@@ -115,7 +115,7 @@ fun main() {
     
     /** Creating table and modifying data */  
 
-    val modelQuery = ModelQueryManager(ModelExample::class) // creates the table
+    val modelQuery = ModelQueryFacade(ModelExample::class) // creates the table
         .insert(model) // returns the queryManager's instance
         .update(model) // returns the queryManager's instance
         .delete(model) // returns the queryManager's instance
@@ -123,13 +123,13 @@ fun main() {
     /** Selecting data */    
 
     // returns an ArrayList of models
-    var map = modelQuery.selectAll<Model>()
+    var map = modelQuery.selectAll<ModelExample>()
     map.forEach {
         println(it)
     }
     
     // returns an ArrayList of models with a condition
-    map = modelQuery.selectAll<Model>("WHERE exampleProp1 = 1")
+    map = modelQuery.selectAll<ModelExample>("WHERE exampleProp1 = 1")
     map.forEach {
         println(it)
     }
@@ -137,8 +137,8 @@ fun main() {
     val exists = modelQuery.exists(model)
     println(exists) // returns true or false
 
-    val model2 = modelQuery.select<Model>("exampleProp1", "=", "1") // returns null or model
-    val model3 = modelQuery.select<Model>("WHERE exampleProp1 = 1") // returns null or model
+    val model2 = modelQuery.select<ModelExample>("exampleProp1", "=", "1") // returns null or model
+    val model3 = modelQuery.select<ModelExample>("WHERE exampleProp1 = 1") // returns null or model
 
     /** SQL Aggregation Functions */
 
@@ -168,7 +168,7 @@ fun main() {
 
     DatabaseConfig.setConfiguration("host", 1234, "user", "password", "example", false)
 
-    val examplesManager = QueryManager("examples")
+    val examplesManager = QueryFacade("examples")
             .createTable(arrayOf(
                     "id int primary key not null",
                     "name varchar(255)"

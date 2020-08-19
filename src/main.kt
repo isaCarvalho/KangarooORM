@@ -1,5 +1,5 @@
 import database.DatabaseConfig
-import database.query.ModelQueryManager
+import database.facades.ModelQueryFacade
 
 fun main() {
 
@@ -17,7 +17,7 @@ fun main() {
     val house = House(1, "Street 1")
     val house2 = House(2, "Street 2")
 
-    val houseQuery = ModelQueryManager(House::class)
+    val houseQuery = ModelQueryFacade(House::class)
             .insert(house)
             .insert(house2)
 
@@ -25,14 +25,14 @@ fun main() {
 
     val book = Book(1, "Book 1")
 
-    val bookQuery = ModelQueryManager(Book::class)
+    val bookQuery = ModelQueryFacade(Book::class)
             .insert(book)
 
     // Creating the users
     val user = User(1, "User 1", book, 1)
     val user2 = User(2, "User 2", book, 2)
 
-    val userQuery = ModelQueryManager(User::class)
+    val userQuery = ModelQueryFacade(User::class)
             .insert(user)
             .insert(user2)
 

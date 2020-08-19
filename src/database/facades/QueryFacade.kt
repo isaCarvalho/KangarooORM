@@ -1,8 +1,8 @@
-package database.query
+package database.facades
 
 import database.statements.*
 
-class QueryManager(private val tableName: String)
+class QueryFacade(private val tableName: String)
 {
     private val selectObject = Select()
 
@@ -11,7 +11,7 @@ class QueryManager(private val tableName: String)
      * @param columns Array<String>
      * @return QueryManager
      */
-    fun createTable(columns : Array<String>) : QueryManager {
+    fun createTable(columns : Array<String>) : QueryFacade {
         Create().createTable(tableName, columns)
                 .execute()
 
@@ -24,7 +24,7 @@ class QueryManager(private val tableName: String)
      * @param propertyName String
      * @return QueryManager
      */
-    fun createSequence(propertyName : String) : QueryManager {
+    fun createSequence(propertyName : String) : QueryFacade {
         Create().createSequence(propertyName, tableName)
                 .execute()
 
@@ -46,7 +46,7 @@ class QueryManager(private val tableName: String)
      * @param condition String?
      * @return QueryManager
      */
-    fun delete(condition: String? = null) : QueryManager {
+    fun delete(condition: String? = null) : QueryFacade {
         Delete().delete(tableName, condition)
                 .execute()
 
@@ -59,7 +59,7 @@ class QueryManager(private val tableName: String)
      * @param condition String?
      * @return QueryManager
      */
-    fun update(values : MutableMap<String, String>, condition: String? = null) : QueryManager {
+    fun update(values : MutableMap<String, String>, condition: String? = null) : QueryFacade {
         Update().update(tableName, values, condition)
                 .execute()
 
@@ -72,7 +72,7 @@ class QueryManager(private val tableName: String)
      * @param values Array<String>
      * @return QueryManager
      */
-    fun insert(fields: Array<String>, values: Array<String>) : QueryManager {
+    fun insert(fields: Array<String>, values: Array<String>) : QueryFacade {
         Insert().insert(tableName, fields, values)
                 .execute()
 
@@ -83,7 +83,7 @@ class QueryManager(private val tableName: String)
      * Method that drops a table.
      * @return QueryManager
      */
-    fun dropTable() : QueryManager {
+    fun dropTable() : QueryFacade {
         Drop().dropTable(tableName)
                 .execute()
 
@@ -94,7 +94,7 @@ class QueryManager(private val tableName: String)
      * Method that drops a sequence.
      * @return QueryManager
      */
-    fun dropSequence() : QueryManager {
+    fun dropSequence() : QueryFacade {
         val sequenceName = "${tableName}_seq"
         Drop().dropSequence(sequenceName)
                 .execute()

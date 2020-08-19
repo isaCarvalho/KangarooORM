@@ -1,10 +1,10 @@
-package database.query
+package database.facades
 
 import database.DatabaseManager
 import database.statements.*
 import kotlin.reflect.KClass
 
-class ModelQueryManager(cls : KClass<*>)
+class ModelQueryFacade(cls : KClass<*>)
 {
     /**
      * Database Manager instance. Contains the table and properties' information.
@@ -95,7 +95,7 @@ class ModelQueryManager(cls : KClass<*>)
      * Method that inserts a entity
      * @param entity
      */
-    fun insert(entity : Any) : ModelQueryManager {
+    fun insert(entity : Any) : ModelQueryFacade {
         Insert().setDatabaseManager(databaseManager)
                 .insert(entity)
                 .execute()
@@ -107,7 +107,7 @@ class ModelQueryManager(cls : KClass<*>)
      * Method that deletes a entity
      * @param entity
      */
-    fun delete(entity : Any) : ModelQueryManager {
+    fun delete(entity : Any) : ModelQueryFacade {
         Delete().setDatabaseManager(databaseManager)
                 .delete(entity)
                 .execute()
@@ -119,7 +119,7 @@ class ModelQueryManager(cls : KClass<*>)
      * Method that updates a entity
      * @param entity
      */
-    fun update(entity : Any) : ModelQueryManager {
+    fun update(entity : Any) : ModelQueryFacade {
         Update().setDatabaseManager(databaseManager)
                 .update(entity)
                 .execute()

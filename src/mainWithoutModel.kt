@@ -1,5 +1,5 @@
 import database.DatabaseConfig
-import database.query.QueryManager
+import database.facades.QueryFacade
 
 fun main() {
 
@@ -13,7 +13,7 @@ fun main() {
             showQuery = true
     )
 
-    val clothesQuery = QueryManager("clothes")
+    val clothesQuery = QueryFacade("clothes")
             .createTable(arrayOf(
                     "id int primary key not null",
                     "name varchar(255)"

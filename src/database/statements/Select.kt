@@ -275,9 +275,6 @@ class Select : Query() {
             // if finds the result of the one to one object
             if (resultSelect!!.next()) {
 
-                // gets the parameter entity. Example: the user's book.
-                val parameter = getMappedParameterOrNull(reflectProperty.getTypeConstructor(), reflectProperty.name)
-
                 // gets the properties of the new entity
                 val newEntityClass = reflectProperty.type
 

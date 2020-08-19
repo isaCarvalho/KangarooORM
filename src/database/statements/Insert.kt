@@ -1,20 +1,14 @@
 package database.statements
 
-import Book
 import database.DatabaseHelper.checkTypes
 import database.DatabaseHelper.getMappedPropertyOrNull
 import database.DatabaseExecutor
 import database.DatabaseHelper.getMappedOneToOneOrNull
 import database.DatabaseManager
-import java.lang.reflect.Type
 import kotlin.reflect.*
-import kotlin.reflect.full.cast
-import kotlin.reflect.full.createInstance
 import kotlin.reflect.full.declaredMemberProperties
-import kotlin.reflect.full.declaredMembers
-import kotlin.reflect.jvm.reflect
 
-class Insert : IQuery
+class Insert : Query()
 {
     override var sqlQuery: String = ""
     override lateinit var databaseManager: DatabaseManager
@@ -30,21 +24,21 @@ class Insert : IQuery
      */
     fun <T : Any> insert(entity : T) : Insert {
         // gets the entity's declared properties
-        val members = entity::class.declaredMemberProperties
+        val members = databaseManager.reflectClass.members
 
         // initiates the query with the insert statement
-        sqlQuery = "INSERT INTO ${databaseManager.tableName} ("
+        sqlQuery = "INSERT INTO $tableName ("
 
         // puts the properties' names in the insert's fields
         members.forEach {
             // checks if the member is a mapped property
-            val property = getMappedPropertyOrNull(it.name, databaseManager.propertiesList)
+            val property = getMappedPropertyOrNull(it.name, properties)
 
             if (property != null) {
                 sqlQuery += "${it.name}, "
             }
 
-            val propertyRelation = getMappedOneToOneOrNull(it.name, databaseManager.oneToOneList)
+            val propertyRelation = getMappedOneToOneOrNull(it.name, properties)
             if (propertyRelation != null)
                 sqlQuery += "id_${it.name}, "
         }
@@ -56,7 +50,7 @@ class Insert : IQuery
         // one to one Relations
         members.forEach {
             // is the entity
-            val oneToOne = getMappedOneToOneOrNull(it.name, databaseManager.oneToOneList)
+            val oneToOne = getMappedOneToOneOrNull(it.name, properties)
 
             // if the entity is a relation
             if (oneToOne != null)
@@ -83,7 +77,7 @@ class Insert : IQuery
 
         // puts the entity's declaredMember values in the insert's values
         members.forEach {
-            val property = getMappedPropertyOrNull(it.name, databaseManager.propertiesList)
+            val property = getMappedPropertyOrNull(it.name, properties)
 
             // checks if the member is a mapped property
             if (property != null) {

@@ -3,7 +3,7 @@ package database.statements
 import database.DatabaseExecutor
 import database.DatabaseManager
 
-class Drop : IQuery {
+class Drop : Query() {
 
     override var sqlQuery: String = ""
     override lateinit var databaseManager: DatabaseManager
@@ -17,9 +17,9 @@ class Drop : IQuery {
      * Method that drops a table and a sequence
      */
     fun dropTableAndSequence() : Drop {
-        val sequenceName = databaseManager.tableName + "_seq"
+        val sequenceName = tableName + "_seq"
 
-        sqlQuery = "DROP TABLE IF EXISTS ${databaseManager.tableName};\n" +
+        sqlQuery = "DROP TABLE IF EXISTS $tableName;\n" +
                 "DROP SEQUENCE IF EXISTS $sequenceName;"
 
         return this

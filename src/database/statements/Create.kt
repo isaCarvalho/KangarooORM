@@ -4,8 +4,9 @@ import database.DatabaseExecutor
 import database.DatabaseHelper
 import database.DatabaseManager
 import database.annotations.ForeignKey
+import database.annotations.OneToOne
 
-class Create : IQuery {
+class Create : Query() {
 
     override lateinit var databaseManager : DatabaseManager
     override var sqlQuery: String = ""
@@ -16,40 +17,42 @@ class Create : IQuery {
     }
 
     /**
-     * Method that creates the table with an entity
+     * Method that creates the table with an entity's properties
      */
     fun createTable() : Create {
         sqlQuery = ""
         var sequenceQuery = ""
 
-        sqlQuery += "CREATE TABLE IF NOT EXISTS ${databaseManager.tableName} (\n"
-        databaseManager.propertiesList.forEach {
-            sqlQuery += "${it.name} ${it.type}"
+        sqlQuery += "CREATE TABLE IF NOT EXISTS $tableName (\n"
+        properties.forEach {
+            if (it.propertyAnnotation != null) {
+                sqlQuery += "${it.name} ${it.propertyAnnotation!!.type}"
 
-            if (it.type !in DatabaseHelper.numericTypes) {
-                sqlQuery += "(${it.size})"
-            }
+                if (it.propertyAnnotation!!.type !in DatabaseHelper.numericTypes) {
+                    sqlQuery += "(${it.propertyAnnotation!!.size})"
+                }
 
-            if (it.primaryKey) {
-                sqlQuery += " primary key"
-            }
+                if (it.propertyAnnotation!!.primaryKey) {
+                    sqlQuery += " primary key"
+                }
 
-            if (!it.nullable) {
-                sqlQuery += " not null"
-            }
+                if (!it.propertyAnnotation!!.nullable) {
+                    sqlQuery += " not null"
+                }
 
-            if (it.unique) {
-                sqlQuery += " unique"
-            }
+                if (it.propertyAnnotation!!.unique) {
+                    sqlQuery += " unique"
+                }
 
-            sqlQuery += if (databaseManager.propertiesList.indexOf(it) == databaseManager.propertiesList.size - 1)
-                "\n);"
-            else
-                ",\n"
+                sqlQuery += if (properties.indexOf(it) == properties.size - 1)
+                    "\n);"
+                else
+                    ",\n"
 
-            // creates a sequence in case of an auto increment attribute
-            if (it.autoIncrement) {
-                sequenceQuery = createSequence(databaseManager.tableName, "${databaseManager.tableName}_seq", it.name)
+                // creates a sequence in case of an auto increment attribute
+                if (it.propertyAnnotation!!.autoIncrement) {
+                    sequenceQuery = createSequence(tableName, "${tableName}_seq", it.name)
+                }
             }
         }
 
@@ -77,25 +80,19 @@ class Create : IQuery {
     }
 
 
-    fun createOneToOne() : Create {
-        databaseManager.oneToOneList.forEach {
-            val columnName = "id_${it.key}"
-            sqlQuery += createConstraint(it.value.foreignKey, columnName, true)
-        }
+    fun createRelations() : Create {
+        properties.forEach {
+            when(it.relation) {
+                is OneToOne -> {
+                    val relation = it.relation as OneToOne
+                    sqlQuery += createConstraint(relation.foreignKey, "id_${it.name}", true)
+                }
 
-        return this
-    }
-
-    /**
-     * Method that creates all of the table's foreign key constraints
-     */
-    fun createForeignKeyConstraints() : Create {
-
-        databaseManager.foreignKeyList.forEach {
-            val propertyName = it.key
-            val foreignKey = it.value
-
-            sqlQuery += createConstraint(foreignKey, propertyName)
+                is ForeignKey -> {
+                    val relation = it.relation as ForeignKey
+                    sqlQuery += createConstraint(relation, relation.referencedProperty)
+                }
+            }
         }
 
         return this
@@ -113,9 +110,9 @@ class Create : IQuery {
         if (result != null && !result.next()) {
 
             if (isRelation)
-                sqlQuery += "ALTER TABLE ${databaseManager.tableName} ADD COLUMN $propertyName INT;\n"
+                sqlQuery += "ALTER TABLE $tableName ADD COLUMN $propertyName INT;\n"
 
-            sqlQuery += "ALTER TABLE ${databaseManager.tableName} ADD CONSTRAINT ${foreignKey.constraintName}\n" +
+            sqlQuery += "ALTER TABLE $tableName ADD CONSTRAINT ${foreignKey.constraintName}\n" +
                     "FOREIGN KEY ($propertyName)\n" +
                     "REFERENCES ${foreignKey.referencedTable}(${foreignKey.referencedProperty})"
 
@@ -140,15 +137,8 @@ class Create : IQuery {
      * @return Create
      */
     fun createSequence(propertyName : String, tableName: String? = null) : Create {
-        val table = tableName ?: databaseManager.tableName
-
-        val sequenceName = if (tableName == null)
-            "${databaseManager.tableName}_seq"
-        else
-            "${tableName}_seq"
-
-
-        sqlQuery += createSequence(table, sequenceName, propertyName)
+        val table = tableName ?: this.tableName
+        sqlQuery += createSequence(table, "${table}_seq", propertyName)
 
         return this
     }

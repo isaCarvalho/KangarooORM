@@ -1,8 +1,8 @@
 package database
 
-import database.annotations.ForeignKey
 import database.annotations.OneToOne
 import database.annotations.Property
+import database.reflections.ReflectProperty
 import kotlin.reflect.KFunction
 import kotlin.reflect.KParameter
 
@@ -11,29 +11,15 @@ object DatabaseHelper
     /** Postgres' numeric types */
     val numericTypes = arrayListOf("int", "float", "double", "long", "short")
 
-    /**
-     * Method that gets a mapped foreign key by its name.
-     * Returns null if the foreign key does not exits
-     * @param name
-     * @return String ?: null
-     */
-    fun getMappedForeignKeyOrNull(name : String, foreignKeyList : MutableMap<String, ForeignKey>) : ForeignKey? {
-        foreignKeyList.forEach {
-            if (it.key == name)
-                return it.value
-        }
-
-        return null
-    }
 
     /**
      * Method that gets the primary key from the propertiesList.
      * If it does not exists, returns null.
      */
-    fun getPrimaryKeyOrNull(propertiesList : ArrayList<Property>) : Property? {
+    fun getPrimaryKeyOrNull(propertiesList : ArrayList<ReflectProperty>) : Property? {
         propertiesList.forEach {
-            if (it.primaryKey)
-                return it
+            if (it.propertyAnnotation != null && it.propertyAnnotation!!.primaryKey)
+                return it.propertyAnnotation
         }
         return null
     }
@@ -66,19 +52,19 @@ object DatabaseHelper
      * @param name
      * @return String ?: null
      */
-    fun getMappedPropertyOrNull(name : String, propertiesList: ArrayList<Property>) : Property? {
-        propertiesList.forEach {
+    fun getMappedPropertyOrNull(name : String, properties: ArrayList<ReflectProperty>) : Property? {
+        properties.forEach {
             if (it.name == name)
-                return it
+                return it.propertyAnnotation
         }
 
         return null
     }
 
-    fun getMappedOneToOneOrNull(name: String, oneToOneList : MutableMap<String, OneToOne>) : OneToOne? {
-        oneToOneList.forEach {
-            if (it.key == name)
-                return it.value
+    fun getMappedOneToOneOrNull(name: String, properties: ArrayList<ReflectProperty>) : OneToOne? {
+        properties.forEach {
+            if (it.name == name && it.relation != null && it.relation is OneToOne )
+                return it.relation as OneToOne
         }
 
         return null
@@ -87,14 +73,13 @@ object DatabaseHelper
     /**
      * Maps the parameter
      */
-    fun <T : Any> getMappedParameter(constructor: KFunction<T>, name: String): KParameter {
-        var parameter = constructor.parameters[0]
+    fun <T : Any> getMappedParameterOrNull(constructor: KFunction<T>, name: String): KParameter? {
 
         constructor.parameters.forEach { param ->
             if (param.name == name || "id_${param.name}" == name)
-                parameter = param
+                return param
         }
 
-        return parameter
+        return null
     }
 }

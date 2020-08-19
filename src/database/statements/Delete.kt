@@ -1,13 +1,12 @@
 package database.statements
 
 import database.DatabaseHelper.checkTypes
-import database.DatabaseHelper.getMappedPropertyOrNull
 import database.DatabaseExecutor
+import database.DatabaseHelper.getMappedPropertyOrNull
 import database.DatabaseManager
 import kotlin.reflect.KMutableProperty1
-import kotlin.reflect.full.declaredMemberProperties
 
-class Delete : IQuery {
+class Delete : Query() {
 
     override var sqlQuery: String = ""
     override lateinit var databaseManager: DatabaseManager
@@ -23,13 +22,10 @@ class Delete : IQuery {
      */
     fun <T : Any> delete(entity : T) : Delete {
         // initiates the query with the delete statements
-        sqlQuery = "DELETE FROM ${databaseManager.tableName} WHERE "
+        sqlQuery = "DELETE FROM $tableName WHERE "
 
-        // gets the entity's declaredMember
-        val members = entity::class.declaredMemberProperties
-
-        members.forEach {
-            val property = getMappedPropertyOrNull(it.name, databaseManager.propertiesList)
+        databaseManager.reflectClass.members.forEach {
+            val property = getMappedPropertyOrNull(it.name, properties)
 
             // checks if the member is a mapped property
             if (property != null) {
@@ -39,7 +35,7 @@ class Delete : IQuery {
                 sqlQuery += "${it.name} = "
                 sqlQuery += checkTypes(property.type, value.toString())
 
-                if (members.indexOf(it) != members.size -1) {
+                if (databaseManager.reflectClass.members.indexOf(it) != databaseManager.reflectClass.members.size -1) {
                     sqlQuery+= " AND "
                 }
             }

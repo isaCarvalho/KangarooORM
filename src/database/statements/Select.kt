@@ -2,19 +2,19 @@ package database.statements
 
 import database.DatabaseExecutor
 import database.DatabaseHelper.checkTypes
-import database.DatabaseHelper.getMappedOneToOneOrNull
 import database.DatabaseHelper.getMappedPropertyOrNull
-import database.DatabaseHelper.getMappedParameter
+import database.DatabaseHelper.getMappedParameterOrNull
 import database.DatabaseManager
+import database.annotations.OneToOne
+import database.reflections.ReflectProperty
 import java.sql.ResultSet
 import kotlin.collections.ArrayList
 import kotlin.reflect.KFunction
 import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KParameter
 import kotlin.reflect.full.declaredMemberProperties
-import kotlin.reflect.jvm.jvmErasure
 
-class Select : IQuery {
+class Select : Query() {
 
     var resultSet : ResultSet? = null
 
@@ -35,9 +35,9 @@ class Select : IQuery {
      * Method that selects the values from the database.
      * @return ArrayList<T>
      */
-    inline fun <reified T : Any> selectAll(where : String? = null): ArrayList<T> {
+    inline fun <reified T: Any> selectAll(where : String? = null): ArrayList<Any> {
         // initiates the query with the select statement
-        sqlQuery = "SELECT * FROM ${databaseManager.tableName}"
+        sqlQuery = "SELECT * FROM $tableName"
 
         if (where != null)
             sqlQuery += " $where;"
@@ -47,7 +47,7 @@ class Select : IQuery {
         cleanSqlQuery()
 
         val constructor = T::class.constructors.first()
-        val results = ArrayList<T>()
+        val results = ArrayList<Any>()
 
         while (resultSet != null && resultSet!!.next()) {
 
@@ -66,7 +66,7 @@ class Select : IQuery {
      * @param value
      * @return Entity?
      */
-    inline fun <reified T : Any> select(field : String, operator : String, value : String) : T? {
+    inline fun <reified T : Any> select(field : String, operator : String, value : String) : Any? {
         return select<T>("WHERE $field $operator $value")
     }
 
@@ -75,16 +75,16 @@ class Select : IQuery {
      * @param where
      * @return Entity?
      */
-    inline fun <reified T : Any> select(where : String) : T? {
+    inline fun <reified T : Any> select(where : String) : Any? {
 
         // initiates the query with the insert statement
-        sqlQuery = "SELECT * FROM ${databaseManager.tableName} $where;"
+        sqlQuery = "SELECT * FROM $tableName $where;"
 
         // executes the query and cleans the sql query
         execute()
         cleanSqlQuery()
 
-        var entity : T? = null
+        var entity : Any? = null
         val constructor = T::class.constructors.first()
 
         if (resultSet != null && resultSet!!.next()) {
@@ -104,12 +104,12 @@ class Select : IQuery {
         val members = entity::class.declaredMemberProperties
 
         // initiates the query with the insert statement
-        sqlQuery = "SELECT * FROM ${databaseManager.tableName} WHERE "
+        sqlQuery = "SELECT * FROM $tableName WHERE "
 
         // puts the properties' names in the insert's fields
         members.forEach {
             // checks if the member is a mapped property
-            val property = getMappedPropertyOrNull(it.name, databaseManager.propertiesList)
+            val property = getMappedPropertyOrNull(it.name, properties)
 
             if (property != null) {
                 val prop = it as KMutableProperty1<T, *>
@@ -237,57 +237,73 @@ class Select : IQuery {
     /**
      * method that sets the parameters values
      */
-    inline fun <reified T : Any> setParameterValue(constructor : KFunction<T>, result : ResultSet) : T
-    {
+    fun setParameterValue(constructor : KFunction<Any>, result : ResultSet) : Any {
         // parameters of constructor
         val constructorParameterValues = mutableMapOf<KParameter, Any>()
 
-        databaseManager.propertiesList.forEach {
-            val parameter = getMappedParameter(constructor, it.name)
-            constructorParameterValues[parameter] = mapParameterType(it.name, it.type, result)!!
+        properties.forEach {
+            val parameter = getMappedParameterOrNull(constructor, it.name)
+
+            if (it.propertyAnnotation != null && parameter != null) {
+                val value = mapParameterType(it.name, it.propertyAnnotation!!.type, result)!!
+                constructorParameterValues[parameter] = value
+            }
         }
 
-        // foreach one to one property, selects its data from the database
-        T::class.declaredMemberProperties.forEach {
-            val oneToOne = getMappedOneToOneOrNull(it.name, databaseManager.oneToOneList)
-            if (oneToOne != null) {
+        // foreach relation property, selects its data from the database
+        properties.forEach {
+            val parameter = getMappedParameterOrNull(constructor, it.name)
 
-                val resultSelect = DatabaseExecutor.execute("SELECT * FROM ${oneToOne.foreignKey.referencedTable} " +
-                        "WHERE id = ${result.getInt("id_${it.name}")}")
+            // adding to the main object construction
+            val value = selectRelation(it, result)
 
-                // if finds the result of the one to one object
-                if (resultSelect!!.next()) {
-                    // gets the parameter entity. Example: the user's book.
-                    val parameter = getMappedParameter(constructor, it.name)
-
-                    // gets the properties of the new entity
-                    val newEntityClass = it.returnType.jvmErasure
-
-                    // map of the entity's parameters to create the inside object
-                    val mapConstructorEntity = mutableMapOf<KParameter, Any>()
-                    // the entity constructor
-                    val entityConstructor = newEntityClass.constructors.first()
-
-                    newEntityClass.declaredMemberProperties.forEach {prop ->
-                        val entityParameter = getMappedParameter(entityConstructor, prop.name)
-
-                        val type = prop.returnType.toString().replace("kotlin.", "")
-                        mapConstructorEntity[entityParameter] = mapParameterType(prop.name, type, resultSelect) as Any
-                    }
-
-                    // building the object
-                    val entity = entityConstructor.callBy(mapConstructorEntity)
-
-                    // adding to the main object construction
-                    constructorParameterValues[parameter] = entity
-                }
-            }
+            if (value != null && parameter != null)
+                constructorParameterValues[parameter] = value
         }
 
         return constructor.callBy(constructorParameterValues)
     }
 
-    fun mapParameterType(name : String, type: String, result: ResultSet) : Any? {
+    private fun selectRelation(reflectProperty: ReflectProperty, result: ResultSet) : Any? {
+        val relation = reflectProperty.relation
+
+        if (relation is OneToOne)
+        {
+            val resultSelect = DatabaseExecutor.execute("SELECT * FROM ${relation.foreignKey.referencedTable} " +
+                    "WHERE id = ${result.getInt("id_${reflectProperty.name}")}")
+
+            // if finds the result of the one to one object
+            if (resultSelect!!.next()) {
+
+                // gets the parameter entity. Example: the user's book.
+                val parameter = getMappedParameterOrNull(reflectProperty.getTypeConstructor(), reflectProperty.name)
+
+                // gets the properties of the new entity
+                val newEntityClass = reflectProperty.type
+
+                // map of the entity's parameters to create the inside object
+                val mapConstructorEntity = mutableMapOf<KParameter, Any>()
+                // the entity constructor
+                val entityConstructor = newEntityClass.constructors.first()
+
+                newEntityClass.declaredMemberProperties.forEach { prop ->
+                    val entityParameter = getMappedParameterOrNull(entityConstructor, prop.name)
+
+                    if (entityParameter != null) {
+                        val type = prop.returnType.toString().replace("kotlin.", "")
+                        mapConstructorEntity[entityParameter] = mapParameterType(prop.name, type, resultSelect) as Any
+                    }
+                }
+
+                // building the object
+                return entityConstructor.callBy(mapConstructorEntity)
+            }
+        }
+
+        return null
+    }
+
+    private fun mapParameterType(name : String, type: String, result: ResultSet) : Any? {
 
         when (type.toLowerCase()) {
             "varchar" -> {
@@ -380,7 +396,7 @@ class Select : IQuery {
     }
 
     private val executeAggregationsSQL = { query : String, tableName : String? ->
-        sqlQuery = query + (tableName ?: databaseManager.tableName)
+        sqlQuery = query + (tableName ?: tableName)
 
         // executes and cleans the query
         execute()

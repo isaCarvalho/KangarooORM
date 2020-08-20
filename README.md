@@ -38,6 +38,8 @@ class ModelExample(
 
 It is vital the model has a primary key named `id` if you want to implement relations. Kangaroo will 
 search for this property in the relations.
+*Note*: Table name is optional. If you do not set the table name, 
+Kang will set the default table name as the class name.
 
 ### Property Values
 
@@ -123,13 +125,13 @@ fun main() {
     /** Selecting data */    
 
     // returns an ArrayList of models
-    var map = modelQuery.selectAll<ModelExample>()
+    var map = modelQuery.selectAll()
     map.forEach {
         println(it)
     }
     
     // returns an ArrayList of models with a condition
-    map = modelQuery.selectAll<ModelExample>("WHERE exampleProp1 = 1")
+    map = modelQuery.selectAll("exampleProp1 = 1")
     map.forEach {
         println(it)
     }
@@ -137,8 +139,8 @@ fun main() {
     val exists = modelQuery.exists(model)
     println(exists) // returns true or false
 
-    val model2 = modelQuery.select<ModelExample>("exampleProp1", "=", "1") // returns null or model
-    val model3 = modelQuery.select<ModelExample>("WHERE exampleProp1 = 1") // returns null or model
+    val model2 = modelQuery.find(1) // returns null or model
+    val model3 = modelQuery.select("exampleProp1 = 1") // returns null or model
 
     /** SQL Aggregation Functions */
 

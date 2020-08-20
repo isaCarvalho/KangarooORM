@@ -10,16 +10,15 @@ class User(
         @ForeignKey("fk_user_house", "houses", "id", deleteCascade = true)
         var id_house : Int,
         @OneToOne(ForeignKey("fk_user_book", "books", "id", deleteCascade = true))
-        var book : Book
+        var book : Book,
+        @OneToMany(ForeignKey("fk_user_task", "tasks", "id_user"))
+        var tasks : List<Task>
 ) {
-
-    @OneToMany(ForeignKey("fk_user_task", "tasks", "id_user"))
-    lateinit var tasks : List<Task>
-
     override fun toString(): String {
         return "Name: $name\n" +
                 "id: $id\n" +
                 "id_house: $id_house\n" +
-                "book: $book"
+                "book: $book\n" +
+                "task: $tasks"
     }
 }

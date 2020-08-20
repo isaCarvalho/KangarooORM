@@ -2,7 +2,9 @@ package database.statements
 
 import database.DatabaseExecutor
 import database.DatabaseHelper.getMappedParameterOrNull
+import database.DatabaseHelper.getPrimaryKeyOrNull
 import database.DatabaseManager
+import database.annotations.OneToMany
 import database.annotations.OneToOne
 import database.annotations.Property
 import database.reflections.ReflectClass
@@ -11,6 +13,8 @@ import kotlin.collections.ArrayList
 import kotlin.reflect.KParameter
 import kotlin.reflect.KType
 import kotlin.reflect.full.declaredMemberProperties
+import kotlin.reflect.full.instanceParameter
+import kotlin.reflect.full.starProjectedType
 import kotlin.reflect.jvm.jvmErasure
 
 class Select : Query() {
@@ -104,6 +108,17 @@ class Select : Query() {
 
                     val whereRecursive = "id = ${result.getInt("id_${it.name}")}"
                     mapParameters[parameter!!] = selectAll(whereRecursive, it.returnType).first()
+                }
+
+                annotations = it.annotations.find { annotation -> annotation is OneToMany }
+                if (annotations != null) {
+                    annotations as OneToMany
+
+                    val whereRecursive = "id_${clazz.starProjectedType.toString().toLowerCase()} = " +
+                            "${result.getInt(getPrimaryKeyOrNull(properties)!!.name)}"
+
+                    mapParameters[parameter!!] = selectAll(whereRecursive, it.returnType.arguments.first().type!!)
+
                 }
 
                 annotations = it.annotations.find { annotation -> annotation is Property }

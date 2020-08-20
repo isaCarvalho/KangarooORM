@@ -62,35 +62,38 @@ class Insert : Query()
 
         // for each entity property
         databaseManager.reflectClass.members.forEach {
-            sqlQuery += "${it.name}, "
+            if (!it.returnType.toString().contains("List"))
+                sqlQuery += "${it.name}, "
         }
         sqlQuery = "${formatQuery(sqlQuery)}) VALUES \n("
 
         // sets the values
         databaseManager.reflectClass.members.forEach {
             var propType = it.returnType
+            if (!propType.toString().contains("List")) {
 
-            // gets the members values: ex: user's id
-            it as KProperty1<Any, *>
-            var value = it.get(entity)
+                // gets the members values: ex: user's id
+                it as KProperty1<Any, *>
+                var value = it.get(entity)
 
-            // if the value is an entity. ex: user's book
-            if (getMappedOneToOneOrNull(it.name, properties) != null && value != null) {
-                val valuesReflectProperties = ReflectClass(value::class).properties
-                // gets the value of its primary key to insert
-                value::class.declaredMemberProperties.forEach { prop ->
-                    val property = getMappedPropertyOrNull(prop.name, valuesReflectProperties)
-                    if (property != null && property.primaryKey) {
-                        prop as KProperty1<Any, *>
-                        value = prop.get(value!!)
+                // if the value is an entity. ex: user's book
+                if (getMappedOneToOneOrNull(it.name, properties) != null && value != null) {
+                    val valuesReflectProperties = ReflectClass(value::class).properties
+                    // gets the value of its primary key to insert
+                    value::class.declaredMemberProperties.forEach { prop ->
+                        val property = getMappedPropertyOrNull(prop.name, valuesReflectProperties)
+                        if (property != null && property.primaryKey) {
+                            prop as KProperty1<Any, *>
+                            value = prop.get(value!!)
 
-                        propType = prop.returnType
-                        sqlQuery = sqlQuery.replace(it.name, "id_${it.name}")
+                            propType = prop.returnType
+                            sqlQuery = sqlQuery.replace(it.name, "id_${it.name}")
+                        }
                     }
                 }
-            }
 
-            sqlQuery += "${checkTypes(propType.toString().replace("kotlin.", ""), value.toString())}, "
+                sqlQuery += "${checkTypes(propType.toString().replace("kotlin.", ""), value.toString())}, "
+            }
         }
 
         sqlQuery = "${formatQuery(sqlQuery)});"

@@ -32,27 +32,6 @@ class Delete : Query() {
         // initiates the query with the delete statements
         var sqlQuery = "DELETE FROM ${clazz.tableName} WHERE "
 
-        // deletes the entity's relations
-        clazz.members.forEach {
-            it as KProperty1<Any, *>
-            val value  = it.get(entity)
-
-            val relation = getMappedOneToOneOrNull(it.name, clazz.properties)
-            if (relation != null && relation.foreignKey.deleteCascade)
-            {
-                delete(value!!)
-            }
-
-            val foreign = it.annotations.find { ann -> ann is ForeignKey }
-            if (foreign != null) {
-                foreign as ForeignKey
-
-                if (foreign.deleteCascade) {
-                    delete(foreign.referencedTable, "${foreign.referencedProperty} = $value")
-                }
-            }
-        }
-
         // deletes the entity
         val primaryKey = getPrimaryKeyOrNull(clazz.properties)
         if (primaryKey != null) {

@@ -17,7 +17,8 @@ DatabaseConfig.setConfiguration(
         password,
         schema,
         useSSL,
-        showQuery // set to true if you want to see your queries in the console. Default value false.
+        showQuery // set to true if you want to show your queries in the console. Default value false.
+        showQueryLog // set to tye if you want to show the queries in the log file.
 )
 ```
 ## Usage With Model
@@ -201,3 +202,11 @@ fun main() {
 - Float, Double
 - Boolean
 - Date
+
+## Logger
+
+Kangaroo has a Logger object that saves the exceptions messages in the directory
+`log` in your root folder. The log files are saved by date. As it was said before, you can set in your database configurations if
+you want to show the queries in the log file.
+*Note*: You should not show the queries in your log life if it is not
+essential.

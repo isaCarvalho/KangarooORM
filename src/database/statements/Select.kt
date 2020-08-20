@@ -5,7 +5,7 @@ import database.DatabaseHelper.getMappedParameterOrNull
 import database.DatabaseManager
 import database.annotations.OneToOne
 import database.annotations.Property
-import database.annotations.Table
+import database.reflections.ReflectClass
 import java.sql.ResultSet
 import kotlin.collections.ArrayList
 import kotlin.reflect.KParameter
@@ -83,9 +83,9 @@ class Select : Query() {
     fun selectAll(where: String, type : KType) : List<Any>
     {
         val clazz = type.jvmErasure
-        val table = clazz.annotations.find { it is Table } as Table
+        val tableName = ReflectClass(clazz).tableName
 
-        val query = "SELECT * FROM ${table.name} WHERE $where;"
+        val query = "SELECT * FROM $tableName WHERE $where;"
 
         val result = DatabaseExecutor.execute(query)
 

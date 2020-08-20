@@ -7,8 +7,10 @@ import database.DatabaseHelper.getMappedOneToOneOrNull
 import database.DatabaseManager
 import database.annotations.Table
 import database.reflections.ReflectClass
+import javafx.scene.control.Tab
 import kotlin.reflect.*
 import kotlin.reflect.full.declaredMemberProperties
+import kotlin.reflect.full.starProjectedType
 import kotlin.reflect.jvm.jvmErasure
 
 class Insert : Query()
@@ -59,9 +61,9 @@ class Insert : Query()
     fun insert(entity : Any, type : KType) : Insert {
 
         // gets the table's name
-        val table = type.jvmErasure.annotations.find { it is Table } as Table
+        val table = ReflectClass(entity::class).tableName
 
-        sqlQuery = "INSERT INTO ${table.name} ("
+        sqlQuery = "INSERT INTO $tableName ("
 
         // gets the declared members of the entity
         val members = entity::class.declaredMemberProperties

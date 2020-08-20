@@ -3,11 +3,9 @@ import database.annotations.Table
 import kotlin.reflect.KClass
 import kotlin.reflect.KFunction
 import kotlin.reflect.full.declaredMemberProperties
-import kotlin.reflect.full.defaultType
 import kotlin.reflect.full.starProjectedType
-import kotlin.reflect.jvm.jvmErasure
 
-class ReflectClass(val cls : KClass<*>) {
+class ReflectClass(private val cls : KClass<*>) {
 
     val members by lazy {
         cls.declaredMemberProperties
@@ -30,7 +28,7 @@ class ReflectClass(val cls : KClass<*>) {
     init {
 
         val table = cls.annotations.find { it is Table } as Table
-        this.tableName = if (table.name == "") cls::simpleName.toString().toLowerCase() else table.name
+        this.tableName = if (table.name == "") cls.starProjectedType.toString().toLowerCase() else table.name
 
         // setting the properties
         this.members.forEach {

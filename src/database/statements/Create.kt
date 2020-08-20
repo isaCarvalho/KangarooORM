@@ -90,7 +90,7 @@ class Create : Query() {
 
                 is ForeignKey -> {
                     val relation = it.relation as ForeignKey
-                    sqlQuery += createConstraint(relation, relation.referencedProperty)
+                    sqlQuery += createConstraint(relation, it.name)
                 }
             }
         }

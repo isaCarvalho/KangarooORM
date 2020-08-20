@@ -21,10 +21,13 @@ fun main() {
             .insert(house)
             .insert(house2)
 
+    // Creating author
+    val author = Author(1, "Halliday")
+    val authorQuery = ModelQueryFacade(Author::class)
+            .insert(author)
+
     // Creating the book
-
-    val book = Book(1, "Book 1")
-
+    val book = Book(1, "Fundamentos da Fisica 1", author)
     val bookQuery = ModelQueryFacade(Book::class)
             .insert(book)
 
@@ -53,4 +56,5 @@ fun main() {
     userQuery.dropTable()
     bookQuery.dropTable()
     houseQuery.dropTable()
+    authorQuery.dropTable()
 }

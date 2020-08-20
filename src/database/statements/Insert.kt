@@ -5,13 +5,11 @@ import database.DatabaseHelper.getMappedPropertyOrNull
 import database.DatabaseExecutor
 import database.DatabaseHelper.getMappedOneToOneOrNull
 import database.DatabaseManager
-import database.annotations.Table
+import database.logger.Logger
 import database.reflections.ReflectClass
-import javafx.scene.control.Tab
+import java.lang.Exception
 import kotlin.reflect.*
 import kotlin.reflect.full.declaredMemberProperties
-import kotlin.reflect.full.starProjectedType
-import kotlin.reflect.jvm.jvmErasure
 
 class Insert : Query()
 {
@@ -83,14 +81,12 @@ class Insert : Query()
             var value = it.get(entity)
 
             // if the value is an entity. ex: user's book
-            if (getMappedOneToOneOrNull(it.name, properties) != null && value != null)
-            {
+            if (getMappedOneToOneOrNull(it.name, properties) != null && value != null) {
                 val valuesReflectProperties = ReflectClass(value::class).properties
                 // gets the value of its primary key to insert
                 value::class.declaredMemberProperties.forEach { prop ->
                     val property = getMappedPropertyOrNull(prop.name, valuesReflectProperties)
-                    if (property != null && property.primaryKey)
-                    {
+                    if (property != null && property.primaryKey) {
                         prop as KProperty1<Any, *>
                         value = prop.get(value!!)
 
@@ -104,9 +100,14 @@ class Insert : Query()
         }
 
         sqlQuery = "${formatInsert(sqlQuery)});"
-        execute()
 
-        return this
+        try {
+            execute()
+        } catch (ex: Exception) {
+            Logger.write("Insert throws an exception: ", ex)
+        } finally {
+            return this
+        }
     }
 
     private val formatInsert = { query : String ->

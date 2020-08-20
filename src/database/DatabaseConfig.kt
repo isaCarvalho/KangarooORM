@@ -85,7 +85,16 @@ object DatabaseConfig {
      * @param databaseName
      * @param useSSL
      */
-    fun setConfiguration(host : String, port : Int, user : String, password : String, databaseName : String, useSSL : Boolean, showQuery : Boolean = false) {
+    fun setConfiguration(
+            host : String,
+            port : Int,
+            user : String,
+            password : String,
+            databaseName : String,
+            useSSL : Boolean,
+            showQuery : Boolean = false,
+            showQueryLog : Boolean = false)
+    {
         DatabaseConfig.host = host
         DatabaseConfig.port = port
         DatabaseConfig.user = user
@@ -93,6 +102,7 @@ object DatabaseConfig {
         DatabaseConfig.databaseName = databaseName
         DatabaseConfig.useSSL = useSSL
         DatabaseExecutor.showQuery = showQuery
+        DatabaseExecutor.showQueryLog = showQueryLog
     }
 
     /**

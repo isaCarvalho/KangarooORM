@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter
 
 object Logger
 {
-    fun write(message : String, exception: Exception) {
+    fun write(message : String, exception: Exception, query : String? = null) {
         println("Writing log...")
 
         val logFolder = File("logs")
@@ -27,7 +27,9 @@ object Logger
             logFile.createNewFile()
         }
 
-        var string = "\n${LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"))} " +
+        var string = if (query != null) "\n$query\n" else ""
+
+        string += "\n${LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"))} " +
                 "- $message - ${exception.message}\n"
 
         exception.stackTrace.forEach {

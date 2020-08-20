@@ -10,7 +10,8 @@ fun main() {
         "123456",
         "test",
         false,
-        showQuery = true
+        showQuery = true,
+        showQueryLog = true
     )
 
     // Creating the houses

@@ -1,6 +1,7 @@
 package database
 
 import database.logger.Logger
+import java.lang.Exception
 import java.lang.NullPointerException
 import java.sql.ResultSet
 import java.sql.SQLException
@@ -8,6 +9,7 @@ import java.sql.SQLException
 object DatabaseExecutor
 {
     var showQuery = false
+    var showQueryLog = false
 
     /**
      * Method that executes a query and returns an instance of
@@ -35,9 +37,9 @@ object DatabaseExecutor
             // closes the connection
             DatabaseConfig.close()
         } catch (ex : SQLException) {
-            Logger.write("SQL query throws an exception:", ex)
+            writeLog("SQL query throws an exception:", ex, sqlQuery)
         } catch (ex : NullPointerException) {
-            Logger.write("Null pointer exception:", ex)
+            writeLog("Null pointer exception:", ex, sqlQuery)
         } finally {
             return resultSet
         }
@@ -64,14 +66,21 @@ object DatabaseExecutor
 
             DatabaseConfig.close()
         } catch (ex : SQLException) {
-            Logger.write("SQL query throws an exception:", ex)
+            writeLog("SQL query throws an exception:", ex, sqlQuery)
         } catch (ex : NullPointerException) {
-            Logger.write("Null pointer exception:", ex)
+            writeLog("Null pointer exception:", ex, sqlQuery)
         }
     }
 
     private fun printQuery(sqlQuery : String) {
         if (showQuery)
             println("\n\n$sqlQuery\n\n")
+    }
+
+    private fun writeLog(message: String, ex: Exception, sqlQuery: String) {
+        if (showQueryLog)
+            Logger.write(message, ex, sqlQuery)
+        else
+            Logger.write(message, ex)
     }
 }

@@ -17,7 +17,7 @@ DatabaseConfig.setConfiguration(
         password,
         schema,
         useSSL,
-        showQuery // set to true if you want to show your queries in the console. Default value false.
+        showQuery, // set to true if you want to show your queries in the console. Default value false.
         showQueryLog // set to tye if you want to show the queries in the log file.
 )
 ```
@@ -97,11 +97,24 @@ Notice that foreign key is a property. Bellow you'll see that the other relation
 
 ```kotlin
 @Table("relationTable")
-class RelationExample(
-    @Property("property1", "type") var property1 : T,
+class OneToOneExample(
+    @Property("property1", "type") var property1 : Any,
     @OneToOne(ForeingKey("constraintName", "referencedTable", "referencedProperty")) var modelExample : ModelExample,
 )
 ```
+
+### One To Many
+
+```kotlin
+@Table
+class OneToManyExample(
+    @Property("property1", "type") var property1: Any,
+    @OneToMany(ForeignKey("constraintName", "referencedTable", "property1")) var examples : List<Example>
+)
+```
+*Note*: In this relation, the referenced property is from the class you just defined and not the relation class like it did before.
+Note also that this class does not have a table name, because it is optional.
+In this case, the table name will be `oneToManyExample`.
 
 ### Example
 

@@ -2,8 +2,10 @@ package database.statements
 
 import database.DatabaseExecutor
 import database.DatabaseHelper
+import database.DatabaseHelper.getPrimaryKeyOrNull
 import database.DatabaseManager
 import database.annotations.ForeignKey
+import database.annotations.OneToMany
 import database.annotations.OneToOne
 
 class Create : Query() {
@@ -44,10 +46,8 @@ class Create : Query() {
                     sqlQuery += " unique"
                 }
 
-                sqlQuery += if (properties.indexOf(it) == properties.size - 1)
-                    "\n);"
-                else
-                    ",\n"
+                sqlQuery += ",\n"
+
 
                 // creates a sequence in case of an auto increment attribute
                 if (it.propertyAnnotation!!.autoIncrement) {
@@ -56,7 +56,8 @@ class Create : Query() {
             }
         }
 
-        sqlQuery += "\n" + sequenceQuery + "\n"
+        sqlQuery = formatQuery(sqlQuery) + ");\n"
+        sqlQuery += sequenceQuery + "\n"
 
         return this
     }
@@ -85,12 +86,44 @@ class Create : Query() {
             when(it.relation) {
                 is OneToOne -> {
                     val relation = it.relation as OneToOne
-                    sqlQuery += createConstraint(relation.foreignKey, "id_${it.name}", true)
+                    sqlQuery += createConstraint(
+                            tableName,
+                            relation.foreignKey.constraintName,
+                            relation.foreignKey.referencedProperty,
+                            relation.foreignKey.referencedTable,
+                            "id_${it.name}",
+                            relation.foreignKey.deleteCascade,
+                            relation.foreignKey.updateCascade,
+                            true
+                    )
+                }
+
+                is OneToMany -> {
+                    val relation = it.relation as OneToMany
+                    val referencedProperty = getPrimaryKeyOrNull(properties)
+
+                    sqlQuery += createConstraint(
+                            relation.foreignKey.referencedTable,
+                            relation.foreignKey.constraintName,
+                            referencedProperty!!.name,
+                            tableName,
+                            relation.foreignKey.referencedProperty,
+                            relation.foreignKey.deleteCascade,
+                            relation.foreignKey.updateCascade
+                    )
                 }
 
                 is ForeignKey -> {
                     val relation = it.relation as ForeignKey
-                    sqlQuery += createConstraint(relation, it.name)
+                    sqlQuery += createConstraint(
+                            tableName,
+                            relation.constraintName,
+                            relation.referencedProperty,
+                            relation.referencedTable,
+                            it.name,
+                            relation.deleteCascade,
+                            relation.updateCascade
+                    )
                 }
             }
         }
@@ -98,29 +131,38 @@ class Create : Query() {
         return this
     }
 
-    private fun createConstraint(foreignKey: ForeignKey, propertyName: String, isRelation : Boolean = false) : String {
+    private fun createConstraint(
+            tableName: String,
+            constraintName : String,
+            referencedProperty : String,
+            referencedTable : String,
+            propertyName: String,
+            deleteCascade: Boolean,
+            updateCascade: Boolean,
+            createColumn : Boolean = false
+    ) : String {
         var sqlQuery = ""
 
         // verifies if the constraint already exists using pg_catalog
         val constraintQuery = "SELECT con.* FROM pg_catalog.pg_constraint con " +
-                "WHERE conname = '${foreignKey.constraintName}';"
+                "WHERE conname = '${constraintName}';"
 
         val result = DatabaseExecutor.execute(constraintQuery)
         // if it does not exists, it will creates the constraint
         if (result != null && !result.next()) {
 
-            if (isRelation)
-                sqlQuery += "ALTER TABLE $tableName ADD COLUMN $propertyName INT;\n"
+            if (createColumn)
+                sqlQuery += "\nALTER TABLE $tableName ADD COLUMN $propertyName INT;\n"
 
-            sqlQuery += "ALTER TABLE $tableName ADD CONSTRAINT ${foreignKey.constraintName}\n" +
+            sqlQuery += "\nALTER TABLE $tableName ADD CONSTRAINT ${constraintName}\n" +
                     "FOREIGN KEY ($propertyName)\n" +
-                    "REFERENCES ${foreignKey.referencedTable}(${foreignKey.referencedProperty})"
+                    "REFERENCES ${referencedTable}(${referencedProperty})"
 
-            if (foreignKey.deleteCascade) {
+            if (deleteCascade) {
                 sqlQuery += " ON DELETE CASCADE"
             }
 
-            if (foreignKey.updateCascade) {
+            if (updateCascade) {
                 sqlQuery += " ON UPDATE CASCADE"
             }
 

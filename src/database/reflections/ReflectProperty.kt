@@ -1,6 +1,7 @@
 package database.reflections
 
 import database.annotations.ForeignKey
+import database.annotations.OneToMany
 import database.annotations.OneToOne
 import database.annotations.Property
 import kotlin.reflect.KProperty1
@@ -18,7 +19,7 @@ class ReflectProperty(property : KProperty1<*, *>) {
 
     init {
         property.annotations.forEach {
-            if (it is OneToOne || it is ForeignKey)
+            if (it is OneToOne || it is ForeignKey || it is OneToMany)
                 relation = it
 
             if (it is Property)

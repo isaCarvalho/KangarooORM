@@ -1,7 +1,4 @@
-import database.annotations.ForeignKey
-import database.annotations.OneToOne
-import database.annotations.Property
-import database.annotations.Table
+import database.annotations.*
 
 @Table("users")
 class User(
@@ -15,6 +12,10 @@ class User(
         @OneToOne(ForeignKey("fk_user_book", "books", "id", deleteCascade = true))
         var book : Book
 ) {
+
+    @OneToMany(ForeignKey("fk_user_task", "tasks", "id_user"))
+    lateinit var tasks : List<Task>
+
     override fun toString(): String {
         return "Name: $name\n" +
                 "id: $id\n" +

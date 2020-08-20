@@ -78,6 +78,7 @@ object DatabaseExecutor
     }
 
     private fun writeLog(message: String, ex: Exception, sqlQuery: String) {
+        ex.printStackTrace()
         if (showQueryLog)
             Logger.write(message, ex, sqlQuery)
         else

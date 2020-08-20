@@ -1090,3 +1090,380 @@ database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
 MainKt.main(main.kt:41)
 MainKt.main(main.kt)
+
+CREATE TABLE IF NOT EXISTS users (
+id int primary key not null,
+id_house int not null,
+name varchar(255) not null,
+
+CREATE SEQUENCE IF NOT EXISTS users_seq INCREMENT 1 MINVALUE 1 START 1;
+ALTER TABLE users ALTER COLUMN id SET DEFAULT nextval('users_seq');
+
+ALTER TABLE users ADD COLUMN id_book INT;
+ALTER TABLE users ADD CONSTRAINT fk_user_book
+FOREIGN KEY (id_book)
+REFERENCES books(id) ON DELETE CASCADE ON UPDATE CASCADE;ALTER TABLE users ADD CONSTRAINT fk_user_house
+FOREIGN KEY (id_house)
+REFERENCES houses(id) ON DELETE CASCADE ON UPDATE CASCADE;ALTER TABLE tasks ADD COLUMN id_user INT;
+ALTER TABLE tasks ADD CONSTRAINT fk_user_task
+FOREIGN KEY (id_user)
+REFERENCES users(id) ON UPDATE CASCADE;
+
+20-08-2020 15:09:02 - SQL query throws an exception: - ERROR: syntax error at or near "CREATE"
+  Posição: 117
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
+database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
+database.statements.Create.execute(Create.kt:203)
+database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+MainKt.main(main.kt:39)
+MainKt.main(main.kt)
+
+CREATE TABLE IF NOT EXISTS users (
+id int primary key not null,
+id_house int not null,
+name varchar(255) not null,
+
+CREATE SEQUENCE IF NOT EXISTS users_seq INCREMENT 1 MINVALUE 1 START 1;
+ALTER TABLE users ALTER COLUMN id SET DEFAULT nextval('users_seq');
+
+ALTER TABLE users ADD COLUMN id_book INT;
+ALTER TABLE users ADD CONSTRAINT fk_user_book
+FOREIGN KEY (id_book)
+REFERENCES books(id) ON DELETE CASCADE ON UPDATE CASCADE;ALTER TABLE users ADD CONSTRAINT fk_user_house
+FOREIGN KEY (id_house)
+REFERENCES houses(id) ON DELETE CASCADE ON UPDATE CASCADE;ALTER TABLE tasks ADD CONSTRAINT fk_user_task
+FOREIGN KEY (id_user)
+REFERENCES users(id) ON UPDATE CASCADE;
+
+20-08-2020 15:10:44 - SQL query throws an exception: - ERROR: syntax error at or near "CREATE"
+  Posição: 117
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
+database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
+database.statements.Create.execute(Create.kt:202)
+database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+MainKt.main(main.kt:39)
+MainKt.main(main.kt)
+
+CREATE TABLE IF NOT EXISTS users (
+id int primary key not null,
+id_house int not null,
+name varchar(255) not null,
+
+CREATE SEQUENCE IF NOT EXISTS users_seq INCREMENT 1 MINVALUE 1 START 1;
+ALTER TABLE users ALTER COLUMN id SET DEFAULT nextval('users_seq');
+
+
+ALTER TABLE users ADD COLUMN id_book INT;
+ALTER TABLE users ADD CONSTRAINT fk_user_book
+FOREIGN KEY (id_book)
+REFERENCES books(id) ON DELETE CASCADE ON UPDATE CASCADE;ALTER TABLE users ADD CONSTRAINT fk_user_house
+FOREIGN KEY (id_house)
+REFERENCES houses(id) ON DELETE CASCADE ON UPDATE CASCADE;ALTER TABLE tasks ADD CONSTRAINT fk_user_task
+FOREIGN KEY (id_user)
+REFERENCES users(id) ON UPDATE CASCADE;
+
+20-08-2020 15:12:21 - SQL query throws an exception: - ERROR: syntax error at or near "CREATE"
+  Posição: 117
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
+database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
+database.statements.Create.execute(Create.kt:202)
+database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+MainKt.main(main.kt:42)
+MainKt.main(main.kt)
+
+CREATE TABLE IF NOT EXISTS users (
+id int primary key not null,
+id_house int not null,
+name varchar(255) not null,
+
+CREATE SEQUENCE IF NOT EXISTS users_seq INCREMENT 1 MINVALUE 1 START 1;
+ALTER TABLE users ALTER COLUMN id SET DEFAULT nextval('users_seq');
+
+
+ALTER TABLE users ADD COLUMN id_book INT;
+ALTER TABLE users ADD CONSTRAINT fk_user_book
+FOREIGN KEY (id_book)
+REFERENCES books(id) ON DELETE CASCADE ON UPDATE CASCADE;ALTER TABLE users ADD CONSTRAINT fk_user_house
+FOREIGN KEY (id_house)
+REFERENCES houses(id) ON DELETE CASCADE ON UPDATE CASCADE;ALTER TABLE tasks ADD CONSTRAINT fk_user_task
+FOREIGN KEY (id_user)
+REFERENCES users(id) ON UPDATE CASCADE;
+
+20-08-2020 15:15:20 - SQL query throws an exception: - ERROR: syntax error at or near "CREATE"
+  Posição: 117
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
+database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
+database.statements.Create.execute(Create.kt:202)
+database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+MainKt.main(main.kt:42)
+MainKt.main(main.kt)
+
+CREATE TABLE IF NOT EXISTS houses (
+address varchar(255) not null,
+id int primary key not null,
+CREATE TABLE IF NOT EXISTS houses (
+address varchar(255) not null,
+id int primary key not null);
+CREATE SEQUENCE IF NOT EXISTS houses_seq INCREMENT 1 MINVALUE 1 START 1;
+ALTER TABLE houses ALTER COLUMN id SET DEFAULT nextval('houses_seq');
+
+20-08-2020 15:20:37 - SQL query throws an exception: - ERROR: syntax error at or near "CREATE"
+  Posição: 97
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
+database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
+database.statements.Create.execute(Create.kt:200)
+database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+MainKt.main(main.kt:21)
+MainKt.main(main.kt)
+
+CREATE TABLE IF NOT EXISTS author (
+id int primary key not null,
+name varchar(255) not null,
+CREATE TABLE IF NOT EXISTS author (
+id int primary key not null,
+name varchar(255) not null);
+
+20-08-2020 15:20:37 - SQL query throws an exception: - ERROR: syntax error at or near "CREATE"
+  Posição: 94
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
+database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
+database.statements.Create.execute(Create.kt:200)
+database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+MainKt.main(main.kt:27)
+MainKt.main(main.kt)
+
+CREATE TABLE IF NOT EXISTS books (
+description varchar(255) not null,
+id int primary key not null,
+CREATE TABLE IF NOT EXISTS books (
+description varchar(255) not null,
+id int primary key not null);
+CREATE SEQUENCE IF NOT EXISTS books_seq INCREMENT 1 MINVALUE 1 START 1;
+ALTER TABLE books ALTER COLUMN id SET DEFAULT nextval('books_seq');
+
+20-08-2020 15:20:37 - SQL query throws an exception: - ERROR: syntax error at or near "CREATE"
+  Posição: 100
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
+database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
+database.statements.Create.execute(Create.kt:200)
+database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+MainKt.main(main.kt:32)
+MainKt.main(main.kt)
+
+CREATE TABLE IF NOT EXISTS tasks (
+id int primary key not null,
+id_user int not null,
+CREATE TABLE IF NOT EXISTS tasks (
+id int primary key not null,
+id_user int not null);
+
+20-08-2020 15:20:38 - SQL query throws an exception: - ERROR: syntax error at or near "CREATE"
+  Posição: 87
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
+database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
+database.statements.Create.execute(Create.kt:200)
+database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+MainKt.main(main.kt:36)
+MainKt.main(main.kt)
+
+CREATE TABLE IF NOT EXISTS users (
+id int primary key not null,
+id_house int not null,
+name varchar(255) not null,
+CREATE TABLE IF NOT EXISTS users (
+id int primary key not null,
+id_house int not null,
+name varchar(255) not null);
+CREATE SEQUENCE IF NOT EXISTS users_seq INCREMENT 1 MINVALUE 1 START 1;
+ALTER TABLE users ALTER COLUMN id SET DEFAULT nextval('users_seq');
+
+
+ALTER TABLE users ADD COLUMN id_book INT;
+
+ALTER TABLE users ADD CONSTRAINT fk_user_book
+FOREIGN KEY (id_book)
+REFERENCES books(id) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE users ADD CONSTRAINT fk_user_house
+FOREIGN KEY (id_house)
+REFERENCES houses(id) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE tasks ADD CONSTRAINT fk_user_task
+FOREIGN KEY (id_user)
+REFERENCES users(id) ON UPDATE CASCADE;
+
+20-08-2020 15:20:38 - SQL query throws an exception: - ERROR: syntax error at or near "CREATE"
+  Posição: 116
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
+database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
+database.statements.Create.execute(Create.kt:200)
+database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+MainKt.main(main.kt:42)
+MainKt.main(main.kt)
+
+DROP TABLE IF EXISTS users;
+DROP SEQUENCE IF EXISTS users_seq;
+
+20-08-2020 15:26:41 - SQL query throws an exception: - ERROR: cannot drop table users because other objects depend on it
+  Detalhe: constraint fk_user_task on table tasks depends on table users
+  Dica: Use DROP ... CASCADE to drop the dependent objects too.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
+database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
+database.statements.Drop.execute(Drop.kt:41)
+database.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
+MainKt.main(main.kt:63)
+MainKt.main(main.kt)
+
+DROP TABLE IF EXISTS books;
+DROP SEQUENCE IF EXISTS books_seq;
+
+20-08-2020 15:26:41 - SQL query throws an exception: - ERROR: cannot drop table books because other objects depend on it
+  Detalhe: constraint fk_user_book on table users depends on table books
+  Dica: Use DROP ... CASCADE to drop the dependent objects too.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
+database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
+database.statements.Drop.execute(Drop.kt:41)
+database.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
+MainKt.main(main.kt:64)
+MainKt.main(main.kt)
+
+DROP TABLE IF EXISTS houses;
+DROP SEQUENCE IF EXISTS houses_seq;
+
+20-08-2020 15:26:41 - SQL query throws an exception: - ERROR: cannot drop table houses because other objects depend on it
+  Detalhe: constraint fk_user_house on table users depends on table houses
+  Dica: Use DROP ... CASCADE to drop the dependent objects too.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
+database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
+database.statements.Drop.execute(Drop.kt:41)
+database.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
+MainKt.main(main.kt:65)
+MainKt.main(main.kt)
+
+DROP TABLE IF EXISTS author;
+DROP SEQUENCE IF EXISTS author_seq;
+
+20-08-2020 15:26:41 - SQL query throws an exception: - ERROR: cannot drop table author because other objects depend on it
+  Detalhe: constraint fk_book_author on table books depends on table author
+  Dica: Use DROP ... CASCADE to drop the dependent objects too.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
+database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
+database.statements.Drop.execute(Drop.kt:41)
+database.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
+MainKt.main(main.kt:66)
+MainKt.main(main.kt)

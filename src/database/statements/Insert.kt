@@ -64,7 +64,7 @@ class Insert : Query()
         databaseManager.reflectClass.members.forEach {
             sqlQuery += "${it.name}, "
         }
-        sqlQuery = "${formatInsert(sqlQuery)}) VALUES \n("
+        sqlQuery = "${formatQuery(sqlQuery)}) VALUES \n("
 
         // sets the values
         databaseManager.reflectClass.members.forEach {
@@ -93,14 +93,9 @@ class Insert : Query()
             sqlQuery += "${checkTypes(propType.toString().replace("kotlin.", ""), value.toString())}, "
         }
 
-        sqlQuery = "${formatInsert(sqlQuery)});"
+        sqlQuery = "${formatQuery(sqlQuery)});"
         execute()
 
         return this
-    }
-
-    private val formatInsert = { query : String ->
-        // removes the last comma
-        query.take(query.length - 2)
     }
 }

@@ -33,14 +33,11 @@ class Update : Query() {
                 val prop = it as KMutableProperty1<Any, *>
                 val value = prop.get(entity)
 
-                sqlQuery += "${it.name} = "
-                sqlQuery += checkTypes(property.type, value.toString())
-
-                if (databaseManager.reflectClass.members.indexOf(it) != databaseManager.reflectClass.members.size -1) {
-                    sqlQuery+= ", "
-                }
+                sqlQuery += "${it.name} = ${checkTypes(property.type, value.toString())}, "
             }
         }
+
+        sqlQuery = formatQuery(sqlQuery)
 
         // searches for the primary key for the where statement
         databaseManager.reflectClass.members.forEach {

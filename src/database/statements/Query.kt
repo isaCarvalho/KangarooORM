@@ -21,4 +21,9 @@ abstract class Query
     abstract fun setDatabaseManager(databaseManager: DatabaseManager) : Query
 
     abstract fun execute()
+
+    val formatQuery = { query : String ->
+        // removes the last comma
+        query.take(query.length - 2)
+    }
 }

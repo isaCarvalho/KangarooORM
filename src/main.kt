@@ -45,14 +45,14 @@ fun main() {
     println(userQuery.selectAll("true"))
 
     userQuery.delete(user)
-//        .update(user)
-//
-//
-//    println(userQuery.count())
-//    println(userQuery.maxInt("id"))
-//    println(userQuery.minInt("id"))
-//    println(userQuery.sumInt("id"))
-//    println(userQuery.avg("id"))
+        .update(user)
+
+
+    println(userQuery.count())
+    println(userQuery.maxInt("id"))
+    println(userQuery.minInt("id"))
+    println(userQuery.sumInt("id"))
+    println(userQuery.avg("id"))
 
     println(houseQuery.selectAll("true"))
 

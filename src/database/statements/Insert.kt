@@ -56,24 +56,18 @@ class Insert : Query()
         DatabaseExecutor.executeOperation(sqlQuery, true)
     }
 
-    fun insert(entity : Any, type : KType) : Insert {
-
-        // gets the table's name
-        val table = ReflectClass(entity::class).tableName
+    fun insert(entity : Any) : Insert {
 
         sqlQuery = "INSERT INTO $tableName ("
 
-        // gets the declared members of the entity
-        val members = entity::class.declaredMemberProperties
-
         // for each entity property
-        members.forEach {
+        databaseManager.reflectClass.members.forEach {
             sqlQuery += "${it.name}, "
         }
         sqlQuery = "${formatInsert(sqlQuery)}) VALUES \n("
 
         // sets the values
-        members.forEach {
+        databaseManager.reflectClass.members.forEach {
             var propType = it.returnType
 
             // gets the members values: ex: user's id
@@ -100,14 +94,9 @@ class Insert : Query()
         }
 
         sqlQuery = "${formatInsert(sqlQuery)});"
+        execute()
 
-        try {
-            execute()
-        } catch (ex: Exception) {
-            Logger.write("Insert throws an exception: ", ex)
-        } finally {
-            return this
-        }
+        return this
     }
 
     private val formatInsert = { query : String ->

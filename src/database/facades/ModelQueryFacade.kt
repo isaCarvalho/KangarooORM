@@ -69,7 +69,7 @@ class ModelQueryFacade(cls : KClass<*>)
      */
     fun insert(entity : Any) : ModelQueryFacade {
         Insert().setDatabaseManager(databaseManager)
-                .insert(entity, databaseManager.reflectClass.type)
+                .insert(entity)
 
         return this
     }

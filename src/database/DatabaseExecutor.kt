@@ -1,5 +1,6 @@
 package database
 
+import database.logger.Logger
 import java.lang.NullPointerException
 import java.sql.ResultSet
 import java.sql.SQLException
@@ -34,9 +35,9 @@ object DatabaseExecutor
             // closes the connection
             DatabaseConfig.close()
         } catch (ex : SQLException) {
-            ex.printStackTrace()
+            Logger.write("SQL query throws an exception:", ex)
         } catch (ex : NullPointerException) {
-            ex.printStackTrace()
+            Logger.write("Null pointer exception:", ex)
         } finally {
             return resultSet
         }
@@ -63,9 +64,9 @@ object DatabaseExecutor
 
             DatabaseConfig.close()
         } catch (ex : SQLException) {
-            ex.printStackTrace()
+            Logger.write("SQL query throws an exception:", ex)
         } catch (ex : NullPointerException) {
-            ex.printStackTrace()
+            Logger.write("Null pointer exception:", ex)
         }
     }
 

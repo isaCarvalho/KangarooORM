@@ -2,9 +2,15 @@ package database.statements
 
 import database.DatabaseHelper.checkTypes
 import database.DatabaseExecutor
+import database.DatabaseHelper.getMappedOneToOneOrNull
 import database.DatabaseHelper.getMappedPropertyOrNull
+import database.DatabaseHelper.getPrimaryKeyOrNull
 import database.DatabaseManager
+import database.annotations.ForeignKey
+import database.reflections.ReflectClass
+import java.lang.Exception
 import kotlin.reflect.KMutableProperty1
+import kotlin.reflect.KProperty1
 
 class Delete : Query() {
 
@@ -20,27 +26,50 @@ class Delete : Query() {
      * Method that deletes an entity from the database
      * @param entity
      */
-    fun <T : Any> delete(entity : T) : Delete {
+    fun delete(entity : Any) : Delete {
+        val clazz = ReflectClass(entity::class)
+
         // initiates the query with the delete statements
-        sqlQuery = "DELETE FROM $tableName WHERE "
+        var sqlQuery = "DELETE FROM ${clazz.tableName} WHERE "
 
-        databaseManager.reflectClass.members.forEach {
-            val property = getMappedPropertyOrNull(it.name, properties)
+        // deletes the entity's relations
+        clazz.members.forEach {
+            it as KProperty1<Any, *>
+            val value  = it.get(entity)
 
-            // checks if the member is a mapped property
-            if (property != null) {
-                val prop = it as KMutableProperty1<T, *>
-                val value = prop.get(entity)
+            val relation = getMappedOneToOneOrNull(it.name, clazz.properties)
+            if (relation != null && relation.foreignKey.deleteCascade)
+            {
+                delete(value!!)
+            }
 
-                sqlQuery += "${it.name} = "
-                sqlQuery += checkTypes(property.type, value.toString())
+            val foreign = it.annotations.find { ann -> ann is ForeignKey }
+            if (foreign != null) {
+                foreign as ForeignKey
 
-                if (databaseManager.reflectClass.members.indexOf(it) != databaseManager.reflectClass.members.size -1) {
-                    sqlQuery+= " AND "
+                if (foreign.deleteCascade) {
+                    delete(foreign.referencedTable, "${foreign.referencedProperty} = $value")
                 }
             }
         }
-        sqlQuery += ";"
+
+        // deletes the entity
+        val primaryKey = getPrimaryKeyOrNull(clazz.properties)
+        if (primaryKey != null) {
+            sqlQuery += "${primaryKey.name} = "
+
+            clazz.members.forEach {
+                if (it.name == primaryKey.name)
+                {
+                    it as KProperty1<Any, *>
+                    val primaryKeyValue = it.get(entity)
+
+                    sqlQuery += primaryKeyValue.toString()
+                }
+            }
+        }
+
+        DatabaseExecutor.executeOperation(sqlQuery)
 
         return this
     }

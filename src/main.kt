@@ -43,15 +43,18 @@ fun main() {
     println(userQuery.find(1))
     println(userQuery.select("id = 1"))
     println(userQuery.selectAll("true"))
+
+    userQuery.delete(user)
+//        .update(user)
 //
-//    userQuery.update(user)
-//            .delete(user)
 //
 //    println(userQuery.count())
 //    println(userQuery.maxInt("id"))
 //    println(userQuery.minInt("id"))
 //    println(userQuery.sumInt("id"))
 //    println(userQuery.avg("id"))
+
+    println(houseQuery.selectAll("true"))
 
     // dropping the tables
     userQuery.dropTable()

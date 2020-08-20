@@ -124,3 +124,969 @@ database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
 MainKt.main(main.kt:41)
 MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+20-08-2020 12:56:56 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:22)
+MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 2', 2);
+
+20-08-2020 12:56:56 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:23)
+MainKt.main(main.kt)
+
+INSERT INTO author (id, name) VALUES 
+(1, 'Halliday');
+
+20-08-2020 12:56:56 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "author_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:28)
+MainKt.main(main.kt)
+
+INSERT INTO books (id_author, description, id) VALUES 
+(1, 'Fundamentos da Fisica 1', 1);
+
+20-08-2020 12:56:57 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "books_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:33)
+MainKt.main(main.kt)
+
+INSERT INTO users (id_book, id, id_house, name) VALUES 
+(1, 1, 1, 'User 1');
+
+20-08-2020 12:56:57 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:40)
+MainKt.main(main.kt)
+
+INSERT INTO users (id_book, id, id_house, name) VALUES 
+(1, 2, 2, 'User 2');
+
+20-08-2020 12:56:57 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:41)
+MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+20-08-2020 12:57:57 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:22)
+MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 2', 2);
+
+20-08-2020 12:57:57 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:23)
+MainKt.main(main.kt)
+
+INSERT INTO author (id, name) VALUES 
+(1, 'Halliday');
+
+20-08-2020 12:57:58 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "author_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:28)
+MainKt.main(main.kt)
+
+INSERT INTO books (id_author, description, id) VALUES 
+(1, 'Fundamentos da Fisica 1', 1);
+
+20-08-2020 12:57:58 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "books_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:33)
+MainKt.main(main.kt)
+
+INSERT INTO users (id_book, id, id_house, name) VALUES 
+(1, 1, 1, 'User 1');
+
+20-08-2020 12:57:58 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:40)
+MainKt.main(main.kt)
+
+INSERT INTO users (id_book, id, id_house, name) VALUES 
+(1, 2, 2, 'User 2');
+
+20-08-2020 12:57:58 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:41)
+MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+20-08-2020 12:59:35 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:22)
+MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 2', 2);
+
+20-08-2020 12:59:35 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:23)
+MainKt.main(main.kt)
+
+INSERT INTO author (id, name) VALUES 
+(1, 'Halliday');
+
+20-08-2020 12:59:35 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "author_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:28)
+MainKt.main(main.kt)
+
+INSERT INTO books (id_author, description, id) VALUES 
+(1, 'Fundamentos da Fisica 1', 1);
+
+20-08-2020 12:59:35 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "books_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:33)
+MainKt.main(main.kt)
+
+INSERT INTO users (id_book, id, id_house, name) VALUES 
+(1, 1, 1, 'User 1');
+
+20-08-2020 12:59:36 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:40)
+MainKt.main(main.kt)
+
+INSERT INTO users (id_book, id, id_house, name) VALUES 
+(1, 2, 2, 'User 2');
+
+20-08-2020 12:59:36 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:41)
+MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+20-08-2020 13:00:07 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:22)
+MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 2', 2);
+
+20-08-2020 13:00:07 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:23)
+MainKt.main(main.kt)
+
+INSERT INTO author (id, name) VALUES 
+(1, 'Halliday');
+
+20-08-2020 13:00:08 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "author_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:28)
+MainKt.main(main.kt)
+
+INSERT INTO books (id_author, description, id) VALUES 
+(1, 'Fundamentos da Fisica 1', 1);
+
+20-08-2020 13:00:08 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "books_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:33)
+MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+20-08-2020 13:00:28 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:22)
+MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 2', 2);
+
+20-08-2020 13:00:28 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:23)
+MainKt.main(main.kt)
+
+INSERT INTO author (id, name) VALUES 
+(1, 'Halliday');
+
+20-08-2020 13:00:28 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "author_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:28)
+MainKt.main(main.kt)
+
+INSERT INTO books (id_author, description, id) VALUES 
+(1, 'Fundamentos da Fisica 1', 1);
+
+20-08-2020 13:00:28 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "books_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:33)
+MainKt.main(main.kt)
+
+INSERT INTO users (id_book, id, id_house, name) VALUES 
+(1, 1, 1, 'User 1');
+
+20-08-2020 13:00:28 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:40)
+MainKt.main(main.kt)
+
+INSERT INTO users (id_book, id, id_house, name) VALUES 
+(1, 2, 2, 'User 2');
+
+20-08-2020 13:00:28 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:41)
+MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+20-08-2020 13:00:51 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:22)
+MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 2', 2);
+
+20-08-2020 13:00:52 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:23)
+MainKt.main(main.kt)
+
+INSERT INTO author (id, name) VALUES 
+(1, 'Halliday');
+
+20-08-2020 13:00:52 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "author_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:28)
+MainKt.main(main.kt)
+
+INSERT INTO books (id_author, description, id) VALUES 
+(1, 'Fundamentos da Fisica 1', 1);
+
+20-08-2020 13:00:52 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "books_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:33)
+MainKt.main(main.kt)
+
+INSERT INTO users (id_book, id, id_house, name) VALUES 
+(1, 1, 1, 'User 1');
+
+20-08-2020 13:00:52 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:40)
+MainKt.main(main.kt)
+
+INSERT INTO users (id_book, id, id_house, name) VALUES 
+(1, 2, 2, 'User 2');
+
+20-08-2020 13:00:52 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:41)
+MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+20-08-2020 13:01:48 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:22)
+MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 2', 2);
+
+20-08-2020 13:01:48 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:23)
+MainKt.main(main.kt)
+
+INSERT INTO author (id, name) VALUES 
+(1, 'Halliday');
+
+20-08-2020 13:01:48 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "author_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:28)
+MainKt.main(main.kt)
+
+INSERT INTO books (id_author, description, id) VALUES 
+(1, 'Fundamentos da Fisica 1', 1);
+
+20-08-2020 13:01:48 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "books_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:33)
+MainKt.main(main.kt)
+
+INSERT INTO users (id_book, id, id_house, name) VALUES 
+(1, 1, 1, 'User 1');
+
+20-08-2020 13:01:49 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:40)
+MainKt.main(main.kt)
+
+INSERT INTO users (id_book, id, id_house, name) VALUES 
+(1, 2, 2, 'User 2');
+
+20-08-2020 13:01:49 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:41)
+MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+20-08-2020 13:52:32 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:22)
+MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 2', 2);
+
+20-08-2020 13:52:32 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:23)
+MainKt.main(main.kt)
+
+INSERT INTO author (id, name) VALUES 
+(1, 'Halliday');
+
+20-08-2020 13:52:32 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "author_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:28)
+MainKt.main(main.kt)
+
+INSERT INTO books (id_author, description, id) VALUES 
+(1, 'Fundamentos da Fisica 1', 1);
+
+20-08-2020 13:52:33 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "books_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:33)
+MainKt.main(main.kt)
+
+INSERT INTO users (id_book, id, id_house, name) VALUES 
+(1, 1, 1, 'User 1');
+
+20-08-2020 13:52:33 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:40)
+MainKt.main(main.kt)
+
+INSERT INTO users (id_book, id, id_house, name) VALUES 
+(1, 2, 2, 'User 2');
+
+20-08-2020 13:52:33 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+database.statements.Insert.execute(Insert.kt:56)
+database.statements.Insert.insert(Insert.kt:97)
+database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+MainKt.main(main.kt:41)
+MainKt.main(main.kt)

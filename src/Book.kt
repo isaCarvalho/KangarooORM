@@ -5,4 +5,8 @@ import database.annotations.Table
 class Book (
         @Property("id", "int", true, autoIncrement = true) var id : Int,
         @Property("description", "varchar", size = 255) var description : String
-)
+) {
+    override fun toString(): String {
+        return "id: $id\ndescription: $description"
+    }
+}

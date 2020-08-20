@@ -29,8 +29,8 @@ fun main() {
             .insert(book)
 
     // Creating the users
-    val user = User(1, "User 1", book, 1)
-    val user2 = User(2, "User 2", book, 2)
+    val user = User(1, "User 1", 1 , book)
+    val user2 = User(2, "User 2", 2, book)
 
     val userQuery = ModelQueryFacade(User::class)
             .insert(user)
@@ -39,18 +39,18 @@ fun main() {
     println(userQuery.find(1))
     println(userQuery.select("id = 1"))
     println(userQuery.selectAll("true"))
-
-    userQuery.update(user)
-            .delete(user)
-
-    println(userQuery.count())
-    println(userQuery.maxInt("id"))
-    println(userQuery.minInt("id"))
-    println(userQuery.sumInt("id"))
-    println(userQuery.avg("id"))
+//
+//    userQuery.update(user)
+//            .delete(user)
+//
+//    println(userQuery.count())
+//    println(userQuery.maxInt("id"))
+//    println(userQuery.minInt("id"))
+//    println(userQuery.sumInt("id"))
+//    println(userQuery.avg("id"))
 
     // dropping the tables
-//    userQuery.dropTable()
-//    bookQuery.dropTable()
-//    houseQuery.dropTable()
+    userQuery.dropTable()
+    bookQuery.dropTable()
+    houseQuery.dropTable()
 }

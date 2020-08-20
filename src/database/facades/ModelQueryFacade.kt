@@ -10,7 +10,7 @@ class ModelQueryFacade(cls : KClass<*>)
      * Database Manager instance. Contains the table and properties' information.
      */
     private val databaseManager = DatabaseManager()
-    val selectObject = Select().setDatabaseManager(databaseManager)
+    private val selectObject = Select().setDatabaseManager(databaseManager)
 
     init {
         // sets the entity passed
@@ -69,8 +69,7 @@ class ModelQueryFacade(cls : KClass<*>)
      */
     fun insert(entity : Any) : ModelQueryFacade {
         Insert().setDatabaseManager(databaseManager)
-                .insert(entity)
-                .execute()
+                .insert(entity, databaseManager.reflectClass.type)
 
         return this
     }

@@ -1,3 +1,5 @@
+package exampleModel.model
+
 import database.annotations.Property
 import database.annotations.Table
 

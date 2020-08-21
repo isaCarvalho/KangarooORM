@@ -1,3 +1,5 @@
+package exampleModel.model
+
 import database.annotations.ForeignKey
 import database.annotations.OneToOne
 import database.annotations.Property

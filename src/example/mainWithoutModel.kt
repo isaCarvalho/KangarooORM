@@ -1,3 +1,5 @@
+package example
+
 import database.DatabaseConfig
 import database.facades.QueryFacade
 

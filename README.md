@@ -123,9 +123,9 @@ create an instance of the class `ModelQueryFacade` passing the model class you w
 to map. Do as follows:
 
 ```kotlin
-fun main() {
+fun exampleModel.example.main() {
 
-    DatabaseConfig.setConfiguration("host", 1234, "user", "password", "example", false)
+    DatabaseConfig.setConfiguration("host", 1234, "user", "password", "exampleModel", false)
 
     val model = ModelExample(exampleProp1, exampleProp2, exampleProp3)
     
@@ -180,9 +180,9 @@ fun main() {
 ### Example
 
 ```kotlin
-fun main() {
+fun exampleModel.example.main() {
 
-    DatabaseConfig.setConfiguration("host", 1234, "user", "password", "example", false)
+    DatabaseConfig.setConfiguration("host", 1234, "user", "password", "exampleModel", false)
 
     val examplesManager = QueryFacade("examples")
             .createTable(arrayOf(
@@ -190,9 +190,9 @@ fun main() {
                     "name varchar(255)"
             ))
             .createSequence("id")
-            .insert(arrayOf("id", "name"), arrayOf("1", "'example 1'"))
-            .insert(arrayOf("id", "name"), arrayOf("2", "'example 2'"))
-            .insert(arrayOf("id", "name"), arrayOf("3", "'example 3'"))
+            .insert(arrayOf("id", "name"), arrayOf("1", "'exampleModel 1'"))
+            .insert(arrayOf("id", "name"), arrayOf("2", "'exampleModel 2'"))
+            .insert(arrayOf("id", "name"), arrayOf("3", "'exampleModel 3'"))
             .update(mutableMapOf(Pair("name", "'Example 3'")), "id = 3")
             .delete("id = 2")
 

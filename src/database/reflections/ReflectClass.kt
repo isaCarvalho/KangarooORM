@@ -5,7 +5,7 @@ import kotlin.reflect.KFunction
 import kotlin.reflect.full.declaredMemberProperties
 import kotlin.reflect.full.starProjectedType
 
-class ReflectClass(private val cls : KClass<*>) {
+class ReflectClass(val cls : KClass<*>) {
 
     val members by lazy {
         cls.declaredMemberProperties
@@ -18,7 +18,7 @@ class ReflectClass(private val cls : KClass<*>) {
     var tableName : String
 
     /** Constructor */
-    val primaryConstructor : KFunction<*> = cls::class.constructors.first()
+    val primaryConstructor : KFunction<Any> = cls::class.constructors.first()
 
     val type = cls.starProjectedType
 
@@ -28,7 +28,7 @@ class ReflectClass(private val cls : KClass<*>) {
     init {
 
         val table = cls.annotations.find { it is Table } as Table
-        this.tableName = if (table.name == "") cls.starProjectedType.toString().toLowerCase() else table.name
+        this.tableName = if (table.name == "") cls.simpleName!!.toLowerCase() else table.name
 
         // setting the properties
         this.members.forEach {

@@ -1,3 +1,5 @@
+package exampleModel.model
+
 import database.annotations.*
 
 @Table("users")
@@ -11,7 +13,7 @@ class User(
         var id_house : Int,
         @OneToOne(ForeignKey("fk_user_book", "books", "id", deleteCascade = true))
         var book : Book,
-        @OneToMany(ForeignKey("fk_user_task", "tasks", "id_user"))
+        @OneToMany(ForeignKey("fk_user_task", "tasks", "id_user", deleteCascade = true))
         var tasks : List<Task>
 ) {
     override fun toString(): String {

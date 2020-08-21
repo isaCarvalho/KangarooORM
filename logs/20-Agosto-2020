@@ -17,8 +17,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VA LUES 
 ('Street 2', 2);
@@ -38,8 +38,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VA LUES 
 (1, 'Halliday');
@@ -59,8 +59,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VA LUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -80,11 +80,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VA LUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 12:42:20 - SQL query throws an exception: - ERROR: syntax error at or near "VA"
   Posição: 49
@@ -101,11 +101,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:40)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:40)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VA LUES 
-(1, 2, 2, 'User 2');
+(1, 2, 2, 'exampleModel.model.User 2');
 
 20-08-2020 12:42:20 - SQL query throws an exception: - ERROR: syntax error at or near "VA"
   Posição: 49
@@ -122,8 +122,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:41)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:41)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -143,8 +143,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -164,8 +164,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -185,8 +185,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -206,11 +206,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 12:56:57 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(1) already exists.
@@ -227,11 +227,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:40)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:40)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 2, 2, 'User 2');
+(1, 2, 2, 'exampleModel.model.User 2');
 
 20-08-2020 12:56:57 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(2) already exists.
@@ -248,8 +248,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:41)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:41)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -269,8 +269,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -290,8 +290,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -311,8 +311,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -332,11 +332,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 12:57:58 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(1) already exists.
@@ -353,11 +353,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:40)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:40)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 2, 2, 'User 2');
+(1, 2, 2, 'exampleModel.model.User 2');
 
 20-08-2020 12:57:58 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(2) already exists.
@@ -374,8 +374,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:41)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:41)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -395,8 +395,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -416,8 +416,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -437,8 +437,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -458,11 +458,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 12:59:36 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(1) already exists.
@@ -479,11 +479,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:40)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:40)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 2, 2, 'User 2');
+(1, 2, 2, 'exampleModel.model.User 2');
 
 20-08-2020 12:59:36 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(2) already exists.
@@ -500,8 +500,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:41)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:41)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -521,8 +521,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -542,8 +542,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -563,8 +563,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -584,8 +584,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -605,8 +605,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -626,8 +626,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -647,8 +647,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -668,11 +668,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 13:00:28 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(1) already exists.
@@ -689,11 +689,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:40)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:40)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 2, 2, 'User 2');
+(1, 2, 2, 'exampleModel.model.User 2');
 
 20-08-2020 13:00:28 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(2) already exists.
@@ -710,8 +710,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:41)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:41)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -731,8 +731,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -752,8 +752,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -773,8 +773,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -794,11 +794,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 13:00:52 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(1) already exists.
@@ -815,11 +815,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:40)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:40)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 2, 2, 'User 2');
+(1, 2, 2, 'exampleModel.model.User 2');
 
 20-08-2020 13:00:52 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(2) already exists.
@@ -836,8 +836,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:41)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:41)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -857,8 +857,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -878,8 +878,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -899,8 +899,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -920,11 +920,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 13:01:49 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(1) already exists.
@@ -941,11 +941,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:40)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:40)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 2, 2, 'User 2');
+(1, 2, 2, 'exampleModel.model.User 2');
 
 20-08-2020 13:01:49 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(2) already exists.
@@ -962,8 +962,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:41)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:41)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -983,8 +983,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -1004,8 +1004,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -1025,8 +1025,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -1046,11 +1046,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 13:52:33 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(1) already exists.
@@ -1067,11 +1067,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:40)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:40)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 2, 2, 'User 2');
+(1, 2, 2, 'exampleModel.model.User 2');
 
 20-08-2020 13:52:33 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(2) already exists.
@@ -1088,8 +1088,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:97)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:41)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:41)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -1124,8 +1124,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:203)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:39)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:39)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -1159,8 +1159,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:202)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:39)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:39)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -1195,8 +1195,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:202)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:42)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:42)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -1231,8 +1231,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:202)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:42)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:42)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS houses (
 address varchar(255) not null,
@@ -1258,8 +1258,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:200)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:21)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:21)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS author (
 id int primary key not null,
@@ -1283,8 +1283,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:200)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:27)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:27)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS books (
 description varchar(255) not null,
@@ -1310,8 +1310,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:200)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:32)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:32)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS tasks (
 id int primary key not null,
@@ -1335,8 +1335,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:200)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:36)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:36)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -1377,8 +1377,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:200)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:42)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:42)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 DROP TABLE IF EXISTS users;
 DROP SEQUENCE IF EXISTS users_seq;
@@ -1399,8 +1399,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Drop.execute(Drop.kt:41)
 database.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
-MainKt.main(main.kt:63)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:63)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 DROP TABLE IF EXISTS books;
 DROP SEQUENCE IF EXISTS books_seq;
@@ -1421,8 +1421,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Drop.execute(Drop.kt:41)
 database.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
-MainKt.main(main.kt:64)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:64)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 DROP TABLE IF EXISTS houses;
 DROP SEQUENCE IF EXISTS houses_seq;
@@ -1443,8 +1443,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Drop.execute(Drop.kt:41)
 database.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
-MainKt.main(main.kt:65)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:65)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 DROP TABLE IF EXISTS author;
 DROP SEQUENCE IF EXISTS author_seq;
@@ -1465,8 +1465,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Drop.execute(Drop.kt:41)
 database.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
-MainKt.main(main.kt:66)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:66)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -1503,8 +1503,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:201)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:43)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:43)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -1541,8 +1541,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:201)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:43)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:43)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -1579,8 +1579,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:201)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:43)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:43)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -1617,8 +1617,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:201)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:43)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:43)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -1655,8 +1655,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:201)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:43)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:43)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -1693,8 +1693,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:201)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:43)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:43)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -1731,8 +1731,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:201)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:43)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:43)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -1769,8 +1769,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:201)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:43)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:43)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -1807,8 +1807,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:201)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:43)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:43)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -1845,8 +1845,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:201)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:43)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:43)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -1883,8 +1883,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:201)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:43)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:43)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -1921,11 +1921,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:201)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:43)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:43)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 16:01:59 - SQL query throws an exception: - ERROR: relation "users" does not exist
   Posição: 13
@@ -1942,8 +1942,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:101)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:44)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:44)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 SELECT * FROM users WHERE true;
 
@@ -1961,8 +1961,8 @@ org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
 database.DatabaseExecutor.execute(DatabaseExecutor.kt:35)
 database.statements.Select.selectAll(Select.kt:93)
 database.facades.ModelQueryFacade.selectAll(ModelQueryFacade.kt:119)
-MainKt.main(main.kt:51)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:51)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -1999,11 +1999,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:201)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:43)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:43)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 16:03:15 - SQL query throws an exception: - ERROR: relation "users" does not exist
   Posição: 13
@@ -2020,8 +2020,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:101)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:44)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:44)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO tasks (id, id_user) VALUES 
 (1, 1);
@@ -2041,8 +2041,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:101)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:47)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:47)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 SELECT * FROM users WHERE true;
 
@@ -2060,8 +2060,8 @@ org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
 database.DatabaseExecutor.execute(DatabaseExecutor.kt:35)
 database.statements.Select.selectAll(Select.kt:93)
 database.facades.ModelQueryFacade.selectAll(ModelQueryFacade.kt:119)
-MainKt.main(main.kt:51)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:51)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -2098,11 +2098,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:201)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:43)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:43)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 16:04:05 - SQL query throws an exception: - ERROR: relation "users" does not exist
   Posição: 13
@@ -2119,8 +2119,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:44)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:44)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO tasks (id, id_user) VALUES 
 (1, 1);
@@ -2140,8 +2140,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:47)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:47)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 SELECT * FROM users WHERE true;
 
@@ -2159,8 +2159,8 @@ org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
 database.DatabaseExecutor.execute(DatabaseExecutor.kt:35)
 database.statements.Select.selectAll(Select.kt:93)
 database.facades.ModelQueryFacade.selectAll(ModelQueryFacade.kt:119)
-MainKt.main(main.kt:51)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:51)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -2197,8 +2197,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:201)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:43)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:43)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 SELECT * FROM users WHERE true;
 
@@ -2216,8 +2216,8 @@ org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
 database.DatabaseExecutor.execute(DatabaseExecutor.kt:35)
 database.statements.Select.selectAll(Select.kt:93)
 database.facades.ModelQueryFacade.selectAll(ModelQueryFacade.kt:119)
-MainKt.main(main.kt:51)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:51)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -2246,8 +2246,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:201)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:40)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:40)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -2276,8 +2276,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:201)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:43)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:43)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 CREATE TABLE IF NOT EXISTS users (
 id int primary key not null,
@@ -2306,11 +2306,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Create.execute(Create.kt:201)
 database.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
-MainKt.main(main.kt:43)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:43)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 16:15:08 - SQL query throws an exception: - ERROR: insert or update on table "users" violates foreign key constraint "fk_user_book"
   Detalhe: Key (id_book)=(1) is not present in table "books".
@@ -2327,11 +2327,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:44)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:44)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 16:25:14 - SQL query throws an exception: - ERROR: insert or update on table "users" violates foreign key constraint "fk_user_book"
   Detalhe: Key (id_book)=(1) is not present in table "books".
@@ -2348,8 +2348,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:44)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:44)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -2369,8 +2369,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -2390,8 +2390,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -2411,8 +2411,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -2432,11 +2432,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 16:31:59 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(1) already exists.
@@ -2453,8 +2453,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:44)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:44)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -2474,8 +2474,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -2495,8 +2495,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -2516,8 +2516,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -2537,11 +2537,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 16:32:46 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(1) already exists.
@@ -2558,8 +2558,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:44)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:44)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -2579,8 +2579,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -2600,8 +2600,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -2621,8 +2621,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -2642,11 +2642,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 17:07:12 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(1) already exists.
@@ -2663,8 +2663,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:44)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:44)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -2684,8 +2684,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -2705,8 +2705,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -2726,8 +2726,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -2747,11 +2747,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 17:08:54 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(1) already exists.
@@ -2768,8 +2768,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:44)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:44)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -2789,8 +2789,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -2810,8 +2810,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -2831,8 +2831,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -2852,11 +2852,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 17:09:26 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(1) already exists.
@@ -2873,8 +2873,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:44)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:44)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -2894,8 +2894,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -2915,8 +2915,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -2936,8 +2936,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -2957,11 +2957,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 17:10:00 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(1) already exists.
@@ -2978,8 +2978,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:44)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:44)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -2999,8 +2999,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -3020,8 +3020,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -3041,8 +3041,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -3062,11 +3062,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 17:10:36 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(1) already exists.
@@ -3083,8 +3083,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:44)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:44)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -3104,8 +3104,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -3125,8 +3125,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -3146,8 +3146,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -3167,11 +3167,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 17:12:06 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(1) already exists.
@@ -3188,8 +3188,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:44)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:44)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -3209,8 +3209,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -3230,8 +3230,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -3251,8 +3251,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -3272,11 +3272,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 17:12:46 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(1) already exists.
@@ -3293,8 +3293,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:44)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:44)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -3314,8 +3314,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -3335,8 +3335,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -3356,8 +3356,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -3377,11 +3377,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 17:15:29 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(1) already exists.
@@ -3398,8 +3398,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:44)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:44)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 1', 1);
@@ -3419,8 +3419,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:22)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:22)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO houses (address, id) VALUES 
 ('Street 2', 2);
@@ -3440,8 +3440,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:23)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:23)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO author (id, name) VALUES 
 (1, 'Halliday');
@@ -3461,8 +3461,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:28)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:28)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO books (id_author, description, id) VALUES 
 (1, 'Fundamentos da Fisica 1', 1);
@@ -3482,11 +3482,11 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:33)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:33)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 INSERT INTO users (id_book, id, id_house, name) VALUES 
-(1, 1, 1, 'User 1');
+(1, 1, 1, 'exampleModel.model.User 1');
 
 20-08-2020 17:17:40 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
   Detalhe: Key (id)=(1) already exists.
@@ -3503,8 +3503,8 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
 database.statements.Insert.execute(Insert.kt:56)
 database.statements.Insert.insert(Insert.kt:100)
 database.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
-MainKt.main(main.kt:44)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:44)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)
 
 DELETE FROM users WHERE id = 1
 
@@ -3523,5 +3523,5 @@ database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:65)
 database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:53)
 database.statements.Delete.delete(Delete.kt:51)
 database.facades.ModelQueryFacade.delete(ModelQueryFacade.kt:83)
-MainKt.main(main.kt:53)
-MainKt.main(main.kt)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt:53)
+MainKt.exampleModel.example.main(exampleModel.example.main.kt)

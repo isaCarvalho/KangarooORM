@@ -86,8 +86,8 @@ class Select : Query() {
 
     fun selectAll(where: String, type : KType) : List<Any>
     {
-        val clazz = type.jvmErasure
-        val tableName = ReflectClass(clazz).tableName
+        val clazz = ReflectClass(type.jvmErasure)
+        val tableName = clazz.tableName
 
         val query = "SELECT * FROM $tableName WHERE $where;"
 
@@ -98,10 +98,10 @@ class Select : Query() {
         while (result!!.next()) {
             val mapParameters = mutableMapOf<KParameter, Any>()
 
-            clazz.declaredMemberProperties.forEach {
+            clazz.members.forEach {
                 var annotations = it.annotations.find { annotation -> annotation is OneToOne }
 
-                val parameter = getMappedParameterOrNull(clazz.constructors.first(), it.name)
+                val parameter = getMappedParameterOrNull(clazz.cls.constructors.first(), it.name)
 
                 if (annotations != null) {
                     annotations as OneToOne
@@ -114,7 +114,7 @@ class Select : Query() {
                 if (annotations != null) {
                     annotations as OneToMany
 
-                    val whereRecursive = "id_${clazz.starProjectedType.toString().toLowerCase()} = " +
+                    val whereRecursive = "id_${clazz.cls.simpleName} = " +
                             "${result.getInt(getPrimaryKeyOrNull(properties)!!.name)}"
 
                     mapParameters[parameter!!] = selectAll(whereRecursive, it.returnType.arguments.first().type!!)
@@ -129,7 +129,7 @@ class Select : Query() {
                 }
             }
 
-            list.add(clazz.constructors.first().callBy(mapParameters))
+            list.add(clazz.cls.constructors.first().callBy(mapParameters))
         }
 
         return list

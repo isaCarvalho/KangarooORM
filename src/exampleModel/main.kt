@@ -1,5 +1,8 @@
+package exampleModel
+
 import database.DatabaseConfig
 import database.facades.ModelQueryFacade
+import exampleModel.model.*
 
 fun main() {
 
@@ -33,18 +36,30 @@ fun main() {
             .insert(book)
 
     // Creating the tasks
+    val taskList = ArrayList<Task>()
+
+    for (i in 1 until 10) {
+        taskList.add(Task(i, 1))
+    }
+
     val taskQuery = ModelQueryFacade(Task::class)
 
-
     // Creating the users
-    val user = User(1, "User 1", 1 , book, listOf(Task(1, 1)))
-    val user2 = User(2, "User 2", 2, book, listOf(Task(1, 1)))
+
+    val user = User(1, "User 1", 1, book, taskList.toList())
+    val user2 = User(2, "User 2", 2, book, listOf())
 
     val userQuery = ModelQueryFacade(User::class)
             .insert(user)
             .insert(user2)
 
-    taskQuery.insert(Task(1, 1))
+    // Inserting the tasks
+
+    for (task in taskList) {
+        taskQuery.insert(task)
+    }
+
+    // Selecting the users
 
     println(userQuery.find(1))
     println(userQuery.select("id = 1"))

@@ -17,43 +17,45 @@ fun main() {
         showQueryLog = true
     )
 
-    // Creating the houses
+    // Creating the tables
+
+    val houseQuery = ModelQueryFacade(House::class)
+    val authorQuery = ModelQueryFacade(Author::class)
+    val bookQuery = ModelQueryFacade(Book::class)
+    val taskQuery = ModelQueryFacade(Task::class)
+    val userQuery = ModelQueryFacade(User::class)
+
+    // Creating the objects
+
     val house = House(1, "Street 1")
     val house2 = House(2, "Street 2")
 
-    val houseQuery = ModelQueryFacade(House::class)
-            .insert(house)
-            .insert(house2)
-
-    // Creating author
     val author = Author(1, "Halliday")
-    val authorQuery = ModelQueryFacade(Author::class)
-            .insert(author)
 
-    // Creating the book
     val book = Book(1, "Fundamentos da Fisica 1", author)
-    val bookQuery = ModelQueryFacade(Book::class)
-            .insert(book)
 
-    // Creating the tasks
+    val user = User(1, "User 1", house.id, book, listOf())
+    val user2 = User(2, "User 2", house2.id, book, listOf())
+
     val taskList = ArrayList<Task>()
-
     for (i in 1 until 10) {
-        taskList.add(Task(i, 1))
+        taskList.add(Task(i, user.id))
     }
 
-    val taskQuery = ModelQueryFacade(Task::class)
+    user.tasks = taskList.toList()
 
-    // Creating the users
+    // Inserting the objects
 
-    val user = User(1, "User 1", 1, book, taskList.toList())
-    val user2 = User(2, "User 2", 2, book, listOf())
+    houseQuery.insert(house)
+        .insert(house2)
 
-    val userQuery = ModelQueryFacade(User::class)
-            .insert(user)
+
+    authorQuery.insert(author)
+
+    bookQuery.insert(book)
+
+    userQuery.insert(user)
             .insert(user2)
-
-    // Inserting the tasks
 
     for (task in taskList) {
         taskQuery.insert(task)
@@ -78,6 +80,7 @@ fun main() {
     println(houseQuery.selectAll("true"))
 
     // dropping the tables
+
     taskQuery.dropTable()
     userQuery.dropTable()
     bookQuery.dropTable()

@@ -4,12 +4,15 @@ import database.DatabaseHelper.checkTypes
 import database.DatabaseHelper.getMappedPropertyOrNull
 import database.DatabaseExecutor
 import database.DatabaseHelper.getMappedOneToOneOrNull
+import database.DatabaseHelper.getPrimaryKeyOrNull
 import database.DatabaseManager
 import database.logger.Logger
 import database.reflections.ReflectClass
 import java.lang.Exception
 import kotlin.reflect.*
 import kotlin.reflect.full.declaredMemberProperties
+import kotlin.reflect.full.declaredMembers
+import kotlin.reflect.full.starProjectedType
 
 class Insert : Query()
 {
@@ -52,52 +55,76 @@ class Insert : Query()
         return this
     }
 
+    private fun insertRecursive(entity : Any) : Any? {
+
+        val clazz = ReflectClass(entity::class)
+
+        // gets the primary key and primary value
+        var primaryValue : Any? = null
+        val primaryKey = getPrimaryKeyOrNull(clazz.properties)
+
+        // begins the insert statement
+        var query = "INSERT INTO ${clazz.tableName} ("
+
+        // for each entity property that is not a list
+        clazz.members.forEach {
+            if (!it.returnType.toString().contains("List"))
+                query += "${it.name}, "
+        }
+        query = "${formatQuery(query)}) VALUES \n("
+
+        // searches for one to one relations
+        clazz.members.forEach {
+
+            // gets the property type, like if it is an int or a object
+            var propType = it.returnType.toString()
+
+            // if the property is not a list, gets its value
+            if (!propType.contains("List")) {
+
+                it as KProperty1<Any, *>
+                var value = it.get(entity)
+
+                if (it.name == primaryKey!!.name)
+                    primaryValue = value
+
+                // if the value is an entity. ex: user's book
+                if (getMappedOneToOneOrNull(it.name, properties) != null && value != null) {
+                    // inserts the entity and returns its primary key value
+                    value = insertRecursive(value)
+
+                    if (value != null) {
+                        propType = value::class.simpleName!!
+                        query = query.replace(it.name, "id_${it.name}")
+                    }
+                }
+
+                query += "${checkTypes(propType.toLowerCase().replace("kotlin.", ""), value.toString())}, "
+            }
+        }
+
+        query = "${formatQuery(query)});"
+        DatabaseExecutor.executeOperation(query, true)
+
+        return if (primaryKey != null && primaryValue != null) {
+            val newValue = Select().select("${primaryKey.name} = $primaryValue", entity::class.starProjectedType)
+            newValue!!::class.declaredMemberProperties.forEach {
+                if (it.name == primaryKey.name) {
+                    it as KProperty1<Any, *>
+                    return it.get(newValue)
+                }
+            }
+        }
+        else
+            null
+    }
+
     override fun execute() {
         DatabaseExecutor.executeOperation(sqlQuery, true)
     }
 
     fun insert(entity : Any) : Insert {
-
-        sqlQuery = "INSERT INTO $tableName ("
-
-        // for each entity property
-        databaseManager.reflectClass.members.forEach {
-            if (!it.returnType.toString().contains("List"))
-                sqlQuery += "${it.name}, "
-        }
-        sqlQuery = "${formatQuery(sqlQuery)}) VALUES \n("
-
-        // sets the values
-        databaseManager.reflectClass.members.forEach {
-            var propType = it.returnType
-            if (!propType.toString().contains("List")) {
-
-                // gets the members values: ex: user's id
-                it as KProperty1<Any, *>
-                var value = it.get(entity)
-
-                // if the value is an entity. ex: user's book
-                if (getMappedOneToOneOrNull(it.name, properties) != null && value != null) {
-                    val valuesReflectProperties = ReflectClass(value::class).properties
-                    // gets the value of its primary key to insert
-                    value::class.declaredMemberProperties.forEach { prop ->
-                        val property = getMappedPropertyOrNull(prop.name, valuesReflectProperties)
-                        if (property != null && property.primaryKey) {
-                            prop as KProperty1<Any, *>
-                            value = prop.get(value!!)
-
-                            propType = prop.returnType
-                            sqlQuery = sqlQuery.replace(it.name, "id_${it.name}")
-                        }
-                    }
-                }
-
-                sqlQuery += "${checkTypes(propType.toString().replace("kotlin.", ""), value.toString())}, "
-            }
-        }
-
-        sqlQuery = "${formatQuery(sqlQuery)});"
-        execute()
+        insertRecursive(entity)
 
         return this
     }

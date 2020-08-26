@@ -50,34 +50,32 @@ fun main() {
         .insert(house2)
 
 
-    authorQuery.insert(author)
-
     bookQuery.insert(book)
 
-    userQuery.insert(user)
-            .insert(user2)
-
-    for (task in taskList) {
-        taskQuery.insert(task)
-    }
+//    userQuery.insert(user)
+//            .insert(user2)
+//
+//    for (task in taskList) {
+//        taskQuery.insert(task)
+//    }
 
     // Selecting the users
 
-    println(userQuery.find(1))
-    println(userQuery.select("id = 1"))
-    println(userQuery.selectAll("true"))
-
-    userQuery.delete(user)
-        .update(user)
-
-
-    println(userQuery.count())
-    println(userQuery.maxInt("id"))
-    println(userQuery.minInt("id"))
-    println(userQuery.sumInt("id"))
-    println(userQuery.avg("id"))
-
-    println(houseQuery.selectAll("true"))
+//    println(userQuery.find(1))
+//    println(userQuery.select("id = 1"))
+//    println(userQuery.selectAll("true"))
+//
+//    userQuery.delete(user)
+//        .update(user)
+//
+//
+//    println(userQuery.count())
+//    println(userQuery.maxInt("id"))
+//    println(userQuery.minInt("id"))
+//    println(userQuery.sumInt("id"))
+//    println(userQuery.avg("id"))
+//
+//    println(houseQuery.selectAll("true"))
 
     // dropping the tables
 

@@ -1,9 +1,9 @@
 package exampleModel.model
 
-import database.annotations.ForeignKey
-import database.annotations.OneToOne
-import database.annotations.Property
-import database.annotations.Table
+import com.kangaroo.annotations.ForeignKey
+import com.kangaroo.annotations.OneToOne
+import com.kangaroo.annotations.Property
+import com.kangaroo.annotations.Table
 
 @Table("books")
 class Book (
@@ -11,7 +11,7 @@ class Book (
         var id : Int,
         @Property("description", "varchar", size = 255)
         var description : String,
-        @OneToOne(ForeignKey("fk_book_author","author", "id"))
+        @OneToOne(ForeignKey("fk_book_author", "author", "id"))
         var author: Author
 ) {
     override fun toString(): String {

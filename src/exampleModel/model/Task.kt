@@ -1,7 +1,7 @@
 package exampleModel.model
 
-import database.annotations.Property
-import database.annotations.Table
+import com.kangaroo.annotations.Property
+import com.kangaroo.annotations.Table
 
 @Table("tasks")
 class Task(

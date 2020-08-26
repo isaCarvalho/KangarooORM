@@ -1,6 +1,6 @@
 package exampleModel.model
 
-import database.annotations.*
+import com.kangaroo.annotations.*
 
 @Table("users")
 class User(

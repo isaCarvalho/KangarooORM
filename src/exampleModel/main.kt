@@ -1,7 +1,7 @@
 package exampleModel
 
-import database.DatabaseConfig
-import database.facades.ModelQueryFacade
+import com.kangaroo.DatabaseConfig
+import com.kangaroo.facades.ModelQueryFacade
 import exampleModel.model.*
 
 fun main() {

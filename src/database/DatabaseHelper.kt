@@ -1,5 +1,6 @@
 package database
 
+import database.annotations.OneToMany
 import database.annotations.OneToOne
 import database.annotations.Property
 import database.reflections.ReflectProperty
@@ -65,6 +66,15 @@ object DatabaseHelper
         properties.forEach {
             if (it.name == name && it.relation != null && it.relation is OneToOne )
                 return it.relation as OneToOne
+        }
+
+        return null
+    }
+
+    fun getMappedOneToManyOrNull(name: String, properties: ArrayList<ReflectProperty>) : OneToMany? {
+        properties.forEach {
+            if (it.name == name && it.relation != null && it.relation is OneToMany )
+                return it.relation as OneToMany
         }
 
         return null

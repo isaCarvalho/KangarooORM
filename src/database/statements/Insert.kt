@@ -2,6 +2,7 @@ package database.statements
 
 import database.DatabaseHelper.checkTypes
 import database.DatabaseExecutor
+import database.DatabaseHelper.getMappedOneToManyOrNull
 import database.DatabaseHelper.getMappedOneToOneOrNull
 import database.DatabaseHelper.getPrimaryKeyOrNull
 import database.DatabaseManager
@@ -9,7 +10,6 @@ import database.annotations.Property
 import database.reflections.ReflectClass
 import kotlin.reflect.*
 import kotlin.reflect.full.declaredMemberProperties
-import kotlin.reflect.full.declaredMembers
 import kotlin.reflect.full.starProjectedType
 
 class Insert : Query()
@@ -89,7 +89,7 @@ class Insert : Query()
                 // if the value is an entity. ex: user's book
                 if (getMappedOneToOneOrNull(it.name, clazz.properties) != null && value != null) {
 
-                    var existinValue : Any? = null
+                    var existingValue : Any? = null
 
                     // checks if the entity already exists
                     val valuesPrimaryKey = getPrimaryKeyOrNull(ReflectClass(value::class).properties)
@@ -105,12 +105,12 @@ class Insert : Query()
                         }
 
                         if (valuesPrimaryKeyValue != null) {
-                            existinValue = getPrimaryKeysValue(valuesPrimaryKey, valuesPrimaryKeyValue!!, value)
+                            existingValue = getPrimaryKeysValue(valuesPrimaryKey, valuesPrimaryKeyValue!!, value)
                         }
                     }
 
                     // inserts the entity and returns its primary key value
-                    value = existinValue ?: insertRecursive(value)
+                    value = existingValue ?: insertRecursive(value)
 
                     if (value != null) {
                         propType = value::class.simpleName!!
@@ -125,10 +125,32 @@ class Insert : Query()
         query = "${formatQuery(query)});"
         DatabaseExecutor.executeOperation(query, true)
 
-        return if (primaryKey != null && primaryValue != null)
+        val newValue = if (primaryKey != null && primaryValue != null)
             getPrimaryKeysValue(primaryKey, primaryValue!!, entity)
         else
             null
+
+        if (newValue != null) {
+            // for each one to many relations
+            clazz.members.forEach {
+                if (getMappedOneToManyOrNull(it.name, clazz.properties) != null) {
+                    // gets the list
+                    it as KProperty1<Any, *>
+                    val propList = it.get(entity)
+
+                    if (propList != null) {
+                        propList as List<*>
+
+                        // for each property of the item
+                        propList.forEach { item ->
+                            insertRecursive(item!!)
+                        }
+                    }
+                }
+            }
+        }
+
+        return newValue
     }
 
     private fun getPrimaryKeysValue(primaryKey : Property, primaryValue : Any, entity : Any) : Any? {

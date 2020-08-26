@@ -34,15 +34,8 @@ fun main() {
 
     val book = Book(1, "Fundamentos da Fisica 1", author)
 
-    val user = User(1, "User 1", house.id, book, listOf())
+    val user = User(1, "User 1", house.id, book, listOf(Task(1, 1), Task(2, 1)))
     val user2 = User(2, "User 2", house2.id, book, listOf())
-
-    val taskList = ArrayList<Task>()
-    for (i in 1 until 10) {
-        taskList.add(Task(i, user.id))
-    }
-
-    user.tasks = taskList.toList()
 
     // Inserting the objects
 
@@ -53,28 +46,24 @@ fun main() {
 
     userQuery.insert(user)
             .insert(user2)
-//
-//    for (task in taskList) {
-//        taskQuery.insert(task)
-//    }
 
     // Selecting the users
 
     println(userQuery.find(1))
     println(userQuery.select("id = 1"))
     println(userQuery.selectAll("true"))
-//
-//    userQuery.delete(user)
-//        .update(user)
-//
-//
-//    println(userQuery.count())
-//    println(userQuery.maxInt("id"))
-//    println(userQuery.minInt("id"))
-//    println(userQuery.sumInt("id"))
-//    println(userQuery.avg("id"))
-//
-//    println(houseQuery.selectAll("true"))
+
+    userQuery.delete(user)
+        .update(user)
+
+
+    println(userQuery.count())
+    println(userQuery.maxInt("id"))
+    println(userQuery.minInt("id"))
+    println(userQuery.sumInt("id"))
+    println(userQuery.avg("id"))
+
+    println(houseQuery.selectAll("true"))
 
     // dropping the tables
 

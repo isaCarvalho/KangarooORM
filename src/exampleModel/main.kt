@@ -49,11 +49,10 @@ fun main() {
     houseQuery.insert(house)
         .insert(house2)
 
+    bookQuery.insert(book) // do not insert the book before
 
-    bookQuery.insert(book)
-
-//    userQuery.insert(user)
-//            .insert(user2)
+    userQuery.insert(user)
+            .insert(user2)
 //
 //    for (task in taskList) {
 //        taskQuery.insert(task)
@@ -61,9 +60,9 @@ fun main() {
 
     // Selecting the users
 
-//    println(userQuery.find(1))
-//    println(userQuery.select("id = 1"))
-//    println(userQuery.selectAll("true"))
+    println(userQuery.find(1))
+    println(userQuery.select("id = 1"))
+    println(userQuery.selectAll("true"))
 //
 //    userQuery.delete(user)
 //        .update(user)

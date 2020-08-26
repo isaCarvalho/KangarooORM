@@ -1,14 +1,12 @@
 package database.statements
 
 import database.DatabaseHelper.checkTypes
-import database.DatabaseHelper.getMappedPropertyOrNull
 import database.DatabaseExecutor
 import database.DatabaseHelper.getMappedOneToOneOrNull
 import database.DatabaseHelper.getPrimaryKeyOrNull
 import database.DatabaseManager
-import database.logger.Logger
+import database.annotations.Property
 import database.reflections.ReflectClass
-import java.lang.Exception
 import kotlin.reflect.*
 import kotlin.reflect.full.declaredMemberProperties
 import kotlin.reflect.full.declaredMembers
@@ -89,9 +87,30 @@ class Insert : Query()
                     primaryValue = value
 
                 // if the value is an entity. ex: user's book
-                if (getMappedOneToOneOrNull(it.name, properties) != null && value != null) {
+                if (getMappedOneToOneOrNull(it.name, clazz.properties) != null && value != null) {
+
+                    var existinValue : Any? = null
+
+                    // checks if the entity already exists
+                    val valuesPrimaryKey = getPrimaryKeyOrNull(ReflectClass(value::class).properties)
+
+                    if (valuesPrimaryKey != null) {
+
+                        var valuesPrimaryKeyValue : Any? = null
+                        value::class.declaredMemberProperties.forEach {prop ->
+                            if (prop.name == valuesPrimaryKey.name) {
+                                prop as KProperty1<Any, *>
+                                valuesPrimaryKeyValue = prop.get(value!!)
+                            }
+                        }
+
+                        if (valuesPrimaryKeyValue != null) {
+                            existinValue = getPrimaryKeysValue(valuesPrimaryKey, valuesPrimaryKeyValue!!, value)
+                        }
+                    }
+
                     // inserts the entity and returns its primary key value
-                    value = insertRecursive(value)
+                    value = existinValue ?: insertRecursive(value)
 
                     if (value != null) {
                         propType = value::class.simpleName!!
@@ -106,17 +125,26 @@ class Insert : Query()
         query = "${formatQuery(query)});"
         DatabaseExecutor.executeOperation(query, true)
 
-        return if (primaryKey != null && primaryValue != null) {
-            val newValue = Select().select("${primaryKey.name} = $primaryValue", entity::class.starProjectedType)
-            newValue!!::class.declaredMemberProperties.forEach {
+        return if (primaryKey != null && primaryValue != null)
+            getPrimaryKeysValue(primaryKey, primaryValue!!, entity)
+        else
+            null
+    }
+
+    private fun getPrimaryKeysValue(primaryKey : Property, primaryValue : Any, entity : Any) : Any? {
+        val selectObject = Select()
+        selectObject.databaseManager = DatabaseManager().setEntity(entity::class)
+
+        val newValue = selectObject.select("${primaryKey.name} = $primaryValue", entity::class.starProjectedType)
+        if (newValue != null) {
+            newValue::class.declaredMemberProperties.forEach {
                 if (it.name == primaryKey.name) {
                     it as KProperty1<Any, *>
                     return it.get(newValue)
                 }
             }
         }
-        else
-            null
+        return null
     }
 
     override fun execute() {

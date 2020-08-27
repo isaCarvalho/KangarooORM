@@ -122,7 +122,35 @@ class Employee(
 )
 ```
 
-That is all you'll have to do to implement one to one entity relations.
+That is all you'll have to do to implement one to one entity relations. Now, lets take a look in the main function:
+
+```kotlin
+fun main() {
+    // Configuring the database
+    DatabaseConfig.setConfiguration("host", 1234, "user", "password", "exampleModel", false)
+    
+    // Creating the facades
+    val codeQuery = ModelQueryFacade(Code::class)
+    val employeeQuery = ModelQueryFacade(Employee::class)
+    
+    // Creating the objects
+    val code = Code(1, "ABCDE")
+    val employee = Employee(1, "Employee1", code)
+
+    // Querying everything
+        
+    employeeQuery.insert(employee)
+        .update(employee)
+
+    println(employeeQuery.selectAll())
+    
+    employeeQuery.delete(employee)
+    
+    // Dropping the tables
+    codeQuery.dropTableAndSequence()
+    employeeQuery.dropTableAndSequence()
+}
+```
 
 #### One To Many
 
@@ -136,8 +164,6 @@ the `@OneToMany` annotation.
 class Clothe(
     @Property("id", "int", primaryKey = true) var id: Int,
     @Property("description", "varchar", size = 255) var description : String,
-    @Property("modeling", "varchar", size = 255) var modeling : String,
-    @Property("fabric", "varchar", size = 255) var fabric : String,
     @Property("id_person", "int") var id_person : Int
 )
 ```
@@ -156,6 +182,35 @@ class Person(
 *Note*: In this relation, the referenced property is from the class you just defined and not the relation class like it did before.
 Also, the relation class, in this case, the Person class, contains a `List` typed with the referenced class (Clothe), and 
 the referenced class (Clothe) contains a `Property` that is going to be referenced by the other class.
+
+Now, lets take a look in the main function:
+
+```kotlin
+fun main() {
+    // Configuring the database
+    DatabaseConfig.setConfiguration("host", 1234, "user", "password", "exampleModel", false)
+    
+    // Creating the facades
+    val clotheQuery = ModelQueryFacade(Clothe::class)
+    val personQuery = ModelQueryFacade(Person::class)
+    
+    // Creating the objects
+    val person = Person(1, "Person1", listOf(Clothe(1, "Short", 1), Clothe(1, "Pants", 1), Clothe(1, "Shirt", 1)))
+
+    // Querying everything
+        
+    personQuery.insert(person)
+        .update(person)
+
+    println(personQuery.selectAll())
+    
+    personQuery.delete(person)
+    
+    // Dropping the tables
+    clotheQuery.dropTableAndSequence()
+    personQuery.dropTableAndSequence()
+}
+```
 
 ### Example
 

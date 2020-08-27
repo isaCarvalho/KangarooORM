@@ -322,8 +322,8 @@ essential.
 
 ## Compatibility
 
-Kotlin 1.3 or higher
-Postgres 12 or higher
+* Kotlin 1.3 or higher
+* Postgres 12 or higher
 
 ## Author
 

@@ -95,26 +95,67 @@ Notice that foreign key is a property. Bellow you'll see that the other relation
 
 #### One to One
 
+To create an one to one relation, you should put the `@OneToOne` annotation in your objects property as the example. For
+this example, we are creating an employee that has a unique code, made of an id and a value, and the code belongs to one
+employee alone.
+
+* Implement your entity that is going to be related:
+
 ```kotlin
-@Table("relationTable")
-class OneToOneExample(
-    @Property("property1", "type") var property1 : Any,
-    @OneToOne(ForeingKey("constraintName", "referencedTable", "referencedProperty")) var modelExample : ModelExample,
+@Table("codes")
+class Code(
+    @Property("id", "int", primaryKey = true) var id : Int,
+    @Property("value", "varchar", size = 11) var value : String
 )
 ```
+
+*Note*: This class has the `id` property as its primary key. It is vital the class has this primary key named `id`.
+
+* Implement the relation class as follows:
+
+```kotlin
+@Table("employees")
+class Employee(
+    @Property("id", "int", primaryKey = true) var id : Int,
+    @Property("name", "varchar", size = 255) var name : String,
+    @OneToOne(ForeingKey("fk_employee_code", "codes", "id")) var code : Code,
+)
+```
+
+That is all you'll have to do to implement one to one entity relations.
 
 #### One To Many
 
+For this example, we are going to use a person that has a lot of clothes, but the clothes belong to one person only. Use
+the `@OneToMany` annotation.
+
+* Implementing the Clothe class
+
 ```kotlin
-@Table
-class OneToManyExample(
-    @Property("property1", "type") var property1: Any,
-    @OneToMany(ForeignKey("constraintName", "referencedTable", "property1")) var examples : List<Example>
+@Table("clothes")
+class Clothe(
+    @Property("id", "int", primaryKey = true) var id: Int,
+    @Property("description", "varchar", size = 255) var description : String,
+    @Property("modeling", "varchar", size = 255) var modeling : String,
+    @Property("fabric", "varchar", size = 255) var fabric : String,
+    @Property("id_person", "int") var id_person : Int
 )
 ```
+
+* Implementing the Person class
+
+```kotlin
+@Table("persons")
+class Person(
+    @Property("id", "int", primaryKey = true) var id : Int,
+    @Property("name", "varchar", size = 255) var name : String,
+    @OneToMany(ForeingKey("fk_person_clothe", "clothes", "id_person")) var clothes : List<Clothe>,
+)
+```
+
 *Note*: In this relation, the referenced property is from the class you just defined and not the relation class like it did before.
-Note also that this class does not have a table name, because it is optional.
-In this case, the table name will be `oneToManyExample`.
+Also, the relation class, in this case, the Person class, contains a `List` typed with the referenced class (Clothe), and 
+the referenced class (Clothe) contains a `Property` that is going to be referenced by the other class.
 
 ### Example
 

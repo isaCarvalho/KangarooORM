@@ -319,3 +319,13 @@ Kangaroo has a Logger object that saves the exceptions messages in the directory
 you want to show the queries in the log file.
 *Note*: You should not show the queries in your log life if it is not
 essential.
+
+## Compatibility
+
+Kotlin 1.3 or higher
+Postgres 12 or higher
+
+## Author
+
+* Isabela Carvalho
+* All contributors

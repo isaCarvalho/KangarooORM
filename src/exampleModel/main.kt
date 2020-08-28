@@ -57,6 +57,8 @@ fun main() {
         .update(user)
 
 
+    println("Exists house: ${houseQuery.exists(house)}")
+    println("Exists user: ${userQuery.exists(user)}")
     println(userQuery.count())
     println(userQuery.maxInt("id"))
     println(userQuery.minInt("id"))

@@ -137,6 +137,7 @@ fun main() {
         println(it)
     }
 
+    val exists = userQuery.exists(user) // returns true or false
     val user2 = userQuery.find(1) // returns null or user
     val user3 = userQuery.select("exampleProp1 = 1") // returns null or user
 

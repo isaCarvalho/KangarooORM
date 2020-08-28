@@ -11,8 +11,10 @@ import com.kangaroo.reflections.ReflectClass
 import java.sql.ResultSet
 import kotlin.collections.ArrayList
 import kotlin.reflect.KParameter
+import kotlin.reflect.KProperty1
 import kotlin.reflect.KType
 import kotlin.reflect.full.declaredMemberProperties
+import kotlin.reflect.full.findAnnotation
 import kotlin.reflect.full.instanceParameter
 import kotlin.reflect.full.starProjectedType
 import kotlin.reflect.jvm.jvmErasure
@@ -73,6 +75,21 @@ class Select : Query() {
 
     fun find(id : Int, type: KType) : Any? {
         return select("id = $id", type)
+    }
+
+    fun exists(entity : Any, type: KType) : Boolean {
+        var where = "false"
+
+        val primaryKey = getPrimaryKeyOrNull(properties)
+        entity::class.declaredMemberProperties.forEach {
+            if (primaryKey != null && it.name == primaryKey.name) {
+                it as KProperty1<Any, *>
+                where = "${it.name} = ${it.get(entity)}"
+            }
+        }
+
+        val result = select(where, type)
+        return result != null
     }
 
     fun select(where: String, type: KType) : Any? {

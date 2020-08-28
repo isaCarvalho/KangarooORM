@@ -28,12 +28,11 @@ DatabaseConfig.setConfiguration(
 To define your model class, you should use the annotations as follows:
 
 ```kotlin
-@Table("modelTable")
-class ModelExample(
+@Table("users")
+class User(
     @Property("id", "int", primaryKey = true) var id : Int,
-    @Property("property1", "type") var property1 : T,
-    @Property("property2", "type") var property2 : T,
-    @Property("property3", "type") var property3 : T
+    @Property("name", "varchar", size = 255) var name : String,
+    @Property("birthday", "varchar", size = 255) var birthday : String
 )
 ```
 
@@ -74,6 +73,62 @@ Sets if the column's value will be unique. It's default value is false.
 
 Sets the column's size. Numeric types should not have sizes. It's default value is -1.
 
+### Example
+
+After you defined your model and the database's configurations, you should
+create an instance of the class `ModelQueryFacade` passing the model class you want
+to map. Do as follows:
+
+```kotlin
+fun main() {
+
+    DatabaseConfig.setConfiguration("host", 1234, "user", "password", "exampleModel", false)
+
+    val user = User(1, "User 1", "01-01-2001")
+    
+    /** Creating table and modifying data */  
+
+    val userQuery = ModelQueryFacade(UserExample::class) // creates the table
+        .insert(user) // returns the queryManager's instance
+        .update(user) // returns the queryManager's instance
+        .delete(user) // returns the queryManager's instance
+
+    /** Selecting data */    
+
+    // returns an ArrayList of users
+    var users : ArrayList<User> = userQuery.selectAll()
+    users.forEach {
+        println(it)
+    }
+    
+    // returns an ArrayList of users with a condition
+    users = userQuery.selectAll("birthday = '01-01-2001'")
+    users.forEach {
+        println(it)
+    }
+
+    val user2 = userQuery.find(1) // returns null or user
+    val user3 = userQuery.select("exampleProp1 = 1") // returns null or user
+
+    /** SQL Aggregation Functions */
+
+    // returns an int value with how many user registers there is in the database
+    val count = userQuery.count()
+    // returns the maximum value of a user's property
+    val max = userQuery.maxInt(exampleProp1)
+    // returns the minimum value of a user's property
+    val min = userQuery.minInt(exampleProp1)
+    // returns the sum of the values of a property
+    val sum = userQuery.sumInt(exampleProp1)
+    // returns the average of a property
+    val avg = userQuery.avg(exampleProp1)
+
+    /** Dropping table */  
+
+    userQuery.dropTable() // returns unit
+}
+```
+
 ### Relations
 
 As said above, it is vital the table you want to relate with another table has an `id` property. It must be named `id`.
@@ -95,83 +150,120 @@ Notice that foreign key is a property. Bellow you'll see that the other relation
 
 #### One to One
 
+To create an one to one relation, you should put the `@OneToOne` annotation in your objects property as the example. For
+this example, we are creating an employee that has a unique code, made of an id and a value, and the code belongs to one
+employee alone.
+
+* Implement your entity that is going to be related:
+
 ```kotlin
-@Table("relationTable")
-class OneToOneExample(
-    @Property("property1", "type") var property1 : Any,
-    @OneToOne(ForeingKey("constraintName", "referencedTable", "referencedProperty")) var modelExample : ModelExample,
+@Table("codes")
+class Code(
+    @Property("id", "int", primaryKey = true) var id : Int,
+    @Property("value", "varchar", size = 11) var value : String
 )
+```
+
+*Note*: This class has the `id` property as its primary key. It is vital the class has this primary key named `id`.
+
+* Implement the relation class as follows:
+
+```kotlin
+@Table("employees")
+class Employee(
+    @Property("id", "int", primaryKey = true) var id : Int,
+    @Property("name", "varchar", size = 255) var name : String,
+    @OneToOne(ForeingKey("fk_employee_code", "codes", "id")) var code : Code,
+)
+```
+
+That is all you'll have to do to implement one to one entity relations. Now, lets take a look in the main function:
+
+```kotlin
+fun main() {
+    // Configuring the database
+    DatabaseConfig.setConfiguration("host", 1234, "user", "password", "exampleModel", false)
+    
+    // Creating the facades
+    val codeQuery = ModelQueryFacade(Code::class)
+    val employeeQuery = ModelQueryFacade(Employee::class)
+    
+    // Creating the objects
+    val code = Code(1, "ABCDE")
+    val employee = Employee(1, "Employee1", code)
+
+    // Querying everything
+        
+    employeeQuery.insert(employee)
+        .update(employee)
+
+    println(employeeQuery.selectAll())
+    
+    employeeQuery.delete(employee)
+    
+    // Dropping the tables
+    codeQuery.dropTableAndSequence()
+    employeeQuery.dropTableAndSequence()
+}
 ```
 
 #### One To Many
 
+For this example, we are going to use a person that has a lot of clothes, but the clothes belong to one person only. Use
+the `@OneToMany` annotation.
+
+* Implementing the Clothe class
+
 ```kotlin
-@Table
-class OneToManyExample(
-    @Property("property1", "type") var property1: Any,
-    @OneToMany(ForeignKey("constraintName", "referencedTable", "property1")) var examples : List<Example>
+@Table("clothes")
+class Clothe(
+    @Property("id", "int", primaryKey = true) var id: Int,
+    @Property("description", "varchar", size = 255) var description : String,
+    @Property("id_person", "int") var id_person : Int
 )
 ```
-*Note*: In this relation, the referenced property is from the class you just defined and not the relation class like it did before.
-Note also that this class does not have a table name, because it is optional.
-In this case, the table name will be `oneToManyExample`.
 
-### Example
-
-After you defined your model and the database's configurations, you should
-create an instance of the class `ModelQueryFacade` passing the model class you want
-to map. Do as follows:
+* Implementing the Person class
 
 ```kotlin
-fun exampleModel.example.main() {
+@Table("persons")
+class Person(
+    @Property("id", "int", primaryKey = true) var id : Int,
+    @Property("name", "varchar", size = 255) var name : String,
+    @OneToMany(ForeingKey("fk_person_clothe", "clothes", "id_person")) var clothes : List<Clothe>,
+)
+```
 
+*Note*: In this relation, the referenced property is from the class you just defined and not the relation class like it did before.
+Also, the relation class, in this case, the Person class, contains a `List` typed with the referenced class (Clothe), and 
+the referenced class (Clothe) contains a `Property` that is going to be referenced by the other class.
+
+Now, lets take a look in the main function:
+
+```kotlin
+fun main() {
+    // Configuring the database
     DatabaseConfig.setConfiguration("host", 1234, "user", "password", "exampleModel", false)
-
-    val model = ModelExample(exampleProp1, exampleProp2, exampleProp3)
     
-    /** Creating table and modifying data */  
-
-    val modelQuery = ModelQueryFacade(ModelExample::class) // creates the table
-        .insert(model) // returns the queryManager's instance
-        .update(model) // returns the queryManager's instance
-        .delete(model) // returns the queryManager's instance
-
-    /** Selecting data */    
-
-    // returns an ArrayList of models
-    var map = modelQuery.selectAll()
-    map.forEach {
-        println(it)
-    }
+    // Creating the facades
+    val clotheQuery = ModelQueryFacade(Clothe::class)
+    val personQuery = ModelQueryFacade(Person::class)
     
-    // returns an ArrayList of models with a condition
-    map = modelQuery.selectAll("exampleProp1 = 1")
-    map.forEach {
-        println(it)
-    }
+    // Creating the objects
+    val person = Person(1, "Person1", listOf(Clothe(1, "Short", 1), Clothe(1, "Pants", 1), Clothe(1, "Shirt", 1)))
 
-    val exists = modelQuery.exists(model)
-    println(exists) // returns true or false
+    // Querying everything
+        
+    personQuery.insert(person)
+        .update(person)
 
-    val model2 = modelQuery.find(1) // returns null or model
-    val model3 = modelQuery.select("exampleProp1 = 1") // returns null or model
-
-    /** SQL Aggregation Functions */
-
-    // returns an int value with how many model registers there is in the database
-    val countModel = modelQuery.count()
-    // returns the maximum value of a model's property
-    val max = userQuery.maxInt(exampleProp1)
-    // returns the minimum value of a model's property
-    val min = userQuery.minInt(exampleProp1)
-    // returns the sum of the values of a property
-    val sum = userQuery.sumInt(exampleProp1)
-    // returns the average of a property
-    val avg = userQuery.avg(exampleProp1)
-
-    /** Dropping table */  
-
-    modelQuery.dropTable() // returns unit
+    println(personQuery.selectAll())
+    
+    personQuery.delete(person)
+    
+    // Dropping the tables
+    clotheQuery.dropTableAndSequence()
+    personQuery.dropTableAndSequence()
 }
 ```
 
@@ -223,3 +315,13 @@ Kangaroo has a Logger object that saves the exceptions messages in the directory
 you want to show the queries in the log file.
 *Note*: You should not show the queries in your log life if it is not
 essential.
+
+## Compatibility
+
+* Kotlin 1.3 or higher
+* Postgres 12 or higher
+
+## Author
+
+* Isabela Carvalho
+* All contributors

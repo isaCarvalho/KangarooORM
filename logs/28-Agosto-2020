@@ -1,0 +1,320 @@
+
+SELECT * FROM houses WHERE falseid = 1;
+
+28-08-2020 10:03:54 - SQL query throws an exception: - ERROR: column "falseid" does not exist
+  Posição: 28
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.DatabaseExecutor.execute(DatabaseExecutor.kt:35)
+com.kangaroo.statements.Select.selectAll(Select.kt:111)
+com.kangaroo.statements.Select.select(Select.kt:96)
+com.kangaroo.statements.Select.exists(Select.kt:91)
+com.kangaroo.facades.ModelQueryFacade.exists(ModelQueryFacade.kt:123)
+exampleModel.MainKt.main(main.kt:60)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+28-08-2020 10:04:15 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:126)
+com.kangaroo.statements.Insert.insert(Insert.kt:177)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:42)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 2', 2);
+
+28-08-2020 10:04:15 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:126)
+com.kangaroo.statements.Insert.insert(Insert.kt:177)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:43)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO books (id_author, description, id) VALUES 
+(1, 'Fundamentos da Fisica 1', 1);
+
+28-08-2020 10:04:15 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "books_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:126)
+com.kangaroo.statements.Insert.insert(Insert.kt:177)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO users (id_book, id, id_house, name) VALUES 
+(1, 2, 2, 'User 2');
+
+28-08-2020 10:04:16 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:126)
+com.kangaroo.statements.Insert.insert(Insert.kt:177)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO books (id_author, description, id) VALUES 
+(1, 'Fundamentos da Fisica 1', 1);
+
+28-08-2020 14:35:23 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "books_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:108)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:95)
+com.kangaroo.statements.Insert.insert(Insert.kt:140)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO books (id_author, description, id) VALUES 
+(1, 'Fundamentos da Fisica 1', 1);
+
+28-08-2020 14:35:24 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "books_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:108)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:95)
+com.kangaroo.statements.Insert.insert(Insert.kt:140)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks (id, id_user) VALUES 
+(1, 1);
+
+28-08-2020 14:42:12 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "tasks_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:146)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:53)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks (id, id_user) VALUES 
+(2, 1);
+
+28-08-2020 14:42:12 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "tasks_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:146)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:53)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+28-08-2020 14:47:34 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:142)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:42)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 2', 2);
+
+28-08-2020 14:47:34 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:142)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:43)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO books (id_author, description, id) VALUES 
+(1, 'Fundamentos da Fisica 1', 1);
+
+28-08-2020 14:47:35 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "books_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:142)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO users (id_book, id, id_house, name) VALUES 
+(1, 1, 1, 'User 1');
+
+28-08-2020 14:47:35 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:142)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks (id, id_user) VALUES 
+(1, 1);
+
+28-08-2020 14:47:35 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "tasks_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:127)
+com.kangaroo.statements.Insert.insert(Insert.kt:142)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO author (id, name) VALUES 
+(1, 'Halliday R.');
+
+28-08-2020 15:04:38 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "author_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:103)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:89)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:89)
+com.kangaroo.statements.Insert.insert(Insert.kt:136)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)

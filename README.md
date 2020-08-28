@@ -1,7 +1,37 @@
 # Kangaroo ORM
 
+## Summary
+
+1. [What is Kangaroo?](#what-is-kangaroo)
+2. [Why Kangaroo?](#why-kangaroo)
+3. [Database Configurations](#database-configurations)
+4. [Usage With Model](#usage-with-model) <br>
+4.1 [Defining the Model](#defining-the-model) <br>
+4.2 [Property Values](#property-values) <br>
+4.3 [Example With Model](#example-with-model) <br>
+4.4 [Relations](#relations) <br>
+4.4.1 [Foreign Key Constraint](#foreign-key-constraint) <br>
+4.4.2 [One To One](#one-to-one) <br>
+4.4.3 [One To Many](#one-to-many) <br>
+5. [Usage Without Model](#usage-without-model) <br>
+5.1 [Example Without Model](#usage-without-model)
+6. [Supported Types](#supported-types)
+7. [Logger](#logger)
+8. [Compatibility](#compatibility)
+9. [Author](#author)
+
+## What is Kangaroo?
+
 Kangaroo is a Kotlin-Postgres ORM built for those who search for a reliable and easy way to implement 
 data storage with Kotlin and Postgres in your applications.
+
+## Why Kangaroo?
+
+Kotlin is a fabulous language, and a lot of applications must implement data storage, but the database is not the
+main topic of these applications. So the programmer now can implement this database with a lot of simplicity. 
+Kangaroo is reliable, so once your model's well done, you do not have to worry about the database, and can focus in
+the other topics of your applications. But the most important, Kangaroo brings together the better in both object oriented programming
+ world and database world: Kotlin and PostgresSQL.
 
 ## Database Configurations
 
@@ -73,7 +103,7 @@ Sets if the column's value will be unique. It's default value is false.
 
 Sets the column's size. Numeric types should not have sizes. It's default value is -1.
 
-### Example
+### Example With Model
 
 After you defined your model and the database's configurations, you should
 create an instance of the class `ModelQueryFacade` passing the model class you want
@@ -89,9 +119,9 @@ fun main() {
     /** Creating table and modifying data */  
 
     val userQuery = ModelQueryFacade(UserExample::class) // creates the table
-        .insert(user) // returns the queryManager's instance
-        .update(user) // returns the queryManager's instance
-        .delete(user) // returns the queryManager's instance
+        .insert(user) // returns the ModelQueryFacade's instance
+        .update(user) // returns the ModelQueryFacade's instance
+        .delete(user) // returns the ModelQueryFacade's instance
 
     /** Selecting data */    
 
@@ -269,7 +299,7 @@ fun main() {
 
 ## Usage Without Model
 
-### Example
+### Example Without Model
 
 ```kotlin
 fun exampleModel.example.main() {

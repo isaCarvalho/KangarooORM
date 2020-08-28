@@ -28,12 +28,11 @@ DatabaseConfig.setConfiguration(
 To define your model class, you should use the annotations as follows:
 
 ```kotlin
-@Table("modelTable")
-class ModelExample(
+@Table("users")
+class User(
     @Property("id", "int", primaryKey = true) var id : Int,
-    @Property("property1", "type") var property1 : T,
-    @Property("property2", "type") var property2 : T,
-    @Property("property3", "type") var property3 : T
+    @Property("name", "varchar", size = 255) var name : String,
+    @Property("birthday", "varchar", size = 255) var birthday : String
 )
 ```
 
@@ -73,6 +72,62 @@ Sets if the column's value will be unique. It's default value is false.
 - size : Int
 
 Sets the column's size. Numeric types should not have sizes. It's default value is -1.
+
+### Example
+
+After you defined your model and the database's configurations, you should
+create an instance of the class `ModelQueryFacade` passing the model class you want
+to map. Do as follows:
+
+```kotlin
+fun main() {
+
+    DatabaseConfig.setConfiguration("host", 1234, "user", "password", "exampleModel", false)
+
+    val user = User(1, "User 1", "01-01-2001")
+    
+    /** Creating table and modifying data */  
+
+    val userQuery = ModelQueryFacade(UserExample::class) // creates the table
+        .insert(user) // returns the queryManager's instance
+        .update(user) // returns the queryManager's instance
+        .delete(user) // returns the queryManager's instance
+
+    /** Selecting data */    
+
+    // returns an ArrayList of users
+    var users : ArrayList<User> = userQuery.selectAll()
+    users.forEach {
+        println(it)
+    }
+    
+    // returns an ArrayList of users with a condition
+    users = userQuery.selectAll("birthday = '01-01-2001'")
+    users.forEach {
+        println(it)
+    }
+
+    val user2 = userQuery.find(1) // returns null or user
+    val user3 = userQuery.select("exampleProp1 = 1") // returns null or user
+
+    /** SQL Aggregation Functions */
+
+    // returns an int value with how many user registers there is in the database
+    val count = userQuery.count()
+    // returns the maximum value of a user's property
+    val max = userQuery.maxInt(exampleProp1)
+    // returns the minimum value of a user's property
+    val min = userQuery.minInt(exampleProp1)
+    // returns the sum of the values of a property
+    val sum = userQuery.sumInt(exampleProp1)
+    // returns the average of a property
+    val avg = userQuery.avg(exampleProp1)
+
+    /** Dropping table */  
+
+    userQuery.dropTable() // returns unit
+}
+```
 
 ### Relations
 
@@ -209,65 +264,6 @@ fun main() {
     // Dropping the tables
     clotheQuery.dropTableAndSequence()
     personQuery.dropTableAndSequence()
-}
-```
-
-### Example
-
-After you defined your model and the database's configurations, you should
-create an instance of the class `ModelQueryFacade` passing the model class you want
-to map. Do as follows:
-
-```kotlin
-fun exampleModel.example.main() {
-
-    DatabaseConfig.setConfiguration("host", 1234, "user", "password", "exampleModel", false)
-
-    val model = ModelExample(exampleProp1, exampleProp2, exampleProp3)
-    
-    /** Creating table and modifying data */  
-
-    val modelQuery = ModelQueryFacade(ModelExample::class) // creates the table
-        .insert(model) // returns the queryManager's instance
-        .update(model) // returns the queryManager's instance
-        .delete(model) // returns the queryManager's instance
-
-    /** Selecting data */    
-
-    // returns an ArrayList of models
-    var map = modelQuery.selectAll()
-    map.forEach {
-        println(it)
-    }
-    
-    // returns an ArrayList of models with a condition
-    map = modelQuery.selectAll("exampleProp1 = 1")
-    map.forEach {
-        println(it)
-    }
-
-    val exists = modelQuery.exists(model)
-    println(exists) // returns true or false
-
-    val model2 = modelQuery.find(1) // returns null or model
-    val model3 = modelQuery.select("exampleProp1 = 1") // returns null or model
-
-    /** SQL Aggregation Functions */
-
-    // returns an int value with how many model registers there is in the database
-    val countModel = modelQuery.count()
-    // returns the maximum value of a model's property
-    val max = userQuery.maxInt(exampleProp1)
-    // returns the minimum value of a model's property
-    val min = userQuery.minInt(exampleProp1)
-    // returns the sum of the values of a property
-    val sum = userQuery.sumInt(exampleProp1)
-    // returns the average of a property
-    val avg = userQuery.avg(exampleProp1)
-
-    /** Dropping table */  
-
-    modelQuery.dropTable() // returns unit
 }
 ```
 

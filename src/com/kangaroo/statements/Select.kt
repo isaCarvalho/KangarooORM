@@ -80,8 +80,10 @@ class Select : Query() {
     fun exists(entity : Any, type: KType) : Boolean {
         var where = "false"
 
-        val primaryKey = getPrimaryKeyOrNull(properties)
-        entity::class.declaredMemberProperties.forEach {
+        val clazz = ReflectClass(entity::class)
+
+        val primaryKey = getPrimaryKeyOrNull(clazz.properties)
+        clazz.members.forEach {
             if (primaryKey != null && it.name == primaryKey.name) {
                 it as KProperty1<Any, *>
                 where = "${it.name} = ${it.get(entity)}"
@@ -90,6 +92,27 @@ class Select : Query() {
 
         val result = select(where, type)
         return result != null
+    }
+
+    fun getPrimaryKeyValue(entity : Any) : Any? {
+        var where = "false"
+
+        val clazz = ReflectClass(entity::class)
+        var primaryValue : Any? = null
+
+        val primaryKey = getPrimaryKeyOrNull(clazz.properties)
+        clazz.members.forEach {
+            if (primaryKey != null && it.name == primaryKey.name) {
+                it as KProperty1<Any, *>
+                where = "${it.name} = ${it.get(entity)}"
+                primaryValue = it.get(entity)
+            }
+        }
+
+        return if (select(where, entity::class.starProjectedType) != null) {
+            primaryValue!!
+        } else
+            null
     }
 
     fun select(where: String, type: KType) : Any? {

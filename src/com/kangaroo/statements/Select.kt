@@ -11,8 +11,10 @@ import com.kangaroo.reflections.ReflectClass
 import java.sql.ResultSet
 import kotlin.collections.ArrayList
 import kotlin.reflect.KParameter
+import kotlin.reflect.KProperty1
 import kotlin.reflect.KType
 import kotlin.reflect.full.declaredMemberProperties
+import kotlin.reflect.full.findAnnotation
 import kotlin.reflect.full.instanceParameter
 import kotlin.reflect.full.starProjectedType
 import kotlin.reflect.jvm.jvmErasure
@@ -73,6 +75,44 @@ class Select : Query() {
 
     fun find(id : Int, type: KType) : Any? {
         return select("id = $id", type)
+    }
+
+    fun exists(entity : Any, type: KType) : Boolean {
+        var where = "false"
+
+        val clazz = ReflectClass(entity::class)
+
+        val primaryKey = getPrimaryKeyOrNull(clazz.properties)
+        clazz.members.forEach {
+            if (primaryKey != null && it.name == primaryKey.name) {
+                it as KProperty1<Any, *>
+                where = "${it.name} = ${it.get(entity)}"
+            }
+        }
+
+        val result = select(where, type)
+        return result != null
+    }
+
+    fun getPrimaryKeyValue(entity : Any) : Any? {
+        var where = "false"
+
+        val clazz = ReflectClass(entity::class)
+        var primaryValue : Any? = null
+
+        val primaryKey = getPrimaryKeyOrNull(clazz.properties)
+        clazz.members.forEach {
+            if (primaryKey != null && it.name == primaryKey.name) {
+                it as KProperty1<Any, *>
+                where = "${it.name} = ${it.get(entity)}"
+                primaryValue = it.get(entity)
+            }
+        }
+
+        return if (select(where, entity::class.starProjectedType) != null) {
+            primaryValue!!
+        } else
+            null
     }
 
     fun select(where: String, type: KType) : Any? {

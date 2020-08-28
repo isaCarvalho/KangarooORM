@@ -118,4 +118,8 @@ class ModelQueryFacade(cls : KClass<*>)
     fun selectAll(where: String) : List<Any> {
         return selectObject.selectAll(where, databaseManager.reflectClass.type)
     }
+
+    fun exists(entity: Any) : Boolean {
+        return selectObject.exists(entity, databaseManager.reflectClass.type)
+    }
 }

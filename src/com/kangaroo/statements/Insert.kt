@@ -55,11 +55,10 @@ class Insert : Query()
 
     private fun insertRecursive(entity : Any) : Any? {
 
-        val clazz = ReflectClass(entity::class)
+        val selectObject = Select()
+        selectObject.databaseManager = DatabaseManager().setEntity(entity::class)
 
-        // gets the primary key and primary value
-        var primaryValue : Any? = null
-        val primaryKey = getPrimaryKeyOrNull(clazz.properties)
+        val clazz = ReflectClass(entity::class)
 
         // begins the insert statement
         var query = "INSERT INTO ${clazz.tableName} ("
@@ -83,34 +82,11 @@ class Insert : Query()
                 it as KProperty1<Any, *>
                 var value = it.get(entity)
 
-                if (it.name == primaryKey!!.name)
-                    primaryValue = value
-
                 // if the value is an entity. ex: user's book
                 if (getMappedOneToOneOrNull(it.name, clazz.properties) != null && value != null) {
 
-                    var existingValue : Any? = null
-
-                    // checks if the entity already exists
-                    val valuesPrimaryKey = getPrimaryKeyOrNull(ReflectClass(value::class).properties)
-
-                    if (valuesPrimaryKey != null) {
-
-                        var valuesPrimaryKeyValue : Any? = null
-                        value::class.declaredMemberProperties.forEach {prop ->
-                            if (prop.name == valuesPrimaryKey.name) {
-                                prop as KProperty1<Any, *>
-                                valuesPrimaryKeyValue = prop.get(value!!)
-                            }
-                        }
-
-                        if (valuesPrimaryKeyValue != null) {
-                            existingValue = getPrimaryKeysValue(valuesPrimaryKey, valuesPrimaryKeyValue!!, value)
-                        }
-                    }
-
                     // inserts the entity and returns its primary key value
-                    value = existingValue ?: insertRecursive(value)
+                    value = insertRecursive(value)
 
                     if (value != null) {
                         propType = value::class.simpleName!!
@@ -122,15 +98,14 @@ class Insert : Query()
             }
         }
 
+        // executes the insert
         query = "${formatQuery(query)});"
         DatabaseExecutor.executeOperation(query, true)
 
-        val newValue = if (primaryKey != null && primaryValue != null)
-            getPrimaryKeysValue(primaryKey, primaryValue!!, entity)
-        else
-            null
+        // gets the entity's primary value to insert the one to many relations
+        val newPrimaryValue = selectObject.getPrimaryKeyValue(entity)
 
-        if (newValue != null) {
+        if (newPrimaryValue != null) {
             // for each one to many relations
             clazz.members.forEach {
                 if (getMappedOneToManyOrNull(it.name, clazz.properties) != null) {
@@ -150,23 +125,7 @@ class Insert : Query()
             }
         }
 
-        return newValue
-    }
-
-    private fun getPrimaryKeysValue(primaryKey : Property, primaryValue : Any, entity : Any) : Any? {
-        val selectObject = Select()
-        selectObject.databaseManager = DatabaseManager().setEntity(entity::class)
-
-        val newValue = selectObject.select("${primaryKey.name} = $primaryValue", entity::class.starProjectedType)
-        if (newValue != null) {
-            newValue::class.declaredMemberProperties.forEach {
-                if (it.name == primaryKey.name) {
-                    it as KProperty1<Any, *>
-                    return it.get(newValue)
-                }
-            }
-        }
-        return null
+        return newPrimaryValue
     }
 
     override fun execute() {

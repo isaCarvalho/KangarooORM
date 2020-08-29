@@ -1,6 +1,6 @@
 package com.kangaroo.facades
 
-import com.kangaroo.DatabaseManager
+import com.kangaroo.database.DatabaseManager
 import com.kangaroo.statements.*
 import kotlin.reflect.KClass
 

@@ -1,4 +1,4 @@
-package com.kangaroo
+package com.kangaroo.database
 
 import com.kangaroo.annotations.OneToMany
 import com.kangaroo.annotations.OneToOne

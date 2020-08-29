@@ -1,7 +1,7 @@
 package com.kangaroo.statements
 
-import com.kangaroo.DatabaseExecutor
-import com.kangaroo.DatabaseManager
+import com.kangaroo.database.DatabaseExecutor
+import com.kangaroo.database.DatabaseManager
 
 class Drop : Query() {
 

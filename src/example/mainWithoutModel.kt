@@ -1,6 +1,6 @@
 package example
 
-import com.kangaroo.DatabaseConfig
+import com.kangaroo.database.DatabaseConfig
 import com.kangaroo.facades.QueryFacade
 
 fun main() {

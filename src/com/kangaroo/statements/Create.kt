@@ -1,9 +1,9 @@
 package com.kangaroo.statements
 
-import com.kangaroo.DatabaseExecutor
-import com.kangaroo.DatabaseHelper
-import com.kangaroo.DatabaseHelper.getPrimaryKeyOrNull
-import com.kangaroo.DatabaseManager
+import com.kangaroo.database.DatabaseExecutor
+import com.kangaroo.database.DatabaseHelper
+import com.kangaroo.database.DatabaseHelper.getPrimaryKeyOrNull
+import com.kangaroo.database.DatabaseManager
 import com.kangaroo.annotations.ForeignKey
 import com.kangaroo.annotations.OneToMany
 import com.kangaroo.annotations.OneToOne

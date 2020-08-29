@@ -1,6 +1,6 @@
 package com.kangaroo.statements
 
-import com.kangaroo.DatabaseManager
+import com.kangaroo.database.DatabaseManager
 
 /**
  * Query abstract class.

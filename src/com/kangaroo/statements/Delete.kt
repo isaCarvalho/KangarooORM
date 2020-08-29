@@ -1,15 +1,9 @@
 package com.kangaroo.statements
 
-import com.kangaroo.DatabaseHelper.checkTypes
-import com.kangaroo.DatabaseExecutor
-import com.kangaroo.DatabaseHelper.getMappedOneToOneOrNull
-import com.kangaroo.DatabaseHelper.getMappedPropertyOrNull
-import com.kangaroo.DatabaseHelper.getPrimaryKeyOrNull
-import com.kangaroo.DatabaseManager
-import com.kangaroo.annotations.ForeignKey
+import com.kangaroo.database.DatabaseExecutor
+import com.kangaroo.database.DatabaseHelper.getPrimaryKeyOrNull
+import com.kangaroo.database.DatabaseManager
 import com.kangaroo.reflections.ReflectClass
-import java.lang.Exception
-import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KProperty1
 
 class Delete : Query() {

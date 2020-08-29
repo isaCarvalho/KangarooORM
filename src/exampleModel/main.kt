@@ -30,8 +30,8 @@ fun main() {
     val house = House(1, "Street 1")
     val house2 = House(2, "Street 2")
 
-    val author = Author(1, "Halliday")
-    val author2 = Author(2, "Halliday R.")
+    val author = Author("Halliday")
+    val author2 = Author("Halliday R.")
 
     val book = Book("Fundamentos da Fisica 1", author)
     val book2 = Book("Fundamentos da Fisica 2", author2)

@@ -86,7 +86,7 @@ This is the type of the new column according to postgres type declaration.
 - autoIncrement : Boolean
 
 Sets if the column's value will be auto incremented. It's default value is false. To use auto increment, set a default
-value for the property you are using.
+value for the property you are using. Example: if your primary key is an int, use `-1` as default value.
 
 - primaryKey : Boolean
 
@@ -205,7 +205,7 @@ class Code(
 class Employee(
     @Property("name", "varchar", size = 255) var name : String,
     @OneToOne(ForeingKey("fk_employee_code", "codes", "id")) var code : Code,
-    @Property("id", "int", primaryKey = true, auto_increment = true) var id : Int
+    @Property("id", "int", primaryKey = true, auto_increment = true) var id : Int = -1
 )
 ```
 

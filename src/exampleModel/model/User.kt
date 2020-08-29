@@ -4,8 +4,6 @@ import com.kangaroo.annotations.*
 
 @Table("users")
 class User(
-        @Property("id", "int", true, autoIncrement = true)
-        var id : Int,
         @Property("name", "varchar", size = 255)
         var name : String,
         @Property("id_house", "int")
@@ -14,7 +12,9 @@ class User(
         @OneToOne(ForeignKey("fk_user_book", "books", "id", deleteCascade = true))
         var book : Book,
         @OneToMany(ForeignKey("fk_user_task", "tasks", "id_user", deleteCascade = true))
-        var tasks : List<Task>
+        var tasks : List<Task>,
+        @Property("id", "int", true, autoIncrement = true)
+        var id : Int = -1
 ) {
     override fun toString(): String {
         return "Name: $name\n" +

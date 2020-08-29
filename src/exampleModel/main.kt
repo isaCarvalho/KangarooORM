@@ -30,14 +30,14 @@ fun main() {
     val house = House(1, "Street 1")
     val house2 = House(2, "Street 2")
 
-    val author = Author(1, "Halliday")
-    val author2 = Author(2, "Halliday R.")
+    val author = Author("Halliday")
+    val author2 = Author("Halliday R.")
 
-    val book = Book(1, "Fundamentos da Fisica 1", author)
-    val book2 = Book(2, "Fundamentos da Fisica 2", author2)
+    val book = Book("Fundamentos da Fisica 1", author)
+    val book2 = Book("Fundamentos da Fisica 2", author2)
 
-    val user = User(1, "User 1", house.id, book, listOf(Task(1, 1), Task(2, 1)))
-    val user2 = User(2, "User 2", house2.id, book2, listOf())
+    val user = User("User 1", house.id, book, listOf(Task(1, 1), Task(2, 1)))
+    val user2 = User("User 2", house2.id, book2, listOf())
 
     // Inserting the objects
 

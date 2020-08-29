@@ -1,6 +1,7 @@
 package com.kangaroo.statements
 
 import com.kangaroo.DatabaseExecutor
+import com.kangaroo.DatabaseHelper.checkTypes
 import com.kangaroo.DatabaseHelper.getMappedParameterOrNull
 import com.kangaroo.DatabaseHelper.getPrimaryKeyOrNull
 import com.kangaroo.DatabaseManager
@@ -95,24 +96,36 @@ class Select : Query() {
     }
 
     fun getPrimaryKeyValue(entity : Any) : Any? {
-        var where = "false"
+        var where = ""
 
         val clazz = ReflectClass(entity::class)
-        var primaryValue : Any? = null
-
         val primaryKey = getPrimaryKeyOrNull(clazz.properties)
+
         clazz.members.forEach {
-            if (primaryKey != null && it.name == primaryKey.name) {
+            if (primaryKey == null || primaryKey.name != it.name) {
                 it as KProperty1<Any, *>
-                where = "${it.name} = ${it.get(entity)}"
-                primaryValue = it.get(entity)
+
+                val value = it.get(entity)
+                val property = it.findAnnotation<Property>()
+
+                if (property != null)
+                    where += "${it.name} = ${checkTypes(property.type, value.toString())} AND "
             }
         }
 
-        return if (select(where, entity::class.starProjectedType) != null) {
-            primaryValue!!
-        } else
-            null
+        where = formatQuery(where, 5)
+
+        val result = select(where, entity::class.starProjectedType)
+        if (result != null && primaryKey != null) {
+            result::class.declaredMemberProperties.forEach {
+                it as KProperty1<Any, *>
+
+                if (it.name == primaryKey.name)
+                    return it.get(result)
+            }
+        }
+
+        return null
     }
 
     fun select(where: String, type: KType) : Any? {
@@ -154,7 +167,7 @@ class Select : Query() {
                 if (annotations != null) {
                     annotations as OneToMany
 
-                    val whereRecursive = "id_${clazz.cls.simpleName} = " +
+                    val whereRecursive = "id_${clazz.cls.simpleName?.toLowerCase()} = " +
                             "${result.getInt(getPrimaryKeyOrNull(properties)!!.name)}"
 
                     mapParameters[parameter!!] = selectAll(whereRecursive, it.returnType.arguments.first().type!!)

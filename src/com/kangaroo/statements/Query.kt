@@ -22,8 +22,8 @@ abstract class Query
 
     abstract fun execute()
 
-    val formatQuery = { query : String ->
+    fun formatQuery(query : String, length : Int = 2) : String {
         // removes the last comma
-        query.take(query.length - 2)
+        return query.take(query.length - length)
     }
 }

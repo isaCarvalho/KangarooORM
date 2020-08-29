@@ -10,6 +10,7 @@ import com.kangaroo.annotations.Property
 import com.kangaroo.reflections.ReflectClass
 import kotlin.reflect.*
 import kotlin.reflect.full.declaredMemberProperties
+import kotlin.reflect.full.findAnnotation
 import kotlin.reflect.full.starProjectedType
 
 class Insert : Query()
@@ -65,8 +66,13 @@ class Insert : Query()
 
         // for each entity property that is not a list
         clazz.members.forEach {
-            if (!it.returnType.toString().contains("List"))
-                query += "${it.name}, "
+            val annotation = it.findAnnotation<Property>()
+
+            if (!it.returnType.toString().contains("List")) {
+                // if the property is auto incremented, does not inserts
+                if (annotation == null || !annotation.autoIncrement)
+                    query += "${it.name}, "
+            }
         }
         query = "${formatQuery(query)}) VALUES \n("
 
@@ -76,25 +82,28 @@ class Insert : Query()
             // gets the property type, like if it is an int or a object
             var propType = it.returnType.toString()
 
+            val annotation = it.findAnnotation<Property>()
+
             // if the property is not a list, gets its value
             if (!propType.contains("List")) {
+                if (annotation == null || !annotation.autoIncrement) {
+                    it as KProperty1<Any, *>
+                    var value = it.get(entity)
 
-                it as KProperty1<Any, *>
-                var value = it.get(entity)
+                    // if the value is an entity. ex: user's book
+                    if (getMappedOneToOneOrNull(it.name, clazz.properties) != null && value != null) {
 
-                // if the value is an entity. ex: user's book
-                if (getMappedOneToOneOrNull(it.name, clazz.properties) != null && value != null) {
+                        // inserts the entity and returns its primary key value
+                        value = insertRecursive(value)
 
-                    // inserts the entity and returns its primary key value
-                    value = insertRecursive(value)
-
-                    if (value != null) {
-                        propType = value::class.simpleName!!
-                        query = query.replace(it.name, "id_${it.name}")
+                        if (value != null) {
+                            propType = value::class.simpleName!!
+                            query = query.replace(it.name, "id_${it.name}")
+                        }
                     }
-                }
 
-                query += "${checkTypes(propType.toLowerCase().replace("kotlin.", ""), value.toString())}, "
+                    query += "${checkTypes(propType.toLowerCase().replace("kotlin.", ""), value.toString())}, "
+                }
             }
         }
 
@@ -108,19 +117,22 @@ class Insert : Query()
         if (newPrimaryValue != null) {
             // for each one to many relations
             clazz.members.forEach {
+                // gets the list
+                it as KMutableProperty1<Any, Any>
+
                 if (getMappedOneToManyOrNull(it.name, clazz.properties) != null) {
-                    // gets the list
-                    it as KProperty1<Any, *>
                     val propList = it.get(entity)
+                    propList as List<*>
 
-                    if (propList != null) {
-                        propList as List<*>
-
-                        // for each property of the item
-                        propList.forEach { item ->
-                            insertRecursive(item!!)
-                        }
+                    // for each property of the item
+                    propList.forEach { item ->
+                        insertRecursive(item!!)
                     }
+                }
+
+                val annotation = it.findAnnotation<Property>()
+                if (annotation != null && annotation.primaryKey) {
+                    it.set(entity, newPrimaryValue)
                 }
             }
         }

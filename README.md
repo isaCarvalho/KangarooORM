@@ -85,7 +85,8 @@ This is the type of the new column according to postgres type declaration.
 
 - autoIncrement : Boolean
 
-Sets if the column's value will be auto incremented. It's default value is false. 
+Sets if the column's value will be auto incremented. It's default value is false. To use auto increment, set a default
+value for the property you are using.
 
 - primaryKey : Boolean
 
@@ -202,9 +203,9 @@ class Code(
 ```kotlin
 @Table("employees")
 class Employee(
-    @Property("id", "int", primaryKey = true) var id : Int,
     @Property("name", "varchar", size = 255) var name : String,
     @OneToOne(ForeingKey("fk_employee_code", "codes", "id")) var code : Code,
+    @Property("id", "int", primaryKey = true, auto_increment = true) var id : Int
 )
 ```
 
@@ -221,7 +222,7 @@ fun main() {
     
     // Creating the objects
     val code = Code(1, "ABCDE")
-    val employee = Employee(1, "Employee1", code)
+    val employee = Employee("Employee1", code)
 
     // Querying everything
         

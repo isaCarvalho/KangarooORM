@@ -1,10 +1,10 @@
 package com.kangaroo.statements
 
-import com.kangaroo.DatabaseExecutor
-import com.kangaroo.DatabaseHelper.checkTypes
-import com.kangaroo.DatabaseHelper.getMappedParameterOrNull
-import com.kangaroo.DatabaseHelper.getPrimaryKeyOrNull
-import com.kangaroo.DatabaseManager
+import com.kangaroo.database.DatabaseExecutor
+import com.kangaroo.database.DatabaseHelper.checkTypes
+import com.kangaroo.database.DatabaseHelper.getMappedParameterOrNull
+import com.kangaroo.database.DatabaseHelper.getPrimaryKeyOrNull
+import com.kangaroo.database.DatabaseManager
 import com.kangaroo.annotations.OneToMany
 import com.kangaroo.annotations.OneToOne
 import com.kangaroo.annotations.Property
@@ -16,7 +16,6 @@ import kotlin.reflect.KProperty1
 import kotlin.reflect.KType
 import kotlin.reflect.full.declaredMemberProperties
 import kotlin.reflect.full.findAnnotation
-import kotlin.reflect.full.instanceParameter
 import kotlin.reflect.full.starProjectedType
 import kotlin.reflect.jvm.jvmErasure
 

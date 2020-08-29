@@ -1,10 +1,10 @@
 package com.kangaroo.statements
 
-import com.kangaroo.DatabaseHelper.checkTypes
-import com.kangaroo.DatabaseHelper.getMappedPropertyOrNull
-import com.kangaroo.DatabaseHelper.getPrimaryKeyOrNull
-import com.kangaroo.DatabaseExecutor
-import com.kangaroo.DatabaseManager
+import com.kangaroo.database.DatabaseHelper.checkTypes
+import com.kangaroo.database.DatabaseHelper.getMappedPropertyOrNull
+import com.kangaroo.database.DatabaseHelper.getPrimaryKeyOrNull
+import com.kangaroo.database.DatabaseExecutor
+import com.kangaroo.database.DatabaseManager
 import kotlin.reflect.KMutableProperty1
 
 class Update : Query() {

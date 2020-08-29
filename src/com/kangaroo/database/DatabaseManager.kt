@@ -1,4 +1,4 @@
-package com.kangaroo
+package com.kangaroo.database
 
 import com.kangaroo.reflections.ReflectClass
 import kotlin.reflect.*

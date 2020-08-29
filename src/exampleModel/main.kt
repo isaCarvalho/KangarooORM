@@ -1,6 +1,6 @@
 package exampleModel
 
-import com.kangaroo.DatabaseConfig
+import com.kangaroo.database.DatabaseConfig
 import com.kangaroo.facades.ModelQueryFacade
 import exampleModel.model.*
 

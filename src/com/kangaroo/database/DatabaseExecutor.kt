@@ -1,4 +1,4 @@
-package com.kangaroo
+package com.kangaroo.database
 
 import com.kangaroo.logger.Logger
 import java.lang.Exception

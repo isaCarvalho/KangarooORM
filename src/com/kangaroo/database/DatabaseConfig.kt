@@ -1,4 +1,4 @@
-package com.kangaroo
+package com.kangaroo.database
 
 import kotlin.properties.Delegates
 import java.sql.Connection

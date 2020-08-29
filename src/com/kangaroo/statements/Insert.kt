@@ -1,17 +1,14 @@
 package com.kangaroo.statements
 
-import com.kangaroo.DatabaseHelper.checkTypes
-import com.kangaroo.DatabaseExecutor
-import com.kangaroo.DatabaseHelper.getMappedOneToManyOrNull
-import com.kangaroo.DatabaseHelper.getMappedOneToOneOrNull
-import com.kangaroo.DatabaseHelper.getPrimaryKeyOrNull
-import com.kangaroo.DatabaseManager
+import com.kangaroo.database.DatabaseHelper.checkTypes
+import com.kangaroo.database.DatabaseExecutor
+import com.kangaroo.database.DatabaseHelper.getMappedOneToManyOrNull
+import com.kangaroo.database.DatabaseHelper.getMappedOneToOneOrNull
+import com.kangaroo.database.DatabaseManager
 import com.kangaroo.annotations.Property
 import com.kangaroo.reflections.ReflectClass
 import kotlin.reflect.*
-import kotlin.reflect.full.declaredMemberProperties
 import kotlin.reflect.full.findAnnotation
-import kotlin.reflect.full.starProjectedType
 
 class Insert : Query()
 {

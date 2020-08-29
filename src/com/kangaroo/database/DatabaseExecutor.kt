@@ -5,6 +5,7 @@ import java.lang.Exception
 import java.lang.NullPointerException
 import java.sql.ResultSet
 import java.sql.SQLException
+import org.postgresql.util.PSQLException
 
 object DatabaseExecutor
 {
@@ -65,6 +66,8 @@ object DatabaseExecutor
                 stmt.executeUpdate(sqlQuery)
 
             DatabaseConfig.close()
+        } catch (ex : PSQLException) {
+            writeLog("Table does not exists", ex, sqlQuery)
         } catch (ex : SQLException) {
             writeLog("SQL query throws an exception:", ex, sqlQuery)
         } catch (ex : NullPointerException) {

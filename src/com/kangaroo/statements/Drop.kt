@@ -1,5 +1,6 @@
 package com.kangaroo.statements
 
+import com.kangaroo.annotations.ManyToMany
 import com.kangaroo.database.DatabaseExecutor
 import com.kangaroo.database.DatabaseManager
 
@@ -19,20 +20,29 @@ class Drop : Query() {
     fun dropTableAndSequence() : Drop {
         val sequenceName = tableName + "_seq"
 
-        sqlQuery = "DROP TABLE IF EXISTS $tableName;\n" +
+        properties.forEach {
+            val relation = it.relation
+            if (relation is ManyToMany) {
+                relation as ManyToMany
+                dropTable(relation.foreignKey.referencedTable)
+                dropSequence("${relation.foreignKey.referencedTable}_seq")
+            }
+        }
+
+        sqlQuery += "\nDROP TABLE IF EXISTS $tableName;\n" +
                 "DROP SEQUENCE IF EXISTS $sequenceName;"
 
         return this
     }
 
     fun dropTable(tableName : String) : Drop {
-        sqlQuery += "DROP TABLE IF EXISTS $tableName;"
+        sqlQuery += "\nDROP TABLE IF EXISTS $tableName;"
 
         return this
     }
 
     fun dropSequence(sequenceName : String) : Drop {
-        sqlQuery += "DROP SEQUENCE IF EXISTS $sequenceName;"
+        sqlQuery += "\nDROP SEQUENCE IF EXISTS $sequenceName;"
 
         return this
     }

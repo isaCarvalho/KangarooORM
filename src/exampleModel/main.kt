@@ -14,7 +14,7 @@ fun main() {
         "test",
         false,
         showQuery = true,
-        showQueryLog = true
+        showQueryLog = false
     )
 
     // Creating the tables
@@ -24,6 +24,7 @@ fun main() {
     val bookQuery = ModelQueryFacade(Book::class)
     val taskQuery = ModelQueryFacade(Task::class)
     val userQuery = ModelQueryFacade(User::class)
+    val clotheQuery = ModelQueryFacade(Clothe::class)
 
     // Creating the objects
 
@@ -69,6 +70,7 @@ fun main() {
 
     // dropping the tables
 
+    clotheQuery.dropTable()
     taskQuery.dropTable()
     userQuery.dropTable()
     bookQuery.dropTable()

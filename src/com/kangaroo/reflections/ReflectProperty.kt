@@ -1,9 +1,6 @@
 package com.kangaroo.reflections
 
-import com.kangaroo.annotations.ForeignKey
-import com.kangaroo.annotations.OneToMany
-import com.kangaroo.annotations.OneToOne
-import com.kangaroo.annotations.Property
+import com.kangaroo.annotations.*
 import kotlin.reflect.KProperty1
 import kotlin.reflect.jvm.jvmErasure
 
@@ -19,7 +16,7 @@ class ReflectProperty(property : KProperty1<*, *>) {
 
     init {
         property.annotations.forEach {
-            if (it is OneToOne || it is ForeignKey || it is OneToMany)
+            if (it is OneToOne || it is ForeignKey || it is OneToMany || it is ManyToMany)
                 relation = it
 
             if (it is Property)

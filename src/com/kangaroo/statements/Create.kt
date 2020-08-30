@@ -5,6 +5,7 @@ import com.kangaroo.database.DatabaseHelper
 import com.kangaroo.database.DatabaseHelper.getPrimaryKeyOrNull
 import com.kangaroo.database.DatabaseManager
 import com.kangaroo.annotations.ForeignKey
+import com.kangaroo.annotations.ManyToMany
 import com.kangaroo.annotations.OneToMany
 import com.kangaroo.annotations.OneToOne
 
@@ -66,7 +67,7 @@ class Create : Query() {
      * Creates a table without the entity
      */
     fun createTable(tableName : String, columns : Array<String>) : Create {
-        sqlQuery += "CREATE TABLE $tableName (\n"
+        sqlQuery += "\n\nCREATE TABLE IF NOT EXISTS $tableName (\n"
 
         columns.forEach {
             sqlQuery += it
@@ -111,6 +112,34 @@ class Create : Query() {
                             relation.foreignKey.deleteCascade,
                             relation.foreignKey.updateCascade
                     )
+                }
+
+                is ManyToMany -> {
+                    val relation = it.relation as ManyToMany
+
+                    val referencedTableName = relation.foreignKey.referencedTable
+                    val columns = ArrayList<String>()
+
+                    val propertyName = "id_${databaseManager.reflectClass.cls.simpleName!!.toLowerCase()}"
+
+                    columns.add("id int primary key")
+
+                    createTable(referencedTableName, columns.toTypedArray())
+                    createSequence("id", referencedTableName)
+
+                    val primaryKey = getPrimaryKeyOrNull(properties)
+                    if (primaryKey != null) {
+                        sqlQuery += createConstraint(
+                                referencedTableName,
+                                relation.foreignKey.constraintName,
+                                primaryKey.name,
+                                tableName,
+                                propertyName,
+                                relation.foreignKey.deleteCascade,
+                                relation.foreignKey.updateCascade,
+                                true
+                        )
+                    }
                 }
 
                 is ForeignKey -> {
@@ -193,7 +222,7 @@ class Create : Query() {
      * @return String
      */
     private fun createSequence(tableName: String, sequenceName : String, propertyName : String) : String {
-        return "CREATE SEQUENCE IF NOT EXISTS $sequenceName INCREMENT 1 MINVALUE 1 START 1;\n" +
+        return "\n\nCREATE SEQUENCE IF NOT EXISTS $sequenceName INCREMENT 1 MINVALUE 1 START 1;\n" +
                 "ALTER TABLE $tableName ALTER COLUMN $propertyName SET DEFAULT nextval('$sequenceName');\n"
     }
 

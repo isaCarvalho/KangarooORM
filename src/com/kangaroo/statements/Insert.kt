@@ -6,8 +6,10 @@ import com.kangaroo.database.DatabaseHelper.getMappedOneToManyOrNull
 import com.kangaroo.database.DatabaseHelper.getMappedOneToOneOrNull
 import com.kangaroo.database.DatabaseManager
 import com.kangaroo.annotations.Property
+import com.kangaroo.database.DatabaseHelper.getMappedManyToManyOrNull
 import com.kangaroo.reflections.ReflectClass
 import kotlin.reflect.*
+import kotlin.reflect.full.declaredMemberProperties
 import kotlin.reflect.full.findAnnotation
 
 class Insert : Query()
@@ -89,7 +91,6 @@ class Insert : Query()
 
                     // if the value is an entity. ex: user's book
                     if (getMappedOneToOneOrNull(it.name, clazz.properties) != null && value != null) {
-
                         // inserts the entity and returns its primary key value
                         value = insertRecursive(value)
 
@@ -117,13 +118,45 @@ class Insert : Query()
                 // gets the list
                 it as KMutableProperty1<Any, Any>
 
+                // if the relation is a one to many, inserts each item
                 if (getMappedOneToManyOrNull(it.name, clazz.properties) != null) {
                     val propList = it.get(entity)
                     propList as List<*>
 
                     // for each property of the item
                     propList.forEach { item ->
-                        insertRecursive(item!!)
+                        item!!::class.declaredMemberProperties.forEach {prop ->
+                            prop as KMutableProperty1<Any, Any>
+                            if (prop.name == "id_${entity::class.simpleName!!.toLowerCase()}")
+                                prop.set(item, newPrimaryValue)
+                        }
+                        insertRecursive(item)
+                    }
+                }
+
+                // if the relation is a many to many
+                val manyToMany = getMappedManyToManyOrNull(it.name, clazz.properties)
+                if (manyToMany != null) {
+                    val propList = it.get(entity)
+                    propList as List<*>
+
+                    propList.forEach { item ->
+                        // inserts each item
+                        val primaryKey = insertRecursive(item!!)
+                        // if the insert was possible
+                        if (primaryKey != null) {
+                            // gets the table for insert and the primary key of the entity
+                            val table = manyToMany.foreignKey.referencedTable
+                            val entityPrimaryKeyField = "id_${entity::class.simpleName!!.toLowerCase()}"
+
+                            // creates the query
+                            val insertQuery = "INSERT INTO $table " +
+                                    "($entityPrimaryKeyField, ${manyToMany.foreignKey.referencedProperty})" +
+                                    " VALUES ($newPrimaryValue, $primaryKey);"
+
+                            // inserts the value
+                            DatabaseExecutor.executeOperation(insertQuery, true)
+                        }
                     }
                 }
 

@@ -13,6 +13,7 @@ class User(
         var book : Book,
         @OneToMany(ForeignKey("fk_user_task", "tasks", "id_user", deleteCascade = true))
         var tasks : List<Task>,
+        @ManyToMany(ForeignKey("fk_user_clothe", "users_clothes", "id_clothe")) var clothes : List<Clothe> = listOf(),
         @Property("id", "int", true, autoIncrement = true)
         var id : Int = -1
 ) {
@@ -21,6 +22,7 @@ class User(
                 "id: $id\n" +
                 "id_house: $id_house\n" +
                 "book: $book\n" +
-                "task: $tasks"
+                "task: $tasks\n" +
+                "clothes: $clothes"
     }
 }

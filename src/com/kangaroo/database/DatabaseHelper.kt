@@ -1,5 +1,6 @@
 package com.kangaroo.database
 
+import com.kangaroo.annotations.ManyToMany
 import com.kangaroo.annotations.OneToMany
 import com.kangaroo.annotations.OneToOne
 import com.kangaroo.annotations.Property
@@ -75,6 +76,15 @@ object DatabaseHelper
         properties.forEach {
             if (it.name == name && it.relation != null && it.relation is OneToMany)
                 return it.relation as OneToMany
+        }
+
+        return null
+    }
+
+    fun getMappedManyToManyOrNull(name: String, properties: ArrayList<ReflectProperty>) : ManyToMany? {
+        properties.forEach {
+            if (it.name == name && it.relation != null && it.relation is ManyToMany)
+                return it.relation as ManyToMany
         }
 
         return null

@@ -22,6 +22,7 @@ class User(
                 "id: $id\n" +
                 "id_house: $id_house\n" +
                 "book: $book\n" +
-                "task: $tasks"
+                "task: $tasks\n" +
+                "clothes: $clothes"
     }
 }

@@ -37,10 +37,18 @@ fun main() {
     val book = Book("Fundamentos da Fisica 1", author)
     val book2 = Book("Fundamentos da Fisica 2", author2)
 
-    val user = User("User 1", house.id, book, listOf(Task(1, 1), Task(2, 1)))
-    val user2 = User("User 2", house2.id, book2, listOf())
+    val clothes = listOf(Clothe("short"), Clothe("pants"), Clothe("shirt"))
 
-    // Inserting the objects
+    val user = User(
+            "User 1",
+            house.id,
+            book,
+            listOf(Task(1, "dishes"), Task(2, "clean")),
+            clothes
+    )
+    val user2 = User("User 2", house2.id, book2, listOf(), clothes)
+
+    // Inserting the objects -- DO NOT INSERT THE RELATION OBJECTS
 
     houseQuery.insert(house)
         .insert(house2)

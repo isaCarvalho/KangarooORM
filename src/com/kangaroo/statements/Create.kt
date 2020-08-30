@@ -125,6 +125,7 @@ class Create : Query() {
                     columns.add("id int primary key")
 
                     createTable(referencedTableName, columns.toTypedArray())
+                    createSequence("id", referencedTableName)
 
                     val primaryKey = getPrimaryKeyOrNull(properties)
                     if (primaryKey != null) {

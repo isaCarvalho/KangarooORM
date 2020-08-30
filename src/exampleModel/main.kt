@@ -84,4 +84,24 @@ fun main() {
     bookQuery.dropTable()
     houseQuery.dropTable()
     authorQuery.dropTable()
+
+    // Printing the objects
+    println("\n\n=========================HOUSES=========================\n\n")
+    println(house)
+    println(house2)
+
+    println("\n\n=========================AUTHORS=========================\n\n")
+    println(author)
+    println(author2)
+
+    println("\n\n=========================BOOKS=========================\n\n")
+    println(book)
+    println(book2)
+
+    println("\n\n=========================CLOTHES=========================\n\n")
+    println(clothes)
+
+    println("\n\n=========================USERS=========================\n\n")
+    println(user)
+    println(user2)
 }

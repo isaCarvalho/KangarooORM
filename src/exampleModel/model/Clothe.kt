@@ -9,7 +9,7 @@ import com.kangaroo.annotations.Table
 class Clothe(
         @Property("name", "varchar", size = 255)
         var name : String,
-        @ManyToMany(ForeignKey("fk_clothe_user", "users_clothes", "id_user"))
+        @ManyToMany(ForeignKey("fk_clothe_user", "users_clothes", "id_user", deleteCascade = true))
         var users : List<User> = listOf(),
         @Property("id", "int", primaryKey = true, autoIncrement = true) var id : Int = -1
 )

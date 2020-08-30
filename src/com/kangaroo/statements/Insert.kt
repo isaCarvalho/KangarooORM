@@ -8,6 +8,7 @@ import com.kangaroo.database.DatabaseManager
 import com.kangaroo.annotations.Property
 import com.kangaroo.database.DatabaseHelper.getMappedManyToManyOrNull
 import com.kangaroo.reflections.ReflectClass
+import javax.swing.text.html.parser.Entity
 import kotlin.reflect.*
 import kotlin.reflect.full.declaredMemberProperties
 import kotlin.reflect.full.findAnnotation
@@ -141,8 +142,9 @@ class Insert : Query()
                     propList as List<*>
 
                     propList.forEach { item ->
-                        // inserts each item
-                        val primaryKey = insertRecursive(item!!)
+                        // verifies if the item already exists, and if it doesn't, inserts
+                        val primaryKey = selectObject.getPrimaryKeyValue(item!!) ?: insertRecursive(item)
+
                         // if the insert was possible
                         if (primaryKey != null) {
                             // gets the table for insert and the primary key of the entity
@@ -156,6 +158,19 @@ class Insert : Query()
 
                             // inserts the value
                             DatabaseExecutor.executeOperation(insertQuery, true)
+
+                            // updates the list of the entity in the other side of the relation
+                            item::class.declaredMemberProperties.forEach {propItem ->
+                                if (propItem.name == tableName) {
+                                    propItem as KMutableProperty1<Any, Any>
+                                    val entityList = propItem.get(item) as List<*>
+
+                                    val newList = entityList.toMutableList()
+                                    newList.add(entity)
+
+                                    propItem.set(item, newList.toList())
+                                }
+                            }
                         }
                     }
                 }

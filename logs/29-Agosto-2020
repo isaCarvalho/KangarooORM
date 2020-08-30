@@ -1,0 +1,3051 @@
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+29-08-2020 13:28:11 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:147)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:44)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 2', 2);
+
+29-08-2020 13:28:11 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:147)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+29-08-2020 13:28:58 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:147)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:44)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 2', 2);
+
+29-08-2020 13:28:58 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:147)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+29-08-2020 13:32:31 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:147)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:44)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 2', 2);
+
+29-08-2020 13:32:32 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:147)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+29-08-2020 13:33:32 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:44)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 2', 2);
+
+29-08-2020 13:33:32 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO author (id, name) VALUES 
+(1, 'Halliday');
+
+29-08-2020 13:33:33 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "author_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:98)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:98)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO books (id_author, description, id) VALUES 
+(1, 'Fundamentos da Fisica 1', 1);
+
+29-08-2020 13:33:33 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "books_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:98)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks (id, id_user) VALUES 
+(1, 1);
+
+29-08-2020 13:33:33 - SQL query throws an exception: - ERROR: insert or update on table "tasks" violates foreign key constraint "fk_user_task"
+  Detalhe: Key (id_user)=(1) is not present in table "users".
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:129)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks (id, id_user) VALUES 
+(2, 1);
+
+29-08-2020 13:33:33 - SQL query throws an exception: - ERROR: insert or update on table "tasks" violates foreign key constraint "fk_user_task"
+  Detalhe: Key (id_user)=(1) is not present in table "users".
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:129)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO users (id_book, id, id_house, name) VALUES 
+(2, -1, 2, 'User 2');
+
+29-08-2020 13:33:34 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "users_pkey"
+  Detalhe: Key (id)=(-1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks (id, id_user) VALUES 
+(1, 1);
+
+29-08-2020 13:36:49 - SQL query throws an exception: - ERROR: insert or update on table "tasks" violates foreign key constraint "fk_user_task"
+  Detalhe: Key (id_user)=(1) is not present in table "users".
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:129)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks (id, id_user) VALUES 
+(2, 1);
+
+29-08-2020 13:36:49 - SQL query throws an exception: - ERROR: insert or update on table "tasks" violates foreign key constraint "fk_user_task"
+  Detalhe: Key (id_user)=(1) is not present in table "users".
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:129)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses) VALUES );
+
+29-08-2020 13:39:00 - SQL query throws an exception: - ERROR: syntax error at or near ")"
+  Posição: 19
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:44)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses) VALUES );
+
+29-08-2020 13:39:00 - SQL query throws an exception: - ERROR: syntax error at or near ")"
+  Posição: 19
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO users) VALUES );
+
+29-08-2020 13:39:00 - SQL query throws an exception: - ERROR: syntax error at or near ")"
+  Posição: 18
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks) VALUES );
+
+29-08-2020 13:39:00 - SQL query throws an exception: - ERROR: syntax error at or near ")"
+  Posição: 18
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:129)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks) VALUES );
+
+29-08-2020 13:39:00 - SQL query throws an exception: - ERROR: syntax error at or near ")"
+  Posição: 18
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:129)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO users) VALUES );
+
+29-08-2020 13:39:00 - SQL query throws an exception: - ERROR: syntax error at or near ")"
+  Posição: 18
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO users (book, id_house, name) VALUES 
+('null', 1, 'User 1');
+
+29-08-2020 13:46:19 - SQL query throws an exception: - ERROR: column "book" of relation "users" does not exist
+  Posição: 20
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO users (book, id_house, name) VALUES 
+('null', 2, 'User 2');
+
+29-08-2020 13:46:20 - SQL query throws an exception: - ERROR: column "book" of relation "users" does not exist
+  Posição: 20
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO users (book, id_house, name) VALUES 
+('null', 1, 'User 1');
+
+29-08-2020 13:50:47 - SQL query throws an exception: - ERROR: column "book" of relation "users" does not exist
+  Posição: 20
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO users (book, id_house, name) VALUES 
+('null', 2, 'User 2');
+
+29-08-2020 13:50:47 - SQL query throws an exception: - ERROR: column "book" of relation "users" does not exist
+  Posição: 20
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks (id_user) VALUES 
+(1);
+
+29-08-2020 13:50:47 - SQL query throws an exception: - ERROR: insert or update on table "tasks" violates foreign key constraint "fk_user_task"
+  Detalhe: Key (id_user)=(1) is not present in table "users".
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:51)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks (id_user) VALUES 
+(1);
+
+29-08-2020 13:50:47 - SQL query throws an exception: - ERROR: insert or update on table "tasks" violates foreign key constraint "fk_user_task"
+  Detalhe: Key (id_user)=(1) is not present in table "users".
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:51)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO users (book, id_house, name) VALUES 
+('null', 1, 'User 1');
+
+29-08-2020 13:51:56 - SQL query throws an exception: - ERROR: column "book" of relation "users" does not exist
+  Posição: 20
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO users (book, id_house, name) VALUES 
+('null', 2, 'User 2');
+
+29-08-2020 13:51:56 - SQL query throws an exception: - ERROR: column "book" of relation "users" does not exist
+  Posição: 20
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks (id, id_user) VALUES 
+(1, 1);
+
+29-08-2020 13:51:56 - SQL query throws an exception: - ERROR: insert or update on table "tasks" violates foreign key constraint "fk_user_task"
+  Detalhe: Key (id_user)=(1) is not present in table "users".
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:51)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks (id, id_user) VALUES 
+(2, 1);
+
+29-08-2020 13:51:56 - SQL query throws an exception: - ERROR: insert or update on table "tasks" violates foreign key constraint "fk_user_task"
+  Detalhe: Key (id_user)=(1) is not present in table "users".
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:51)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+29-08-2020 14:13:26 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:44)
+exampleModel.MainKt.main(main.kt)
+
+SELECT * FROM houses WHERE falseaddress = Street 1;
+
+29-08-2020 14:13:26 - SQL query throws an exception: - ERROR: syntax error at or near "1"
+  Posição: 50
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:35)
+com.kangaroo.statements.Select.selectAll(Select.kt:140)
+com.kangaroo.statements.Select.select(Select.kt:125)
+com.kangaroo.statements.Select.getPrimaryKeyValue(Select.kt:111)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:115)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:44)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+29-08-2020 14:15:54 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:44)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 2', 2);
+
+29-08-2020 14:15:55 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO author (id, name) VALUES 
+(1, 'Halliday');
+
+29-08-2020 14:15:55 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "author_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:97)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:97)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks (id, id_user) VALUES 
+(1, 1);
+
+29-08-2020 14:15:56 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "tasks_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:51)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks (id, id_user) VALUES 
+(2, 1);
+
+29-08-2020 14:15:56 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "tasks_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:51)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+29-08-2020 14:18:46 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:44)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 2', 2);
+
+29-08-2020 14:18:46 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO author (id, name) VALUES 
+(1, 'Halliday');
+
+29-08-2020 14:18:46 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "author_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:97)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:97)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+SELECT * FROM books WHERE author = 'id: 1
+name: Halliday' AND description = 'Fundamentos da Fisica 1';
+
+29-08-2020 14:18:46 - SQL query throws an exception: - ERROR: column "author" does not exist
+  Dica: Perhaps you meant to reference the column "books.id_author".
+  Posição: 27
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:35)
+com.kangaroo.statements.Select.selectAll(Select.kt:147)
+com.kangaroo.statements.Select.select(Select.kt:132)
+com.kangaroo.statements.Select.getPrimaryKeyValue(Select.kt:118)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:115)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:97)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+29-08-2020 14:19:25 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:44)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 2', 2);
+
+29-08-2020 14:19:25 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO author (id, name) VALUES 
+(1, 'Halliday');
+
+29-08-2020 14:19:25 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "author_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:97)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:97)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+SELECT * FROM books WHERE author = 'id: 1
+name: Halliday' AND description = 'Fundamentos da Fisica 1';
+
+29-08-2020 14:19:25 - SQL query throws an exception: - ERROR: column "author" does not exist
+  Dica: Perhaps you meant to reference the column "books.id_author".
+  Posição: 27
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:35)
+com.kangaroo.statements.Select.selectAll(Select.kt:147)
+com.kangaroo.statements.Select.select(Select.kt:132)
+com.kangaroo.statements.Select.getPrimaryKeyValue(Select.kt:118)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:115)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:97)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 1', 1);
+
+29-08-2020 14:21:54 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:44)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO houses (address, id) VALUES 
+('Street 2', 2);
+
+29-08-2020 14:21:54 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO author (id, name) VALUES 
+(1, 'Halliday');
+
+29-08-2020 14:21:54 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "author_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:97)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:97)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:47)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks (id, id_user) VALUES 
+(1, 1);
+
+29-08-2020 14:21:55 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "tasks_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:51)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks (id, id_user) VALUES 
+(2, 1);
+
+29-08-2020 14:21:55 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "tasks_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:51)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks (id, id_user) VALUES 
+(1, 1);
+
+29-08-2020 14:22:15 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "tasks_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:51)
+exampleModel.MainKt.main(main.kt)
+
+INSERT INTO tasks (id, id_user) VALUES 
+(2, 1);
+
+29-08-2020 14:22:15 - SQL query throws an exception: - ERROR: duplicate key value violates unique constraint "tasks_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:63)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:148)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:51)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 17:35:28 - SQL query throws an exception: - ERROR: relation "users_clothes" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:35)
+com.kangaroo.statements.Create.createTableIfNotExists(Create.kt:167)
+com.kangaroo.statements.Create.createRelations(Create.kt:130)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:21)
+exampleModel.MainKt.main(main.kt:26)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 17:35:28 - SQL query throws an exception: - ERROR: relation "users_clothes" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:35)
+com.kangaroo.statements.Create.createTableIfNotExists(Create.kt:167)
+com.kangaroo.statements.Create.createRelations(Create.kt:130)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:21)
+exampleModel.MainKt.main(main.kt:27)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 17:37:01 - SQL query throws an exception: - ERROR: relation "users_clothes" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:35)
+com.kangaroo.statements.Create.createTableIfNotExists(Create.kt:167)
+com.kangaroo.statements.Create.createRelations(Create.kt:130)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:21)
+exampleModel.MainKt.main(main.kt:26)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 17:37:01 - SQL query throws an exception: - ERROR: relation "users_clothes" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:35)
+com.kangaroo.statements.Create.createTableIfNotExists(Create.kt:167)
+com.kangaroo.statements.Create.createRelations(Create.kt:130)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:21)
+exampleModel.MainKt.main(main.kt:27)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 17:38:43 - SQL query throws an exception: - ERROR: relation "users_clothes" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:35)
+com.kangaroo.statements.Create.createTableIfNotExists(Create.kt:166)
+com.kangaroo.statements.Create.createRelations(Create.kt:129)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:21)
+exampleModel.MainKt.main(main.kt:26)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 17:38:43 - SQL query throws an exception: - ERROR: relation "users_clothes" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:35)
+com.kangaroo.statements.Create.createTableIfNotExists(Create.kt:166)
+com.kangaroo.statements.Create.createRelations(Create.kt:129)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:21)
+exampleModel.MainKt.main(main.kt:27)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 17:40:39 - SQL query throws an exception: - ERROR: relation "users_clothes" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:36)
+com.kangaroo.statements.Create.createTableIfNotExists(Create.kt:166)
+com.kangaroo.statements.Create.createRelations(Create.kt:129)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:21)
+exampleModel.MainKt.main(main.kt:26)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 17:40:39 - SQL query throws an exception: - ERROR: relation "users_clothes" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:36)
+com.kangaroo.statements.Create.createTableIfNotExists(Create.kt:166)
+com.kangaroo.statements.Create.createRelations(Create.kt:129)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:21)
+exampleModel.MainKt.main(main.kt:27)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 17:41:37 - SQL query throws an exception: - ERROR: relation "users_clothes" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:36)
+com.kangaroo.statements.Create.createTableIfNotExists(Create.kt:166)
+com.kangaroo.statements.Create.createRelations(Create.kt:129)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:21)
+exampleModel.MainKt.main(main.kt:26)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 17:41:37 - SQL query throws an exception: - ERROR: relation "users_clothes" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:36)
+com.kangaroo.statements.Create.createTableIfNotExists(Create.kt:166)
+com.kangaroo.statements.Create.createRelations(Create.kt:129)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:21)
+exampleModel.MainKt.main(main.kt:27)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:11:22 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:11:22 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:46)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:11:23 - Table does not exists - ERROR: duplicate key value violates unique constraint "tasks_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:126)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:11:23 - Table does not exists - ERROR: duplicate key value violates unique constraint "tasks_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:126)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:12:34 - Table does not exists - ERROR: relation "users" does not exist
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Create.execute(Create.kt:240)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+exampleModel.MainKt.main(main.kt:26)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:12:35 - Table does not exists - ERROR: relation "users" does not exist
+  Posição: 13
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:12:35 - SQL query throws an exception: - ERROR: relation "users" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:36)
+com.kangaroo.statements.Select.selectAll(Select.kt:146)
+com.kangaroo.statements.Select.select(Select.kt:131)
+com.kangaroo.statements.Select.getPrimaryKeyValue(Select.kt:117)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:14:53 - Table does not exists - ERROR: syntax error at or near "ALTER"
+  Posição: 52
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Create.execute(Create.kt:239)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+exampleModel.MainKt.main(main.kt:26)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:14:54 - Table does not exists - ERROR: column "id_user" of relation "users_clothes" already exists
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Create.execute(Create.kt:239)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+exampleModel.MainKt.main(main.kt:27)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:14:54 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:14:54 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:46)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:14:54 - Table does not exists - ERROR: relation "users" does not exist
+  Posição: 13
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:14:54 - SQL query throws an exception: - ERROR: relation "users" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:36)
+com.kangaroo.statements.Select.selectAll(Select.kt:146)
+com.kangaroo.statements.Select.select(Select.kt:131)
+com.kangaroo.statements.Select.getPrimaryKeyValue(Select.kt:117)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:22:17 - Table does not exists - ERROR: syntax error at or near "ALTER"
+  Posição: 56
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Create.execute(Create.kt:240)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+exampleModel.MainKt.main(main.kt:26)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:22:17 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:22:17 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:46)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:22:18 - Table does not exists - ERROR: relation "users" does not exist
+  Posição: 13
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:22:18 - SQL query throws an exception: - ERROR: relation "users" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:36)
+com.kangaroo.statements.Select.selectAll(Select.kt:146)
+com.kangaroo.statements.Select.select(Select.kt:131)
+com.kangaroo.statements.Select.getPrimaryKeyValue(Select.kt:117)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:22:44 - Table does not exists - ERROR: syntax error at or near "ALTER"
+  Posição: 50
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Create.execute(Create.kt:240)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+exampleModel.MainKt.main(main.kt:26)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:22:44 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:22:44 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:46)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:22:45 - Table does not exists - ERROR: relation "users" does not exist
+  Posição: 13
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:22:45 - SQL query throws an exception: - ERROR: relation "users" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:36)
+com.kangaroo.statements.Select.selectAll(Select.kt:146)
+com.kangaroo.statements.Select.select(Select.kt:131)
+com.kangaroo.statements.Select.getPrimaryKeyValue(Select.kt:117)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:26:53 - Table does not exists - ERROR: relation "users_clothes" already exists
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Create.execute(Create.kt:241)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+exampleModel.MainKt.main(main.kt:26)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:26:53 - Table does not exists - ERROR: relation "users_clothes" already exists
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Create.execute(Create.kt:241)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+exampleModel.MainKt.main(main.kt:27)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:26:53 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:26:53 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:46)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:26:54 - Table does not exists - ERROR: relation "users" does not exist
+  Posição: 13
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:26:54 - SQL query throws an exception: - ERROR: relation "users" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:36)
+com.kangaroo.statements.Select.selectAll(Select.kt:146)
+com.kangaroo.statements.Select.select(Select.kt:131)
+com.kangaroo.statements.Select.getPrimaryKeyValue(Select.kt:117)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:30:40 - Table does not exists - ERROR: column "id_user" of relation "users_clothes" already exists
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Create.execute(Create.kt:239)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+exampleModel.MainKt.main(main.kt:26)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:30:40 - Table does not exists - ERROR: column "id_clothe" of relation "users_clothes" already exists
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Create.execute(Create.kt:239)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+exampleModel.MainKt.main(main.kt:27)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:30:40 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:30:40 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:46)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:30:41 - Table does not exists - ERROR: relation "users" does not exist
+  Posição: 13
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:30:41 - SQL query throws an exception: - ERROR: relation "users" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:36)
+com.kangaroo.statements.Select.selectAll(Select.kt:146)
+com.kangaroo.statements.Select.select(Select.kt:131)
+com.kangaroo.statements.Select.getPrimaryKeyValue(Select.kt:117)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:32:19 - Table does not exists - ERROR: column "id_user" of relation "users_clothes" already exists
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Create.execute(Create.kt:239)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+exampleModel.MainKt.main(main.kt:26)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:32:19 - Table does not exists - ERROR: column "id_clothe" of relation "users_clothes" already exists
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Create.execute(Create.kt:239)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+exampleModel.MainKt.main(main.kt:27)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:32:19 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:32:19 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:46)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:32:19 - Table does not exists - ERROR: relation "users" does not exist
+  Posição: 13
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:32:19 - SQL query throws an exception: - ERROR: relation "users" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:36)
+com.kangaroo.statements.Select.selectAll(Select.kt:146)
+com.kangaroo.statements.Select.select(Select.kt:131)
+com.kangaroo.statements.Select.getPrimaryKeyValue(Select.kt:117)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:33:10 - Table does not exists - ERROR: relation "users" does not exist
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Create.execute(Create.kt:239)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+exampleModel.MainKt.main(main.kt:26)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:33:11 - Table does not exists - ERROR: relation "users" does not exist
+  Posição: 13
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:33:11 - SQL query throws an exception: - ERROR: relation "users" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:36)
+com.kangaroo.statements.Select.selectAll(Select.kt:146)
+com.kangaroo.statements.Select.select(Select.kt:131)
+com.kangaroo.statements.Select.getPrimaryKeyValue(Select.kt:117)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:52:26 - Table does not exists - ERROR: column "id_user" of relation "users_clothes" already exists
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Create.execute(Create.kt:236)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+exampleModel.MainKt.main(main.kt:26)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:52:26 - Table does not exists - ERROR: column "id_clothe" of relation "users_clothes" already exists
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Create.execute(Create.kt:236)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+exampleModel.MainKt.main(main.kt:27)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:52:27 - Table does not exists - ERROR: relation "users" does not exist
+  Posição: 13
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 18:52:27 - SQL query throws an exception: - ERROR: relation "users" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:36)
+com.kangaroo.statements.Select.selectAll(Select.kt:146)
+com.kangaroo.statements.Select.select(Select.kt:131)
+com.kangaroo.statements.Select.getPrimaryKeyValue(Select.kt:117)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 19:58:27 - Table does not exists - ERROR: relation "users" does not exist
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Create.execute(Create.kt:237)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+exampleModel.MainKt.main(main.kt:26)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 19:58:28 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 19:58:28 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:46)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 19:58:28 - Table does not exists - ERROR: relation "users" does not exist
+  Posição: 13
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 19:58:28 - SQL query throws an exception: - ERROR: relation "users" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:36)
+com.kangaroo.statements.Select.selectAll(Select.kt:146)
+com.kangaroo.statements.Select.select(Select.kt:131)
+com.kangaroo.statements.Select.getPrimaryKeyValue(Select.kt:117)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:00:24 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:00:25 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:46)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:09:12 - Table does not exists - ERROR: relation "users_clothes" does not exist
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Create.execute(Create.kt:237)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+exampleModel.MainKt.main(main.kt:26)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:09:13 - Table does not exists - ERROR: relation "users" does not exist
+  Posição: 13
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:09:13 - SQL query throws an exception: - ERROR: relation "users" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:36)
+com.kangaroo.statements.Select.selectAll(Select.kt:146)
+com.kangaroo.statements.Select.select(Select.kt:131)
+com.kangaroo.statements.Select.getPrimaryKeyValue(Select.kt:117)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:11:17 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:11:17 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:46)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:11:20 - Table does not exists - ERROR: cannot drop table users because other objects depend on it
+  Detalhe: constraint fk_user_clothe on table users_clothes depends on table users
+  Dica: Use DROP ... CASCADE to drop the dependent objects too.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Drop.execute(Drop.kt:51)
+com.kangaroo.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
+exampleModel.MainKt.main(main.kt:74)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:11:21 - Table does not exists - ERROR: cannot drop table books because other objects depend on it
+  Detalhe: constraint fk_user_book on table users depends on table books
+  Dica: Use DROP ... CASCADE to drop the dependent objects too.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Drop.execute(Drop.kt:51)
+com.kangaroo.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
+exampleModel.MainKt.main(main.kt:75)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:11:21 - Table does not exists - ERROR: cannot drop table houses because other objects depend on it
+  Detalhe: constraint fk_user_house on table users depends on table houses
+  Dica: Use DROP ... CASCADE to drop the dependent objects too.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Drop.execute(Drop.kt:51)
+com.kangaroo.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
+exampleModel.MainKt.main(main.kt:76)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:11:21 - Table does not exists - ERROR: cannot drop table author because other objects depend on it
+  Detalhe: constraint fk_book_author on table books depends on table author
+  Dica: Use DROP ... CASCADE to drop the dependent objects too.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Drop.execute(Drop.kt:51)
+com.kangaroo.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
+exampleModel.MainKt.main(main.kt:77)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:13:16 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:13:16 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:46)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:13:17 - Table does not exists - ERROR: insert or update on table "tasks" violates foreign key constraint "fk_user_task"
+  Detalhe: Key (id_user)=(1) is not present in table "users".
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:126)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:13:17 - Table does not exists - ERROR: insert or update on table "tasks" violates foreign key constraint "fk_user_task"
+  Detalhe: Key (id_user)=(1) is not present in table "users".
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:126)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:13:19 - Table does not exists - ERROR: cannot drop table users because other objects depend on it
+  Detalhe: constraint fk_user_clothe on table users_clothes depends on table users
+  Dica: Use DROP ... CASCADE to drop the dependent objects too.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Drop.execute(Drop.kt:51)
+com.kangaroo.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
+exampleModel.MainKt.main(main.kt:74)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:13:19 - Table does not exists - ERROR: cannot drop table books because other objects depend on it
+  Detalhe: constraint fk_user_book on table users depends on table books
+  Dica: Use DROP ... CASCADE to drop the dependent objects too.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Drop.execute(Drop.kt:51)
+com.kangaroo.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
+exampleModel.MainKt.main(main.kt:75)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:13:19 - Table does not exists - ERROR: cannot drop table houses because other objects depend on it
+  Detalhe: constraint fk_user_house on table users depends on table houses
+  Dica: Use DROP ... CASCADE to drop the dependent objects too.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Drop.execute(Drop.kt:51)
+com.kangaroo.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
+exampleModel.MainKt.main(main.kt:76)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:13:19 - Table does not exists - ERROR: cannot drop table author because other objects depend on it
+  Detalhe: constraint fk_book_author on table books depends on table author
+  Dica: Use DROP ... CASCADE to drop the dependent objects too.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Drop.execute(Drop.kt:51)
+com.kangaroo.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
+exampleModel.MainKt.main(main.kt:77)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:13:29 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:13:29 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:46)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:13:30 - Table does not exists - ERROR: insert or update on table "tasks" violates foreign key constraint "fk_user_task"
+  Detalhe: Key (id_user)=(1) is not present in table "users".
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:126)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:13:30 - Table does not exists - ERROR: insert or update on table "tasks" violates foreign key constraint "fk_user_task"
+  Detalhe: Key (id_user)=(1) is not present in table "users".
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:126)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:13:33 - Table does not exists - ERROR: cannot drop table users because other objects depend on it
+  Detalhe: constraint fk_user_clothe on table users_clothes depends on table users
+  Dica: Use DROP ... CASCADE to drop the dependent objects too.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Drop.execute(Drop.kt:51)
+com.kangaroo.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
+exampleModel.MainKt.main(main.kt:74)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:13:33 - Table does not exists - ERROR: cannot drop table books because other objects depend on it
+  Detalhe: constraint fk_user_book on table users depends on table books
+  Dica: Use DROP ... CASCADE to drop the dependent objects too.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Drop.execute(Drop.kt:51)
+com.kangaroo.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
+exampleModel.MainKt.main(main.kt:75)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:13:33 - Table does not exists - ERROR: cannot drop table houses because other objects depend on it
+  Detalhe: constraint fk_user_house on table users depends on table houses
+  Dica: Use DROP ... CASCADE to drop the dependent objects too.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Drop.execute(Drop.kt:51)
+com.kangaroo.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
+exampleModel.MainKt.main(main.kt:76)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:13:33 - Table does not exists - ERROR: cannot drop table author because other objects depend on it
+  Detalhe: constraint fk_book_author on table books depends on table author
+  Dica: Use DROP ... CASCADE to drop the dependent objects too.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Drop.execute(Drop.kt:51)
+com.kangaroo.facades.ModelQueryFacade.dropTable(ModelQueryFacade.kt:107)
+exampleModel.MainKt.main(main.kt:77)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:14:30 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:14:30 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:46)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:14:31 - Table does not exists - ERROR: insert or update on table "tasks" violates foreign key constraint "fk_user_task"
+  Detalhe: Key (id_user)=(1) is not present in table "users".
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:126)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:14:31 - Table does not exists - ERROR: insert or update on table "tasks" violates foreign key constraint "fk_user_task"
+  Detalhe: Key (id_user)=(1) is not present in table "users".
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:126)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:19:55 - Table does not exists - ERROR: relation "users_clothes" does not exist
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Create.execute(Create.kt:229)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+exampleModel.MainKt.main(main.kt:26)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:19:56 - Table does not exists - ERROR: relation "users" does not exist
+  Posição: 13
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:19:56 - SQL query throws an exception: - ERROR: relation "users" does not exist
+  Posição: 15
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:226)
+com.kangaroo.database.DatabaseExecutor.execute(DatabaseExecutor.kt:36)
+com.kangaroo.statements.Select.selectAll(Select.kt:146)
+com.kangaroo.statements.Select.select(Select.kt:131)
+com.kangaroo.statements.Select.getPrimaryKeyValue(Select.kt:117)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:112)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:20:43 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:20:43 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:46)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:23:17 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(1) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:45)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:23:17 - Table does not exists - ERROR: duplicate key value violates unique constraint "houses_pkey"
+  Detalhe: Key (id)=(2) already exists.
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:46)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:23:18 - Table does not exists - ERROR: insert or update on table "tasks" violates foreign key constraint "fk_user_task"
+  Detalhe: Key (id_user)=(1) is not present in table "users".
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:126)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:23:18 - Table does not exists - ERROR: insert or update on table "tasks" violates foreign key constraint "fk_user_task"
+  Detalhe: Key (id_user)=(1) is not present in table "users".
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:268)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:64)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:109)
+com.kangaroo.statements.Insert.insertRecursive(Insert.kt:126)
+com.kangaroo.statements.Insert.insert(Insert.kt:145)
+com.kangaroo.facades.ModelQueryFacade.insert(ModelQueryFacade.kt:72)
+exampleModel.MainKt.main(main.kt:48)
+exampleModel.MainKt.main(main.kt)
+
+29-08-2020 20:44:55 - Table does not exists - ERROR: column "int" of relation "clothes" does not exist
+org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2532)
+org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2267)
+org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:312)
+org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:448)
+org.postgresql.jdbc.PgStatement.execute(PgStatement.java:369)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:310)
+org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:296)
+org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:273)
+org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:247)
+com.kangaroo.database.DatabaseExecutor.executeOperation(DatabaseExecutor.kt:66)
+com.kangaroo.database.DatabaseExecutor.executeOperation$default(DatabaseExecutor.kt:54)
+com.kangaroo.statements.Create.execute(Create.kt:229)
+com.kangaroo.facades.ModelQueryFacade.<init>(ModelQueryFacade.kt:22)
+exampleModel.MainKt.main(main.kt:27)
+exampleModel.MainKt.main(main.kt)

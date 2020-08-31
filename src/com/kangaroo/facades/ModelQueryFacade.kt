@@ -59,6 +59,12 @@ class ModelQueryFacade(cls : KClass<*>)
     fun sumInt(field: String) : Int = selectObject.sumInt(field, databaseManager.reflectClass.tableName)
 
     /**
+     * Method that returns the sum float data the table contains.
+     * @return Int
+     */
+    fun sumFloat(field: String) : Float = selectObject.sumFloat(field, databaseManager.reflectClass.tableName)
+
+    /**
      * Method that returns the average
      */
     fun avg(field: String) : Float = selectObject.avg(field, databaseManager.reflectClass.tableName)

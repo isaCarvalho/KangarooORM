@@ -13,6 +13,7 @@
 4.4.1 [Foreign Key Constraint](#foreign-key-constraint) <br>
 4.4.2 [One To One](#one-to-one) <br>
 4.4.3 [One To Many](#one-to-many) <br>
+4.4.4 [Many To Many](#many-to-many) <br>
 5. [Usage Without Model](#usage-without-model) <br>
 5.1 [Example Without Model](#usage-without-model)
 6. [Supported Types](#supported-types)
@@ -66,7 +67,7 @@ class User(
 )
 ```
 
-It is vital the model has a primary key named `id` if you want to implement relations. Kangaroo will 
+It is vital the model has a primary key if you want to implement relations. Kangaroo will 
 search for this property in the relations.
 *Note*: Table name is optional. If you do not set the table name, 
 Kang will set the default table name as the class name.
@@ -90,7 +91,8 @@ value for the property you are using. Example: if your primary key is an int, us
 
 - primaryKey : Boolean
 
-Sets if the column's value will be primary key. It's default value is false. 
+Sets if the column's value will be primary key. It's default value is false. Remember that if you want to implement
+any kind of relation, your model must have a primary key.
 
 - nullable : Boolean
 
@@ -163,30 +165,35 @@ fun main() {
 
 ### Relations
 
-As said above, it is vital the table you want to relate with another table has an `id` property. It must be named `id`.
-Kangaroo will search for this property when inserts and selects data from the related table. So you'll have to 
-implement it. You may implement relations by `@OneToOne`, `@OneToMany`, `@ManyToMany` annotations or just `@ForeignKey`
-if you just want to create the constraint but not retrieve the whole object. To implement relations do as follows:
+As said above, it is vital the table you want to relate with another table has a primary key property. We recommend your
+primary key to be named `id`. Kangaroo will search for this property when inserts and selects data from the related table.
+So you'll have to implement it. You may implement relations by `@OneToOne`, `@OneToMany`, `@ManyToMany` annotations or 
+just `@ForeignKey` if you just want to create the constraint but not retrieve the whole object. Aside of `@ForeignKey`,
+that is also a property, you should set default values for your relations. This will be explained with more details further.
+To implement relations do as follows:
 
 #### Foreign Key Constraint
 
+The foreign key constraint annotation receives three fields: the constraint name, the referenced table and the 
+referenced property.
+
 ````kotlin
-@Table("relationTable")
+@Table("User")
 class RelationExample(
-    @Property("property1", "type") var property1 : T,
-    @Property("id_model", "int") @ForeingKey("constraintName", "referencedTable", "referencedProperty") var id_model : Int
+    @Property("id", "int", primaryKey = true) var property1 : T,
+    @Property("id_house", "int") @ForeingKey("fk_user_house", "houses", "id") var id_model : Int
 )
 ````
 
-Notice that foreign key is a property. Bellow you'll see that the other relations annotations receives a foreign key.
+You may use it combined with a property as the example does or passing it to a relation annotation constructor.
 
 #### One to One
 
-To create an one to one relation, you should put the `@OneToOne` annotation in your objects property as the example. For
+To create one to one relation, you should put the `@OneToOne` annotation in your objects property as the example. For
 this example, we are creating an employee that has a unique code, made of an id and a value, and the code belongs to one
 employee alone.
 
-* Implement your entity that is going to be related:
+- Implement your entity that is going to be related:
 
 ```kotlin
 @Table("codes")
@@ -198,7 +205,7 @@ class Code(
 
 *Note*: This class has the `id` property as its primary key. It is vital the class has this primary key named `id`.
 
-* Implement the relation class as follows:
+- Implement the relation class as follows:
 
 ```kotlin
 @Table("employees")
@@ -209,7 +216,7 @@ class Employee(
 )
 ```
 
-That is all you'll have to do to implement one to one entity relations. Now, lets take a look in the main function:
+- That is all you'll have to do to implement one to one entity relations. Now, lets take a look in the main function:
 
 ```kotlin
 fun main() {
@@ -244,33 +251,39 @@ fun main() {
 For this example, we are going to use a person that has a lot of clothes, but the clothes belong to one person only. Use
 the `@OneToMany` annotation.
 
-* Implementing the Clothe class
+- Implementing the `Clothe` class
 
 ```kotlin
 @Table("clothes")
 class Clothe(
     @Property("id", "int", primaryKey = true) var id: Int,
     @Property("description", "varchar", size = 255) var description : String,
-    @Property("id_person", "int") var id_person : Int
+    @Property("id_person", "int") var id_person : Int = -1
 )
 ```
 
-* Implementing the Person class
+- Implementing the `Person` class
 
 ```kotlin
 @Table("persons")
 class Person(
-    @Property("id", "int", primaryKey = true) var id : Int,
     @Property("name", "varchar", size = 255) var name : String,
-    @OneToMany(ForeingKey("fk_person_clothe", "clothes", "id_person")) var clothes : List<Clothe>,
+    @Property("id", "int", primaryKey = true, autoIncrement = true) var id : Int = -1,
+    @OneToMany(ForeingKey("fk_person_clothe", "clothes", "id_person")) var clothes : List<Clothe> = listOf(),
 )
 ```
 
-*Note*: In this relation, the referenced property is from the class you just defined and not the relation class like it did before.
-Also, the relation class, in this case, the Person class, contains a `List` typed with the referenced class (Clothe), and 
-the referenced class (Clothe) contains a `Property` that is going to be referenced by the other class.
+In this relation, the referenced property is from the class you just defined and not the relation 
+class like it did before. Also, the relation class, in this case, the Person class, contains a `List` typed 
+with the referenced class (`Clothe`), and the referenced class (`Clothe`) contains a `Property` that is going to be 
+referenced by the other class. Notice property has default value, because when you're building your object
+you do not know yet what is the person id, because we settled the person's id to be auto incremented. 
+This will be updated with the database value. If you don't set the primary key auto incremented, then you don't need to
+set default values in both classes. <br>
+The list of clothes in the `Person` class also has a default value. It is important to do that to prevent `NullPointerExceptions`
+in both `OneToMany` and `ManyToMany` relations.
 
-Now, lets take a look in the main function:
+- Now, lets take a look in the main function:
 
 ```kotlin
 fun main() {
@@ -299,12 +312,73 @@ fun main() {
 }
 ```
 
+#### Many To Many
+
+To implement many to many relations, follow the example where one student has a lot of courses and one course has a lot
+of students.
+
+- This is the `Student` class. Notice the class's primary key is auto incremented, so we settled a default value. This way,
+when you build the object, you do not need to set a value for this property. The value will be updated with the
+database value when inserted. Notice also `ManyToMany` and `OneToMany` relations also has default value as empty list.
+Its vital you do that when creating the object to prevent `NUllPointerException` later.
+
+```kotlin
+class Student(
+    @Property("name", "varchar", size = 255) var name : String,
+    @Property("age", "int") var age : Int,
+    @Property("id", "int", primaryKey = true, autoIncrement = true) var id : Int = -1,
+    @ManyToMany(ForeignKey("fk_user_course", "users_coursers", "id_course")) var courses : List<Course> = listOf()
+) {
+    fun isMinor() : Boolean {
+        return age < 18
+    }   
+}
+```
+
+- This is the `Course` class. Notice both classes have lists. Also, the constraint names is **different** in the two classes.
+It has to be different because these constraints relate to different properties. But the referenced table must be equal.
+Kangaroo will create the related table. 
+
+```kotlin
+class Course(
+    @Property("name", "varchar", size = 255) var name : String,
+    @Property("hours", "int") var hours : Int,
+    @ManyToMany(ForeignKey("fk_course_user", "users_coursers", "id_student")) var students : List<Student> = listOf()
+)
+```
+
+- Now, lets take a look in the main function. You do not need to insert both ends. The courses will be inserted when the
+students are insert and vice-versa.
+
+```kotlin
+fun main() {
+    DatabaseConfig.setConfiguration("host", 1234, "user", "password", "exampleModel", false)
+
+    // creating the facades
+
+    val courseQuery = ModelQueryFacade(Courses::class)
+    val studentQuery = ModelQueryFacade(Student::class)
+
+    // creating the objects
+
+    val courses = listOf(Course("Math", 1), Course("Science", 3))
+    
+    val student1 = User("Student1", 22, courses = courses)
+    val student2 = User("Student2", 22, courses = courses)
+
+    // inserting
+    
+    studentQuery.insert(student1)
+        .insert(student2)
+}
+```
+
 ## Usage Without Model
 
 ### Example Without Model
 
 ```kotlin
-fun exampleModel.example.main() {
+fun main() {
 
     DatabaseConfig.setConfiguration("host", 1234, "user", "password", "exampleModel", false)
 

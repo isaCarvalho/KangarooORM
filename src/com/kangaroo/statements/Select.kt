@@ -21,7 +21,7 @@ import kotlin.reflect.jvm.jvmErasure
 
 class Select : Query() {
 
-    var resultSet : ResultSet? = null
+    private var resultSet : ResultSet? = null
 
     override var sqlQuery: String = ""
     override lateinit var databaseManager: DatabaseManager

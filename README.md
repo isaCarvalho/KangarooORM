@@ -63,6 +63,7 @@ To define your model class, you should use the annotations as follows:
 class User(
     @Property("id", "int", primaryKey = true) var id : Int,
     @Property("name", "varchar", size = 255) var name : String,
+    @Property("age", "float") var age : Float,
     @Property("birthday", "varchar", size = 255) var birthday : String
 )
 ```
@@ -87,7 +88,7 @@ This is the type of the new column according to postgres type declaration.
 - autoIncrement : Boolean
 
 Sets if the column's value will be auto incremented. It's default value is false. To use auto increment, set a default
-value for the property you are using. Example: if your primary key is an int, use `-1` as default value.
+value for the property you are using. Example: if your property is an int, use `-1` as default value.
 
 - primaryKey : Boolean
 
@@ -115,7 +116,7 @@ to map. Do as follows:
 ```kotlin
 fun main() {
 
-    DatabaseConfig.setConfiguration("host", 1234, "user", "password", "exampleModel", false)
+    DatabaseConfig.setConfiguration("host", 1234, "user", "password", "userExampleSchema", false)
 
     val user = User(1, "User 1", "01-01-2001")
     
@@ -142,20 +143,29 @@ fun main() {
 
     val exists = userQuery.exists(user) // returns true or false
     val user2 = userQuery.find(1) // returns null or user
-    val user3 = userQuery.select("exampleProp1 = 1") // returns null or user
+    val user3 = userQuery.select("id = 1") // returns null or user
 
     /** SQL Aggregation Functions */
 
     // returns an int value with how many user registers there is in the database
     val count = userQuery.count()
-    // returns the maximum value of a user's property
-    val max = userQuery.maxInt(exampleProp1)
-    // returns the minimum value of a user's property
-    val min = userQuery.minInt(exampleProp1)
-    // returns the sum of the values of a property
-    val sum = userQuery.sumInt(exampleProp1)
-    // returns the average of a property
-    val avg = userQuery.avg(exampleProp1)
+    // returns the maximum value of a user's int property
+    val maxInt = userQuery.maxInt(id)
+    // returns the minimum value of a user's int property
+    val minInt = userQuery.minInt(id)
+    // returns the sum of the values of a int property
+    val sumInt = userQuery.sumInt(id)
+    
+    // returns the maximum value of a user's float property
+    val maxFloat = userQuery.maxFloat(age)
+    // returns the minimum value of a user's float property
+    val minFloat = userQuery.minFloat(age)
+    // returns the sum of the values of a float property
+    val sumFloat = userQuery.sumFloat(age)
+
+    // returns the average of a property both Int and Float
+    var avg = userQuery.avg(id)
+    avg = userQuery.avg(id)
 
     /** Dropping table */  
 
@@ -178,8 +188,8 @@ The foreign key constraint annotation receives three fields: the constraint name
 referenced property.
 
 ````kotlin
-@Table("User")
-class RelationExample(
+@Table
+class User(
     @Property("id", "int", primaryKey = true) var property1 : T,
     @Property("id_house", "int") @ForeingKey("fk_user_house", "houses", "id") var id_model : Int
 )
@@ -419,8 +429,8 @@ fun main() {
 Kangaroo has a Logger object that saves the exceptions messages in the directory
 `log` in your root folder. The log files are saved by date. As it was said before, you can set in your database configurations if
 you want to show the queries in the log file.
-*Note*: You should not show the queries in your log life if it is not
-essential.
+*Note*: You should not show the queries in your log file if it is not
+essential.g
 
 ## Compatibility
 

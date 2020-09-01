@@ -5,17 +5,17 @@
 1. [What is Kangaroo?](#what-is-kangaroo)
 2. [Why Kangaroo?](#why-kangaroo)
 3. [Database Configurations](#database-configurations)
-4. [Usage With Model](#usage-with-model) <br>
-4.1 [Defining the Model](#defining-the-model) <br>
-4.2 [Property Values](#property-values) <br>
-4.3 [Example With Model](#example-with-model) <br>
-4.4 [Relations](#relations) <br>
-4.4.1 [Foreign Key Constraint](#foreign-key-constraint) <br>
-4.4.2 [One To One](#one-to-one) <br>
-4.4.3 [One To Many](#one-to-many) <br>
-4.4.4 [Many To Many](#many-to-many) <br>
-5. [Usage Without Model](#usage-without-model) <br>
-5.1 [Example Without Model](#usage-without-model)
+4. [Usage With Model](#usage-with-model)
+    1. [Defining the Model](#defining-the-model)
+    2. [Property Values](#property-values)
+    3. [Example With Model](#example-with-model)
+    4. [Relations](#relations)
+        1. [Foreign Key Constraint](#foreign-key-constraint)
+        2. [One To One](#one-to-one)
+        3. [One To Many](#one-to-many)
+        4. [Many To Many](#many-to-many)
+5. [Usage Without Model](#usage-without-model)
+    1. [Example Without Model](#usage-without-model)
 6. [Supported Types](#supported-types)
 7. [Logger](#logger)
 8. [Compatibility](#compatibility)

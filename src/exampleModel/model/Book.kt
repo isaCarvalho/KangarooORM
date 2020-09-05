@@ -10,7 +10,7 @@ class Book (
         @Property("description", "varchar", size = 255)
         var description : String,
         @OneToOne(ForeignKey("fk_book_author", "author", "id"))
-        var author: Author,
+        var author: Author? = null,
         @Property("id", "int", true, autoIncrement = true)
         var id : Int = -1
 ) {

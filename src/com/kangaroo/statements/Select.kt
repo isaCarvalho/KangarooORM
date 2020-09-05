@@ -1,5 +1,6 @@
 package com.kangaroo.statements
 
+import com.kangaroo.annotations.ManyToMany
 import com.kangaroo.database.DatabaseExecutor
 import com.kangaroo.database.DatabaseHelper.checkTypes
 import com.kangaroo.database.DatabaseHelper.getMappedParameterOrNull
@@ -11,6 +12,7 @@ import com.kangaroo.annotations.Property
 import com.kangaroo.reflections.ReflectClass
 import java.sql.ResultSet
 import kotlin.collections.ArrayList
+import kotlin.reflect.KMutableProperty1
 import kotlin.reflect.KParameter
 import kotlin.reflect.KProperty1
 import kotlin.reflect.KType
@@ -171,6 +173,46 @@ class Select : Query() {
 
                     mapParameters[parameter!!] = selectAll(whereRecursive, it.returnType.arguments.first().type!!)
 
+                }
+
+                annotations = it.annotations.find { annotation -> annotation is ManyToMany }
+                if (annotations != null) {
+                    annotations as ManyToMany
+
+                    val listOtherEntity = ArrayList<Any>()
+
+                    val referencedTableName = annotations.foreignKey.referencedTable
+                    val referencedPropertyName = annotations.foreignKey.referencedProperty
+                    val thisReferencedPropertyName = "id_${clazz.cls.simpleName?.toLowerCase()}"
+
+                    val otherEntityClazz = ReflectClass(it.returnType.arguments[0].type?.jvmErasure!!)
+                    val otherEntityPrimaryKey = getPrimaryKeyOrNull(otherEntityClazz.properties)
+
+                    val manyToManyQuery = "SELECT * " +
+                            "FROM $referencedTableName, ${otherEntityClazz.tableName} " +
+                            "WHERE $referencedTableName.$thisReferencedPropertyName = ${result.getInt(getPrimaryKeyOrNull(properties)!!.name)} AND " +
+                            "$referencedTableName.$referencedPropertyName = ${otherEntityClazz.tableName}.${otherEntityPrimaryKey?.name};"
+
+                    val resultManyToMany = DatabaseExecutor.execute(manyToManyQuery)
+
+                    val otherMappedParameters = mutableMapOf<KParameter, Any>()
+
+                    while (resultManyToMany!!.next()) {
+                        otherEntityClazz.cls.declaredMemberProperties.forEach {otherProp ->
+                            val otherParameter = getMappedParameterOrNull(otherEntityClazz.cls.constructors.first(), otherProp.name)
+
+                            val otherValue = mapParameterType(otherProp.name, otherProp.returnType.toString().replace("kotlin.", ""), resultManyToMany)
+
+                            if (otherParameter != null && otherValue != null) {
+                                otherMappedParameters[otherParameter] = otherValue
+                            }
+                        }
+
+                        val otherEntity = otherEntityClazz.cls.constructors.first().callBy(otherMappedParameters)
+                        listOtherEntity.add(otherEntity)
+                    }
+
+                    mapParameters[parameter!!] = listOtherEntity
                 }
 
                 annotations = it.annotations.find { annotation -> annotation is Property }

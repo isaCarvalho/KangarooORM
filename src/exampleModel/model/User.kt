@@ -10,9 +10,9 @@ class User(
         @ForeignKey("fk_user_house", "houses", "id", deleteCascade = true)
         var id_house : Int,
         @OneToOne(ForeignKey("fk_user_book", "books", "id", deleteCascade = true))
-        var book : Book,
+        var book : Book? = null,
         @OneToMany(ForeignKey("fk_user_task", "tasks", "id_user", deleteCascade = true))
-        var tasks : List<Task>,
+        var tasks : List<Task> = listOf(),
         @ManyToMany(ForeignKey("fk_user_clothe", "users_clothes", "id_clothe", deleteCascade = true))
         var clothes : List<Clothe> = listOf(),
         @Property("id", "int", true, autoIncrement = true)

@@ -13,7 +13,7 @@ fun main() {
         "123456",
         "test",
         false,
-        showQuery = true,
+        showQuery = false,
         showQueryLog = false
     )
 
@@ -75,6 +75,8 @@ fun main() {
     println(userQuery.avg("id"))
 
     println(houseQuery.selectAll("true"))
+
+    println(clotheQuery.selectAll("true"))
 
     // dropping the tables
 

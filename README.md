@@ -130,7 +130,7 @@ fun main() {
     /** Selecting data */    
 
     // returns an ArrayList of users
-    var users : ArrayList<User> = userQuery.selectAll()
+    var users : ArrayList<User> = userQuery.selectAll("true")
     users.forEach {
         println(it)
     }
@@ -179,19 +179,29 @@ As said above, it is vital the table you want to relate with another table has a
 primary key to be named `id`. Kangaroo will search for this property when inserts and selects data from the related table.
 So you'll have to implement it. You may implement relations by `@OneToOne`, `@OneToMany`, `@ManyToMany` annotations or 
 just `@ForeignKey` if you just want to create the constraint but not retrieve the whole object. Aside of `@ForeignKey`,
-that is also a property, you should set default values for your relations. This will be explained with more details further.
+that is also a property, you must set default values for your relations. This will be explained with more details further. 
+Although we recommend all of your relations to have default values, because it will be updated with the database values.
 To implement relations do as follows:
 
 #### Foreign Key Constraint
 
-The foreign key constraint annotation receives three fields: the constraint name, the referenced table and the 
-referenced property.
+The foreign key constraint annotation receives the fields bellow:
+
+- constraintName: it is a mandatory field and sets the constraint name.
+
+- referencedTable: it is mandatory, and it is the name your table will relate with.
+
+- referencedProperty: it is mandatory, and it is the name of the property your table will relate or be related with.
+
+- updateCascade: default value is true.
+
+- deleteCascade: default value is false.
 
 ````kotlin
 @Table
 class User(
     @Property("id", "int", primaryKey = true) var property1 : T,
-    @Property("id_house", "int") @ForeingKey("fk_user_house", "houses", "id") var id_model : Int
+    @Property("id_house", "int") @ForeingKey("fk_user_house", "houses", "id") var id_model : Int = -1
 )
 ````
 
@@ -199,7 +209,7 @@ You may use it combined with a property as the example does or passing it to a r
 
 #### One to One
 
-To create one to one relation, you should put the `@OneToOne` annotation in your objects property as the example. For
+To create `One to One` relation, you should put the `@OneToOne` annotation in your objects property as the example. For
 this example, we are creating an employee that has a unique code, made of an id and a value, and the code belongs to one
 employee alone.
 
@@ -220,13 +230,16 @@ class Code(
 ```kotlin
 @Table("employees")
 class Employee(
-    @Property("name", "varchar", size = 255) var name : String,
-    @OneToOne(ForeingKey("fk_employee_code", "codes", "id")) var code : Code,
-    @Property("id", "int", primaryKey = true, auto_increment = true) var id : Int = -1
+    @Property("name", "varchar", size = 255) 
+    var name : String,
+    @OneToOne(ForeingKey("fk_employee_code", "codes", "id")) 
+    var code : Code? = null, // Notice the default null value in the relation
+    @Property("id", "int", primaryKey = true, auto_increment = true) 
+    var id : Int = -1
 )
 ```
 
-- That is all you'll have to do to implement one to one entity relations. Now, lets take a look in the main function:
+- That is all you'll have to do to implement `One to One` entity relations. Now, lets take a look in the main function:
 
 ```kotlin
 fun main() {
@@ -246,7 +259,7 @@ fun main() {
     employeeQuery.insert(employee)
         .update(employee)
 
-    println(employeeQuery.selectAll())
+    println(employeeQuery.selectAll("true"))
     
     employeeQuery.delete(employee)
     
@@ -266,9 +279,12 @@ the `@OneToMany` annotation.
 ```kotlin
 @Table("clothes")
 class Clothe(
-    @Property("id", "int", primaryKey = true) var id: Int,
-    @Property("description", "varchar", size = 255) var description : String,
-    @Property("id_person", "int") var id_person : Int = -1
+    @Property("id", "int", primaryKey = true) 
+    var id: Int,
+    @Property("description", "varchar", size = 255) 
+    var description : String,
+    @Property("id_person", "int") 
+    var id_person : Int = -1 // Notice the default value in the relation property
 )
 ```
 
@@ -277,9 +293,12 @@ class Clothe(
 ```kotlin
 @Table("persons")
 class Person(
-    @Property("name", "varchar", size = 255) var name : String,
-    @Property("id", "int", primaryKey = true, autoIncrement = true) var id : Int = -1,
-    @OneToMany(ForeingKey("fk_person_clothe", "clothes", "id_person")) var clothes : List<Clothe> = listOf(),
+    @Property("name", "varchar", size = 255) 
+    var name : String,
+    @Property("id", "int", primaryKey = true, autoIncrement = true) 
+    var id : Int = -1,
+    @OneToMany(ForeingKey("fk_person_clothe", "clothes", "id_person")) 
+    var clothes : List<Clothe> = listOf(), // Notice the default value in the relation
 )
 ```
 
@@ -288,8 +307,7 @@ class like it did before. Also, the relation class, in this case, the Person cla
 with the referenced class (`Clothe`), and the referenced class (`Clothe`) contains a `Property` that is going to be 
 referenced by the other class. Notice property has default value, because when you're building your object
 you do not know yet what is the person id, because we settled the person's id to be auto incremented. 
-This will be updated with the database value. If you don't set the primary key auto incremented, then you don't need to
-set default values in both classes. <br>
+This will be updated with the database value.
 The list of clothes in the `Person` class also has a default value. It is important to do that to prevent `NullPointerExceptions`
 in both `OneToMany` and `ManyToMany` relations.
 
@@ -312,7 +330,7 @@ fun main() {
     personQuery.insert(person)
         .update(person)
 
-    println(personQuery.selectAll())
+    println(personQuery.selectAll("true"))
     
     personQuery.delete(person)
     
@@ -334,10 +352,14 @@ Its vital you do that when creating the object to prevent `NUllPointerException`
 
 ```kotlin
 class Student(
-    @Property("name", "varchar", size = 255) var name : String,
-    @Property("age", "int") var age : Int,
-    @Property("id", "int", primaryKey = true, autoIncrement = true) var id : Int = -1,
-    @ManyToMany(ForeignKey("fk_user_course", "users_coursers", "id_course")) var courses : List<Course> = listOf()
+    @Property("name", "varchar", size = 255) 
+    var name : String,
+    @Property("age", "int")
+    var age : Int,
+    @Property("id", "int", primaryKey = true, autoIncrement = true)
+    var id : Int = -1,
+    @ManyToMany(ForeignKey("fk_user_course", "users_coursers", "id_course")) 
+    var courses : List<Course> = listOf()
 ) {
     fun isMinor() : Boolean {
         return age < 18
@@ -351,9 +373,12 @@ Kangaroo will create the related table.
 
 ```kotlin
 class Course(
-    @Property("name", "varchar", size = 255) var name : String,
-    @Property("hours", "int") var hours : Int,
-    @ManyToMany(ForeignKey("fk_course_user", "users_coursers", "id_student")) var students : List<Student> = listOf()
+    @Property("name", "varchar", size = 255) 
+    var name : String,
+    @Property("hours", "int") 
+    var hours : Int,
+    @ManyToMany(ForeignKey("fk_course_user", "users_coursers", "id_student")) 
+    var students : List<Student> = listOf()
 )
 ```
 
@@ -373,13 +398,22 @@ fun main() {
 
     val courses = listOf(Course("Math", 1), Course("Science", 3))
     
-    val student1 = User("Student1", 22, courses = courses)
-    val student2 = User("Student2", 22, courses = courses)
+    val student1 = Student("Student1", 22, courses = courses)
+    val student2 = Student("Student2", 22, courses = courses)
 
     // inserting
     
     studentQuery.insert(student1)
         .insert(student2)
+        .update(student2) // Remember you can set update cascade
+        .delete(student1) // Remember you can set delete cascade
+    
+    // selecting
+    
+    val students = studentQuery.selectAll("true")
+    println(students)
+    
+    
 }
 ```
 

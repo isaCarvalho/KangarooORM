@@ -460,11 +460,11 @@ fun main() {
 
 ## Logger
 
-Kangaroo has a Logger object that saves the exceptions messages in the directory
+Kangaroo has a `Logger` object that saves the exceptions messages in the directory
 `log` in your root folder. The log files are saved by date. As it was said before, you can set in your database configurations if
 you want to show the queries in the log file.
 *Note*: You should not show the queries in your log file if it is not
-essential.g
+essential.
 
 ## Compatibility
 

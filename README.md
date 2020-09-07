@@ -459,6 +459,7 @@ database value when inserted. Notice also `ManyToMany` and `OneToMany` relations
 Its vital you do that when creating the object to prevent `NUllPointerException` later.
 
 ```kotlin
+@Table("students")
 class Student(
     @Property("name", "varchar", size = 255) 
     var name : String,
@@ -480,6 +481,7 @@ It has to be different because these constraints relate to different properties.
 Kangaroo will create the related table. 
 
 ```kotlin
+@Table
 class Course(
     @Property("name", "varchar", size = 255) 
     var name : String,

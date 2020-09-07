@@ -5,21 +5,27 @@
 1. [What is Kangaroo?](#what-is-kangaroo)
 2. [Why Kangaroo?](#why-kangaroo)
 3. [Database Configurations](#database-configurations)
-4. [Usage With Model](#usage-with-model)
+4. [Annotations](#annotations)
+    1. [@Table](#table)
+    2. [@Property](#property)
+    3. [@ForeignKey](#foreignkey)
+    4. [@OneToOne](#onetoone)
+    5. [@OneToMany](#onetomany)
+    6. [@ManyToMany](#manytomany)
+5. [Usage With Model](#usage-with-model)
     1. [Defining the Model](#defining-the-model)
-    2. [Property Values](#property-values)
-    3. [Example With Model](#example-with-model)
-    4. [Relations](#relations)
+    2. [Example With Model](#example-with-model)
+    3. [Relations](#relations)
         1. [Foreign Key Constraint](#foreign-key-constraint)
-        2. [One To One](#one-to-one)
-        3. [One To Many](#one-to-many)
-        4. [Many To Many](#many-to-many)
-5. [Usage Without Model](#usage-without-model)
+        2. [One To One Relation](#one-to-one-relation)
+        3. [One To Many Relation](#one-to-many-relation)
+        4. [Many To Many Relation](#many-to-many-relation)
+6. [Usage Without Model](#usage-without-model)
     1. [Example Without Model](#usage-without-model)
-6. [Supported Types](#supported-types)
-7. [Logger](#logger)
-8. [Compatibility](#compatibility)
-9. [Author](#author)
+7. [Supported Types](#supported-types)
+8. [Logger](#logger)
+9. [Compatibility](#compatibility)
+10. [Author](#author)
 
 ## What is Kangaroo?
 
@@ -52,30 +58,56 @@ DatabaseConfig.setConfiguration(
         showQueryLog // set to tye if you want to show the queries in the log file.
 )
 ```
-## Usage With Model
 
-### Defining the Model
+Use the method `setConfiguration` from the object `DatabaseConfig`. This method receives:
 
-To define your model class, you should use the annotations as follows:
+- host: is the address of where your database's host. It's mandatory.
+- port: is your database management system default port. It's mandatory.
+- user: is your database username. It's mandatory.
+- password: your database password. It's mandatory.
+- schema: the schema you want to use. It's mandatory.
+- useSSL: set to true if you want to use SSL. It's mandatory.
+- showQuery: set to true if you want to see wall of your queries in the console. It's optional, and the default value is
+false.
+- showQueryLog: set to true if you want to see your queries in the log file. Be careful using this! It's optional, and 
+the default value is false.
+
+## Annotations
+
+Kangaroo has annotations for defying your how your class will be mapped to the database. So, if you want to use model,
+you must use these annotations in your class. Let's take a look in they:
+
+### @Table
+
+This annotation maps your class to a table. It receives one optional argument: `tableName`. If you do not set your table
+name, Kangaroo will map it as the class name.
+
+```kotlin
+@Table("users")
+class User
+```
+
+```kotlin
+@Table
+class User
+```
+
+### @Property
+
+Property annotation maps your **constructor's** fields to the table columns. Remember that properties must always be `var` 
+not `val`. 
 
 ```kotlin
 @Table("users")
 class User(
-    @Property("id", "int", primaryKey = true) var id : Int,
-    @Property("name", "varchar", size = 255) var name : String,
-    @Property("age", "float") var age : Float,
-    @Property("birthday", "varchar", size = 255) var birthday : String
+    @Property("id", "int", autoIncrement = true, primaryKey = true, nullable = false, unique = true)
+    var id : Int,
+    @Property("name", "varchar", autoIncrement = false, primaryKey = false, nullable = true, unique = false, size = 255)
+    var name : String
 )
 ```
 
-It is vital the model has a primary key if you want to implement relations. Kangaroo will 
-search for this property in the relations.
-*Note*: Table name is optional. If you do not set the table name, 
-Kang will set the default table name as the class name.
-
-### Property Values
-
-Remember that properties must always be `var` not `val`.
+It receives the values bellow:
 
 - name : String
 
@@ -107,11 +139,87 @@ Sets if the column's value will be unique. It's default value is false.
 
 Sets the column's size. Numeric types should not have sizes. It's default value is -1.
 
+### @ForeignKey
+
+It is the first relation annotation. It will be explained with more details in the [Relations](#relations) section.
+
+### @OneToOne
+
+Maps properties in one to one relations. It will be explained with more details in the [Relations](#relations) section.
+
+### @OneToMany
+
+Maps properties in one to many relations. It will be explained with more details in the [Relations](#relations) section.
+
+### @ManyToMany
+
+Maps properties in many to many relations. It will be explained with more details in the [Relations](#relations) section.
+
+## Usage With Model
+
+### Defining the Model
+
+To define your model class, you should use the annotations:
+
+```kotlin
+@Table("users")
+class User(
+    @Property("id", "int", primaryKey = true) var id : Int,
+    @Property("name", "varchar", size = 255) var name : String,
+    @Property("age", "float") var age : Float,
+    @Property("birthday", "varchar", size = 255) var birthday : String
+)
+```
+
+It is vital the model has a primary key if you want to implement relations. Kangaroo will 
+search for this property in the relations.
+*Note*: Table name is optional. If you do not set the table name, 
+Kang will set the default table name as the class name.
+
 ### Example With Model
 
 After you defined your model and the database's configurations, you should
 create an instance of the class `ModelQueryFacade` passing the model class you want
-to map. Do as follows:
+to map. This is the class going to do all the mapping, so you must use it with model. 
+The `ModelQueryFacade` class receives an instance of KClass, and has the methods:
+
+- `insert` receives an instance of the `KClass` your mapped and returns `this` instance of `ModelQueryFacade`. Inserts the
+mapped object to the database's table.
+
+- `update` receives an instance of the `KClass` your mapped and returns `this` instance of `ModelQueryFacade`. Updates the
+mapped object in the database.
+
+- `delete` receives an instance of the `KClass` your mapped and returns `this` instance of `ModelQueryFacade`. Deletes the
+mapped object.
+
+- `selectAll` receives a where condition of the type `String` and returns an `ArrayList` with all the data filtered by 
+the where condition you passed. If you want to query all the data use `selectAll("true")`.
+
+- `select` receives a where condition of the type `String` and returns an instance of the `KClass` you mapped. Returns
+`null` if there's no data.
+
+- `exists` receives an instance of the `KClass` your mapped and returns true of false if the object you passed exists.
+
+- `find` receives an `int` which is the numeric primary key of your object, and returns an instance of the `KClass` you
+ mapped. Returns `null` if there's no data. 
+
+- `count` receives nothing and returns an `int` with the number of register in your mapped table.
+
+- `maxInt` receives the integer field name you want to query the maximum value and returns it.
+
+- `minInt` receives the integer field name you want to query the minimum value and returns it.
+
+- `sumInt` receives the integer field name you want to query the sum of all the values and returns it.
+
+- `maxFloat` receives the float field name you want to query the maximum value and returns it.
+
+- `minFloat` receives the float field name you want to query the minimum value and returns it.
+
+- `sumFloat` receives the float field name you want to query the sum of all the values and returns it.
+
+- `avg` receives the name of the field and returns its average.
+
+Do as follows:
 
 ```kotlin
 fun main() {
@@ -150,22 +258,22 @@ fun main() {
     // returns an int value with how many user registers there is in the database
     val count = userQuery.count()
     // returns the maximum value of a user's int property
-    val maxInt = userQuery.maxInt(id)
+    val maxInt = userQuery.maxInt("id")
     // returns the minimum value of a user's int property
-    val minInt = userQuery.minInt(id)
+    val minInt = userQuery.minInt("id")
     // returns the sum of the values of a int property
-    val sumInt = userQuery.sumInt(id)
+    val sumInt = userQuery.sumInt("id")
     
     // returns the maximum value of a user's float property
-    val maxFloat = userQuery.maxFloat(age)
+    val maxFloat = userQuery.maxFloat("age")
     // returns the minimum value of a user's float property
-    val minFloat = userQuery.minFloat(age)
+    val minFloat = userQuery.minFloat("age")
     // returns the sum of the values of a float property
-    val sumFloat = userQuery.sumFloat(age)
+    val sumFloat = userQuery.sumFloat("age")
 
     // returns the average of a property both Int and Float
-    var avg = userQuery.avg(id)
-    avg = userQuery.avg(id)
+    var avg = userQuery.avg("id")
+    avg = userQuery.avg("id")
 
     /** Dropping table */  
 
@@ -207,7 +315,7 @@ class User(
 
 You may use it combined with a property as the example does or passing it to a relation annotation constructor.
 
-#### One to One
+#### One to One Relation
 
 To create `One to One` relation, you should put the `@OneToOne` annotation in your objects property as the example. For
 this example, we are creating an employee that has a unique code, made of an id and a value, and the code belongs to one
@@ -269,7 +377,7 @@ fun main() {
 }
 ```
 
-#### One To Many
+#### One To Many Relation
 
 For this example, we are going to use a person that has a lot of clothes, but the clothes belong to one person only. Use
 the `@OneToMany` annotation.
@@ -340,7 +448,7 @@ fun main() {
 }
 ```
 
-#### Many To Many
+#### Many To Many Relation
 
 To implement many to many relations, follow the example where one student has a lot of courses and one course has a lot
 of students.
@@ -420,6 +528,39 @@ fun main() {
 ## Usage Without Model
 
 ### Example Without Model
+
+Kangaroo supports usage without model classes. So, in this case, you need to use the `QueryFacade` class. While the
+`ModelQueryFacade` class receives the class going to map, the `QueryFacade` class receives the table name. This class
+has the following methods:
+
+- `insert` receives an `Array` of columns, and an `Array` of values, and inserts in the database. Returns a `QueryFacade`
+instance.
+
+- `update` receives a `MutableMap` of a `Pair` of the old and new value and the primary key. Updates a value, and returns
+`this` instance of `QueryFacade`.
+
+- `delete` receives the where condition to delete. Returns `this` instance of `QueryFacade`.
+
+- `select` receives an `Array` of fields you want to select, and an optional where condition. Returns an `ArrayList` 
+with all the data filtered by the where condition you passed.
+
+- `count` receives nothing and returns an `int` with the number of register in your mapped table.
+
+- `maxInt` receives the integer field name you want to query the maximum value and returns it.
+
+- `minInt` receives the integer field name you want to query the minimum value and returns it.
+
+- `sumInt` receives the integer field name you want to query the sum of all the values and returns it.
+
+- `maxFloat` receives the float field name you want to query the maximum value and returns it.
+
+- `minFloat` receives the float field name you want to query the minimum value and returns it.
+
+- `sumFloat` receives the float field name you want to query the sum of all the values and returns it.
+
+- `avg` receives the name of the field and returns its average.
+
+Do as follows:
 
 ```kotlin
 fun main() {

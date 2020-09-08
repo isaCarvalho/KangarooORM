@@ -1,0 +1,67 @@
+@import url('\lib\font\Gayathri\Gayathri-Regular.ttf');
+
+html {
+    overflow-x: hidden;
+}
+
+.nav-kang {
+    background-color: #001970;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.title-kang {
+    color: white;
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.75rem;
+    line-height: inherit;
+    white-space: nowrap;
+    font-family: 'Gayathri', sans-serif;
+}
+
+.title-kang:hover {
+    color: rgb(240,240,240);
+    text-decoration: none;
+}
+
+.logo-kang {
+    width: 50px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.li-kang {
+    list-style-type: none;
+}
+
+.icon-kang {
+    width: 25px;
+    height: auto;
+    margin: 0 10px;
+}
+
+.footer-kang {
+    background-color: rgb(215,215,215);
+    box-shadow: 4px 0px 0px 8 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 160px;
+    width: 100%;
+    float: bottom;
+    padding: 10px;
+    text-align: center;
+    font-size: small;
+    min-height: calc();
+}
+
+.col-9-kang {
+    margin: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 60px;
+}
+
+.div-main-kang {
+    min-height: calc(100vh - 236px);
+    text-align: justify;
+}

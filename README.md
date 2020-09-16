@@ -9,4 +9,9 @@ Kangaroo is reliable, so once your model's well done, you do not have to worry a
 the other topics of your applications. But the most important, Kangaroo brings together the better in both object oriented programming
  world and database world: Kotlin and PostgresSQL.
 
-This README should be improved! ;)
+The full Kangaroo documentation is available at: https://isacarvalho.github.io/KangarooORM/
+
+## Compatibility
+
+* Kotlin 1.3 or higher
+* Postgres 12 or higher

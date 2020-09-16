@@ -8,3 +8,5 @@ main topic of these applications. So the programmer now can implement this datab
 Kangaroo is reliable, so once your model's well done, you do not have to worry about the database, and can focus in
 the other topics of your applications. But the most important, Kangaroo brings together the better in both object oriented programming
  world and database world: Kotlin and PostgresSQL.
+
+This README should be improved! ;)

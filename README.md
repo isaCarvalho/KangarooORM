@@ -17,7 +17,7 @@ dependencies {
 
 # Example
 
-This example can be found in the `exampleModel` folder.
+This example can be found in the `example/modelExample` folder.
 
 * The `Author` class models the author related to the `Book`
 

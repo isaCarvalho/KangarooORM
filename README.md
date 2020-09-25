@@ -5,10 +5,15 @@ data storage with Kotlin and Postgres in your applications.
 
 # Usage
 
-Kangaroo does not have a build tool yet, but if you want to use it, for now, you can clone this repository
-and move the `com` folder, inside the `src` folder to your project. Make sure to move it right into the
-`src` folder on your project. Then you also must add the postgres jar inside the `lib` folder as a library 
-in your project. Once you do that, it'll be ready to go!
+* Gradle
+
+Add the Kangaroo dependency in your `build.gradle` file:
+
+```
+dependencies {
+    implementation "com.github.isaCarvalho:KangarooORM:1.0-SNAPSHOT"
+}
+```
 
 # Example
 

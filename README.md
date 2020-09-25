@@ -3,7 +3,7 @@
 Kangaroo is a Kotlin-Postgres ORM built for those who search for a reliable and easy way to implement 
 data storage with Kotlin and Postgres in your applications.
 
-# Usage
+# Install
 
 * Gradle
 

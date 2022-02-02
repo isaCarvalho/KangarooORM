@@ -3,7 +3,7 @@
   "component": {
     "group": "com.github.isaCarvalho",
     "module": "KangarooORM",
-    "version": "1.0-SNAPSHOT",
+    "version": "1.1-SNAPSHOT",
     "attributes": {
       "org.gradle.status": "integration"
     }
@@ -11,7 +11,7 @@
   "createdBy": {
     "gradle": {
       "version": "6.3",
-      "buildId": "vm4n5qawjvej5nbgpzfqode4he"
+      "buildId": "uzofxp26fzcs3ftyp6sweigfve"
     }
   },
   "variants": [
@@ -20,7 +20,7 @@
       "attributes": {
         "org.gradle.category": "library",
         "org.gradle.dependency.bundling": "external",
-        "org.gradle.jvm.version": 8,
+        "org.gradle.jvm.version": 11,
         "org.gradle.libraryelements": "jar",
         "org.gradle.usage": "java-api",
         "org.jetbrains.kotlin.localToProject": "public",
@@ -28,13 +28,13 @@
       },
       "files": [
         {
-          "name": "KangarooORM-1.0-SNAPSHOT.jar",
-          "url": "KangarooORM-1.0-SNAPSHOT.jar",
+          "name": "KangarooORM-1.1-SNAPSHOT.jar",
+          "url": "KangarooORM-1.1-SNAPSHOT.jar",
           "size": 71785,
-          "sha512": "72246f1a0b70afc76b0bd95526d8436dd06c7818721d49de03b8371657323ff0be730bf04e202830284f9ac7a815ffa7ee4dd2317b27ddd6190291a3a0cf8601",
-          "sha256": "1ccf76b03f0e63ba15c80586a5c7e17f197484b5729d598cf8d5524ecbc6728b",
-          "sha1": "8aa058e78bb69556dfdf104ba05cc8e1dd21a073",
-          "md5": "39066aa49d50d8b790eca1d3a3859947"
+          "sha512": "3bebfd50de17dad485d3f385ebef3ae916c921423a8265a03c54fdb8a6b48d4c6b66b4dbf7d6eb53f00d0407a67eca16cd4ba1369ad0e8215f7a71d9c81f3104",
+          "sha256": "04ac37ddb6913603b012d47349512030952617ec4e62ec85bfa796f83352b685",
+          "sha1": "9e6229e4f00cda5f8e9847a63881e8dd1a1973db",
+          "md5": "3a1bf8ec00c7ab3b337f582f7f5977cf"
         }
       ]
     },
@@ -43,7 +43,7 @@
       "attributes": {
         "org.gradle.category": "library",
         "org.gradle.dependency.bundling": "external",
-        "org.gradle.jvm.version": 8,
+        "org.gradle.jvm.version": 11,
         "org.gradle.libraryelements": "jar",
         "org.gradle.usage": "java-runtime",
         "org.jetbrains.kotlin.localToProject": "public",
@@ -68,19 +68,19 @@
           "group": "org.postgresql",
           "module": "postgresql",
           "version": {
-            "requires": "42.2.0"
+            "requires": "42.3.1"
           }
         }
       ],
       "files": [
         {
-          "name": "KangarooORM-1.0-SNAPSHOT.jar",
-          "url": "KangarooORM-1.0-SNAPSHOT.jar",
+          "name": "KangarooORM-1.1-SNAPSHOT.jar",
+          "url": "KangarooORM-1.1-SNAPSHOT.jar",
           "size": 71785,
-          "sha512": "72246f1a0b70afc76b0bd95526d8436dd06c7818721d49de03b8371657323ff0be730bf04e202830284f9ac7a815ffa7ee4dd2317b27ddd6190291a3a0cf8601",
-          "sha256": "1ccf76b03f0e63ba15c80586a5c7e17f197484b5729d598cf8d5524ecbc6728b",
-          "sha1": "8aa058e78bb69556dfdf104ba05cc8e1dd21a073",
-          "md5": "39066aa49d50d8b790eca1d3a3859947"
+          "sha512": "3bebfd50de17dad485d3f385ebef3ae916c921423a8265a03c54fdb8a6b48d4c6b66b4dbf7d6eb53f00d0407a67eca16cd4ba1369ad0e8215f7a71d9c81f3104",
+          "sha256": "04ac37ddb6913603b012d47349512030952617ec4e62ec85bfa796f83352b685",
+          "sha1": "9e6229e4f00cda5f8e9847a63881e8dd1a1973db",
+          "md5": "3a1bf8ec00c7ab3b337f582f7f5977cf"
         }
       ]
     }

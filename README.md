@@ -11,7 +11,7 @@ Add the Kangaroo dependency in your `build.gradle` file:
 
 ```
 dependencies {
-    implementation "com.github.isaCarvalho:KangarooORM:1.0-SNAPSHOT"
+    implementation "com.github.isaCarvalho:KangarooORM:1.1-SNAPSHOT"
 }
 ```
 

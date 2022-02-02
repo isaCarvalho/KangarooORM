@@ -2,27 +2,27 @@
 <metadata modelVersion="1.1.0">
   <groupId>com.github.isaCarvalho</groupId>
   <artifactId>KangarooORM</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.1-SNAPSHOT</version>
   <versioning>
     <snapshot>
       <localCopy>true</localCopy>
     </snapshot>
-    <lastUpdated>20200925170000</lastUpdated>
+    <lastUpdated>20220202233529</lastUpdated>
     <snapshotVersions>
       <snapshotVersion>
         <extension>jar</extension>
-        <value>1.0-SNAPSHOT</value>
-        <updated>20200925170000</updated>
+        <value>1.1-SNAPSHOT</value>
+        <updated>20220202233529</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>pom</extension>
-        <value>1.0-SNAPSHOT</value>
-        <updated>20200925170000</updated>
+        <value>1.1-SNAPSHOT</value>
+        <updated>20220202233529</updated>
       </snapshotVersion>
       <snapshotVersion>
         <extension>module</extension>
-        <value>1.0-SNAPSHOT</value>
-        <updated>20200925170000</updated>
+        <value>1.1-SNAPSHOT</value>
+        <updated>20220202233529</updated>
       </snapshotVersion>
     </snapshotVersions>
   </versioning>

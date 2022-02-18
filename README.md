@@ -1,3 +1,5 @@
+[![kangaroo-build](https://github.com/isaCarvalho/KangarooORM/actions/workflows/main.yml/badge.svg)](https://github.com/isaCarvalho/KangarooORM/actions/workflows/main.yml)
+
 # Kangaroo ORM
 
 Kangaroo is a Kotlin-Postgres ORM built for those who search for a reliable and easy way to implement 
